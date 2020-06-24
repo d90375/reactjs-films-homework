@@ -20,6 +20,17 @@ module.exports = {
       title: "test"
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development',
+      NODE_PORT : '3000',
+      WEBPACK_CONFIG : './webpack.config'
+    }),
+    new webpack.DefinePlugin(
+        Object.keys(process.env).reduce(
+            (res, key) => ({ ...res, [key]: JSON.stringify(process.env[key]) }),
+            {}
+        )
+    ),
   ]
 };

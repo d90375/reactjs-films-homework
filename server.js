@@ -1,10 +1,12 @@
 const express = require("express");
+require('dotenv').config();
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 
 const app = express();
-const config = require("./webpack.config.js");
+const port = process.env.PORT || 3000;
+const config = require(process.env.WEBPACK_CONFIG || "./webpack.config");
 const compiler = webpack(config);
 
 app.use(
@@ -22,6 +24,8 @@ app.use(
   })
 );
 
+console.log('env port' ,port);
+
 app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
@@ -32,10 +36,10 @@ app.get("/", (req, res) => {
 //     res.sendFile(path.join(__dirname, 'index.html'));
 // });
 
-app.listen(3000, err => {
+app.listen(port, err => {
   if (err) {
     console.log(err);
     return;
   }
-  console.log("Listening on port 3000!\n");
+  console.log(`Listening on port ${port}!\n`);
 });
