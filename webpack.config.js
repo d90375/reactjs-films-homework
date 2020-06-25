@@ -15,6 +15,18 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/"
   },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "test"
@@ -22,15 +34,15 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-      NODE_PORT : '3000',
-      WEBPACK_CONFIG : './webpack.config'
+      NODE_ENV: "development",
+      NODE_PORT: "3000",
+      WEBPACK_CONFIG: "./webpack.config"
     }),
     new webpack.DefinePlugin(
-        Object.keys(process.env).reduce(
-            (res, key) => ({ ...res, [key]: JSON.stringify(process.env[key]) }),
-            {}
-        )
-    ),
+      Object.keys(process.env).reduce(
+        (res, key) => ({ ...res, [key]: JSON.stringify(process.env[key]) }),
+        {}
+      )
+    )
   ]
 };
