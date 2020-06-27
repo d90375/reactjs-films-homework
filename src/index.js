@@ -1,7 +1,5 @@
-const test = () => {
-  const element = document.createElement("div");
-  element.innerHTML = "ddwewww";
-  return element;
-};
+import React from "react";
+import ReactDOM from "react-dom";
+import Signature from "./signature";
 
-document.body.appendChild(test());
+ReactDOM.render(<Signature name={`d90375`} />, document.getElementById("root"));

@@ -20,16 +20,20 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "test"
+      template: 'src/index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
