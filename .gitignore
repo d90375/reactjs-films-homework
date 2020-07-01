@@ -1,4 +1,15 @@
 node_modules
+
 .idea
+.idea_modules/
+.vscode
+
+build
+/coverage
 dist
+
+# Uncomment for real production
+#.env
+
 yarn-error.log
+npm-debug.log

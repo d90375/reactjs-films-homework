@@ -1,5 +1,5 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import Signature from "./signature"
+import React from "react";
+import ReactDOM from "react-dom";
+import Signature from "./Signature";
 
-ReactDOM.render(<Signature name={`d90375`} />, document.getElementById("root"))
+ReactDOM.render(<Signature name="d90375" />, document.getElementById("root"));

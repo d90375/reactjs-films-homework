@@ -10,4 +10,5 @@ module.exports = {
     ],
     "@babel/react"
   ],
+  plugins: process.env.NODE_ENV === "development" ? ["react-hot-loader/babel"] : []
 };

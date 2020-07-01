@@ -1,12 +1,13 @@
 const express = require("express");
-require('dotenv').config();
+require("dotenv").config();
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 
+const config = require("../webpack.development.config");
+
 const app = express();
 const port = process.env.PORT || 3000;
-const config = require(process.env.WEBPACK_CONFIG || "./webpack.config");
 const compiler = webpack(config);
 
 app.use(
@@ -24,19 +25,19 @@ app.use(
   })
 );
 
-console.log('env port' ,port);
+console.log("env port", port);
 
 app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(`${__dirname}/index.html`);
 });
 
 // app.get('*', function(req, res) {
 //     res.sendFile(path.join(__dirname, 'index.html'));
 // });
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     console.log(err);
     return;

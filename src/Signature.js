@@ -1,3 +1,4 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
@@ -5,14 +6,17 @@ import "./style.scss";
 const Signature = ({ name }) => {
   return (
     <div className="wrap">
-      <span className="text">{name}</span>
+      <span className="text">
+        {name}
+        <div />
+        {Math.random()}
+      </span>
     </div>
   );
 };
-
 
 Signature.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-export default Signature;
+export default hot(Signature);

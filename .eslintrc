@@ -53,6 +53,7 @@
       "ignoreStrings": true,
       "code": 240
     }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-wrap-multilines": "off",
     "react/jsx-one-expression-per-line": "off",
     "react-hooks/rules-of-hooks": "error",
