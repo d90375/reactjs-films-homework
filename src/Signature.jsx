@@ -1,7 +1,6 @@
 import { hot } from "react-hot-loader/root";
 import React from "react";
 import PropTypes from "prop-types";
-import "./style.scss";
 
 const Signature = ({ name }) => {
   return (

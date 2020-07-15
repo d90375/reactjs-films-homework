@@ -1,4 +1,5 @@
 const { resolve } = require("path");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -45,7 +46,8 @@ const cssLoaders = (extra) => {
 
 const babelOptions = (preset) => {
   const opts = {
-    presets: ["@babel/preset-env"]
+    presets: ["@babel/preset-env"],
+    plugins: ["@babel/plugin-proposal-class-properties", "react-hot-loader/babel"]
   };
 
   if (preset) {
@@ -76,10 +78,13 @@ const jsLoaders = () => {
 };
 
 const config = {
-  entry: ["./index.js"],
+  entry: ["@babel/polyfill", "./index.jsx"],
   output: {
     filename: filename("js"),
     path: resolve(__dirname, "build")
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
   },
   context: resolve(__dirname, "src"),
   module: {
@@ -87,13 +92,11 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        include: /src/,
         use: jsLoaders()
       },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        include: /src/,
         loader: {
           loader: "babel-loader",
           options: babelOptions("@babel/preset-react")
@@ -118,10 +121,15 @@ const config = {
         loader: "image-webpack-loader"
       },
       {
-        test: /\.(jpg|png|gif|webp)$/,
+        test: /\.(png|jpg|svg|gif)$/,
         use: [
           {
-            loader: "file-loader"
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "img/",
+              publicPath: "/img"
+            }
           }
         ]
       },
@@ -140,7 +148,8 @@ const config = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "fonts/"
+              outputPath: "fonts/",
+              publicPath: "/fonts"
             }
           }
         ]
@@ -152,7 +161,8 @@ const config = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "fonts/"
+              outputPath: "fonts/",
+              publicPath: "/fonts"
             }
           }
         ]
@@ -173,15 +183,14 @@ const config = {
   },
 
   plugins: [
-    new CopyWebpackPlugin(
-      {
-        patterns: [
-          { from: "assets/images", to: "assets/images" },
-          { from: "assets/fonts", to: "assets/fonts" }
-        ]
-      },
-      { parallel: 100 }
-    ),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: resolve(__dirname, "src/favicon.ico"),
+          to: resolve(__dirname, "build")
+        }
+      ]
+    }),
     new MiniCssExtractPlugin({
       filename: filename("css"),
       ignoreOrder: false

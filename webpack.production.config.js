@@ -2,7 +2,7 @@ const { resolve } = require("path");
 
 const cssnano = require("cssnano");
 
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
@@ -41,5 +41,5 @@ module.exports = merge(commonConfig, {
     hints: "warning",
     maxEntrypointSize: 512000,
     maxAssetSize: 512000
-  },
+  }
 });
