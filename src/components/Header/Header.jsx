@@ -1,5 +1,5 @@
 import React from "react";
-import { hot } from "react-hot-loader/root";
+
 import "./Header.scss";
 
 const Header = () => {
@@ -10,4 +10,4 @@ const Header = () => {
   );
 };
 
-export default hot(Header);
+export default Header;
