@@ -137,12 +137,17 @@ const config = {
         test: /\.eot$/,
         use: [
           {
-            loader: "file-loader"
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/",
+              publicPath: "/fonts"
+            }
           }
         ]
       },
       {
-        test: /\.woff(2)$/,
+        test: /\.woff(2)?$/,
         use: [
           {
             loader: "file-loader",

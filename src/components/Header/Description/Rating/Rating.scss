@@ -1,0 +1,21 @@
+.rating {
+  display: flex;
+  margin-top: 46px;
+  flex-direction: row;
+}
+
+.rating__container {
+  text-align: center;
+  line-height: 38px;
+  width: 60px;
+  height: 36px;
+  border: 2px solid #0aaee4;
+  border-radius: 5px;
+}
+
+.rating__number {
+  color: #fff;
+  font-family: "Helvetica Neue", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
