@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render Posts component 1`] = `
+<div
+  className="footer"
+>
+  <div
+    className="footer__title"
+  >
+    <span>
+      FILMS
+    </span>
+  </div>
+  <div
+    className="footer__copyright"
+  >
+    <span>
+      Copyright © 2018 FILMS. YOUR NAME
+    </span>
+  </div>
+</div>
+`;

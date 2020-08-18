@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating component should render Rating component 1`] = `
+<div
+  className="rating"
+>
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+  <Star />
+  <div
+    className="rating__container"
+  >
+    <span
+      className="rating__number"
+    >
+      4.8
+    </span>
+  </div>
+</div>
+`;

@@ -18,6 +18,19 @@
     "prettier",
     "react-hooks"
   ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.spec.js",
+        "**/*.spec.jsx",
+        "**/*.test.js",
+        "**/*.test.jsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
   "env": {
     "browser": true,
     "node": true,

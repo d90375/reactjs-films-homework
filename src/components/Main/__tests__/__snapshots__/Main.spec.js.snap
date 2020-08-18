@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main component should render Main component 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="main__wrap"
+  >
+    <TopSort />
+    <div
+      className="card__wrap"
+    >
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </div>
+    <Preloader />
+  </div>
+</div>
+`;
