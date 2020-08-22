@@ -1,0 +1,65 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/babel",
+    "prettier/react",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "prettier",
+    "react-hooks"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "globals": {
+    "IS_PROD": true,
+    "STRIPE_PUBLIC_KEY": true,
+    "SENTRY_CLIENT_URL": true,
+    "deferredPrompt": true,
+    "axios": true,
+    "globalThis": true,
+    "ENABLE_SOCKETS": true
+  },
+  "rules": {
+    "prettier/prettier": ["warn"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": [ 2, {
+      "required": {
+        "every": [ "id" ]
+      }
+    }],
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelComponents": ["CustomInputLabel"],
+      "labelAttributes": ["label"],
+      "controlComponents": ["CustomInput"],
+      "depth": 3
+    }],
+    "max-len": ["warn", {
+      "ignoreComments": true,
+      "ignoreStrings": true,
+      "code": 240
+    }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/control-has-associated-label": "warn",
+    "jsx-a11y/no-autofocus": "warn",
+    "react/jsx-props-no-spreading": ["off"]
+  }
+}
