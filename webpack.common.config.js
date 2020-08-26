@@ -78,7 +78,7 @@ const jsLoaders = () => {
 };
 
 const config = {
-  entry: ["@babel/polyfill", "./index.jsx"],
+  entry: ["@babel/polyfill", "./index.js"],
   output: {
     filename: filename("js"),
     path: resolve(__dirname, "build")
