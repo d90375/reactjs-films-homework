@@ -3,7 +3,8 @@ import { FETCHED, FETCHING, FETCH_ERROR } from "../actionTypes";
 const initialState = {
   loading: true,
   error: null,
-  data: []
+  data: [],
+  searchText: ""
 };
 
 const dataReducer = (state = initialState, action) => {

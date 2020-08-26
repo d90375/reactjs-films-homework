@@ -1,16 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Search from "./Search";
 import Description from "./Description";
 import Notation from "./Notation";
 
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ onQueryChanged, queryText }) => {
   return (
     <div className="header">
       <div className="header__topWrap">
         <span className="logo">FILMS</span>
-        <Search />
+        <Search onQueryChanged={onQueryChanged} queryText={queryText} />
       </div>
       <div className="header__btmWrap">
         <Description />
@@ -21,3 +22,8 @@ const Header = () => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  onQueryChanged: PropTypes.func.isRequired,
+  queryText: PropTypes.string.isRequired
+};
