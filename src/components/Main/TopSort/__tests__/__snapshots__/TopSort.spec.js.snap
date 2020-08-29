@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopSort component should render TopSort component 1`] = `
-<div
-  className="top"
+<nav
+  cassName="nav"
 >
   <div
-    className="top__wrap"
+    className="nav__wrap"
   >
     <div
-      className="top__title"
+      className="nav__title"
     >
       <span
         className="title__text title__text_trending"
@@ -35,7 +35,7 @@ exports[`TopSort component should render TopSort component 1`] = `
       />
     </div>
     <div
-      className="top__format"
+      className="nav__format"
     >
       <div
         className="format__box4"
@@ -65,5 +65,5 @@ exports[`TopSort component should render TopSort component 1`] = `
       </div>
     </div>
   </div>
-</div>
+</nav>
 `;

@@ -8,15 +8,15 @@ exports[`Search component should render Search component 1`] = `
 >
   <label
     htmlFor="searchId"
-  />
-  <input
-    className="search__text"
-    id="searchId"
-    name="search"
-    placeholder="the jungle book"
-    required={true}
-    type="text"
-  />
-  <span />
+  >
+    <input
+      className="search__text"
+      id="searchId"
+      name="search"
+      placeholder="the jungle book"
+      required={true}
+      type="text"
+    />
+  </label>
 </form>
 `;

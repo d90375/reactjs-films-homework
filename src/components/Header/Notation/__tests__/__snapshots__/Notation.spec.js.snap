@@ -17,24 +17,26 @@ exports[`Notation component should render Notation component 1`] = `
   <div
     className="notation__btn"
   >
-    <div
+    <button
       className="btn btn__watch"
+      type="button"
     >
       <span
         className="btn__watch__text"
       >
         Watch Now
       </span>
-    </div>
-    <div
+    </button>
+    <button
       className="btn btn__view"
+      type="button"
     >
       <span
         className="btn__view__text"
       >
         View Info
       </span>
-    </div>
+    </button>
   </div>
 </div>
 `;
