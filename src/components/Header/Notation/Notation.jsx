@@ -11,12 +11,12 @@ const Notation = () => {
         </span>
       </div>
       <div className="notation__btn">
-        <div className="btn btn__watch">
+        <button type="button" className="btn btn__watch">
           <span className="btn__watch__text">Watch Now</span>
-        </div>
-        <div className="btn btn__view">
+        </button>
+        <button type="button" className="btn btn__view">
           <span className="btn__view__text">View Info</span>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const CARD_COUNT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const Main = () => {
   return (
-    <div className="main">
+    <section className="main">
       <div className="main__wrap">
         <TopSort />
         <div className="card__wrap">
@@ -18,7 +18,7 @@ const Main = () => {
         </div>
         <Preloader />
       </div>
-    </div>
+    </section>
   );
 };
 
