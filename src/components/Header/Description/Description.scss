@@ -1,13 +1,11 @@
 .description {
-  margin-top: 142px;
+  margin-top: 5rem;
 }
 
 .description__title {
-  width: 608px;
-  height: 45px;
   color: #fff;
   font-family: "Helvetica Neue - bold", serif;
-  font-size: 60px;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 44px;
   text-transform: uppercase;
@@ -17,7 +15,7 @@
 .specification__duration {
   color: #fff;
   font-family: "Helvetica Neue - thin", serif;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 44px;
   letter-spacing: 0.96px;
@@ -27,21 +25,19 @@
   display: flex;
   flex-direction: row;
   justify-content: right;
-  margin-top: 8px;
 }
 
 .specification__genre {
   color: #fff;
   font-family: "Helvetica Neue - thin", serif;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 1rem;
   line-height: 44px;
   letter-spacing: 0.96px;
   margin-right: 32px;
 }
 
 .specification__border {
-  height: 18px;
+  height: 1rem;
   width: 2px;
   background: #fff;
   margin-top: 15px;

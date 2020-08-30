@@ -3,7 +3,6 @@ import { hot } from "react-hot-loader/root";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import "./App.scss";
 
 const App = () => {
   return (

@@ -3,7 +3,7 @@ import "./TopSort.scss";
 
 const TopSort = () => {
   return (
-    <nav cassName="nav">
+    <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
           <span className="title__text title__text_trending">Trending</span>
