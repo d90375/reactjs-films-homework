@@ -8,9 +8,9 @@ exports[`Rating component should render Rating component 1`] = `
     className="star"
   >
     <svg
-      height="36"
+      height="1rem"
       viewBox="0 0 36 36"
-      width="36"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
@@ -27,9 +27,9 @@ exports[`Rating component should render Rating component 1`] = `
     className="star"
   >
     <svg
-      height="36"
+      height="1rem"
       viewBox="0 0 36 36"
-      width="36"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
@@ -46,9 +46,9 @@ exports[`Rating component should render Rating component 1`] = `
     className="star"
   >
     <svg
-      height="36"
+      height="1rem"
       viewBox="0 0 36 36"
-      width="36"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
@@ -65,9 +65,9 @@ exports[`Rating component should render Rating component 1`] = `
     className="star"
   >
     <svg
-      height="36"
+      height="1rem"
       viewBox="0 0 36 36"
-      width="36"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
@@ -84,9 +84,9 @@ exports[`Rating component should render Rating component 1`] = `
     className="star"
   >
     <svg
-      height="36"
+      height="1rem"
       viewBox="0 0 36 36"
-      width="36"
+      width="1rem"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>

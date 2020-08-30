@@ -2,7 +2,7 @@
 
 exports[`TopSort component should render TopSort component 1`] = `
 <nav
-  cassName="nav"
+  className="nav"
 >
   <div
     className="nav__wrap"
