@@ -27,10 +27,10 @@ export const errorFetch = (error) => ({
   error
 });
 
-export const fetchData = (queryText) => {
+export const fetchData = (query) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetch(`${queryText === "" ? POPULAR_LINK : SEARCH_LINK(queryText)}`)
+    return fetch(query === "" ? POPULAR_LINK : SEARCH_LINK(query))
       .then((res) => res.json())
       .then((res) => {
         dispatch(finishedFetch(res));

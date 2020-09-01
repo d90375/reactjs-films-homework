@@ -1,3 +1,3 @@
-import TopScreen from "./TopScreen";
+import TopScreenContainer from "./TopScreen.container";
 
-export default TopScreen;
+export default TopScreenContainer;

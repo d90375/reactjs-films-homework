@@ -7,10 +7,18 @@
 
   &:nth-child(4n) {
     margin-right: 0;
+
+    @media (max-width: 2400px) {
+      margin-right: 40px;
+    }
   }
 
   &:nth-child(n+9) {
     margin-bottom: 0;
+
+    @media (max-width: 2400px) {
+      margin-bottom: 40px;
+    }
   }
 }
 
