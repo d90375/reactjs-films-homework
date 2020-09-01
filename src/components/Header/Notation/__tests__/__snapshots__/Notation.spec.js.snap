@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notation component should render Notation component 1`] = `
+<div
+  className="notation"
+>
+  <div
+    className="notation__wrap"
+  >
+    <span
+      className="notation__text"
+    >
+      There are growing dangers in the wizarding world of 1926 New York. Something mysterious is leaving a path of destruction in the streets, threatening to expose the wizarding community to the Second Salemers, a fanatical faction of No-Majs (American for Muggles) bent on eradicating them. And the powerful, dark wizard Gellert Grindelwald, after wreaking havoc in Europe, has slipped away…and is now nowhere to be found.
+       
+    </span>
+  </div>
+  <div
+    className="notation__btn"
+  >
+    <button
+      className="btn btn__watch"
+      type="button"
+    >
+      <span
+        className="btn__watch__text"
+      >
+        Watch Now
+      </span>
+    </button>
+    <button
+      className="btn btn__view"
+      type="button"
+    >
+      <span
+        className="btn__view__text"
+      >
+        View Info
+      </span>
+    </button>
+  </div>
+</div>
+`;

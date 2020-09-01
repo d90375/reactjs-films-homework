@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component should render Search component 1`] = `
+<form
+  action="#"
+  className="search"
+  method="post"
+>
+  <label
+    htmlFor="searchId"
+  >
+    <input
+      className="search__text"
+      id="searchId"
+      name="search"
+      placeholder="the jungle book"
+      required={true}
+      type="text"
+    />
+  </label>
+</form>
+`;

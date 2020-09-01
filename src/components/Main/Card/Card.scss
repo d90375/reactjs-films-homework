@@ -1,0 +1,74 @@
+.card {
+  width: 290px;
+  height: 340px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  &:nth-child(n+9) {
+    margin-bottom: 0;
+  }
+}
+
+.card__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  justify-content: space-between;
+}
+
+.card__img {
+  height: 255px;
+  background: url("../../../assets/images/mock/creed.jpg.png") right;
+  background-size: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title__text {
+  color: #242b2d;
+  font-family: "Helvetica Neue - bold", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.12px;
+}
+
+.title__rating {
+  text-align: center;
+  width: 30px;
+  height: 18px;
+  border: 1px solid #49c1f0;
+  border-radius: 5px;
+}
+
+.title__number {
+  color: #47c3f0;
+  font-family: "Helvetica Neue - bold", serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.card__description {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.card__description__genre {
+  color: #47c3f0;
+  font-family: "Helvetica Neue - bold", serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.88px;
+}
