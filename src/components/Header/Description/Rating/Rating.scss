@@ -1,14 +1,14 @@
 .rating {
   display: flex;
-  margin-top: 46px;
+  margin-top: 1rem;
   flex-direction: row;
 }
 
 .rating__container {
   text-align: center;
-  line-height: 38px;
-  width: 60px;
-  height: 36px;
+  line-height: 16px;
+  width: 30px;
+  height: 1rem;
   border: 2px solid #0aaee4;
   border-radius: 5px;
 }
@@ -16,6 +16,10 @@
 .rating__number {
   color: #fff;
   font-family: "Helvetica Neue", serif;
-  font-size: 24px;
+  font-size: 0.9rem;
   font-weight: 500;
+}
+
+.star {
+  padding-right: 1rem;
 }

@@ -8,7 +8,7 @@ import "./Header.scss";
 
 const Header = ({ onQueryChanged, queryText }) => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__topWrap">
         <span className="logo">FILMS</span>
         <Search onQueryChanged={onQueryChanged} queryText={queryText} />
@@ -17,7 +17,7 @@ const Header = ({ onQueryChanged, queryText }) => {
         <Description />
         <Notation />
       </div>
-    </div>
+    </header>
   );
 };
 

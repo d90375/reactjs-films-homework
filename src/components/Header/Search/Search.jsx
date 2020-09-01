@@ -3,7 +3,6 @@ import "./Search.scss";
 import PropTypes from "prop-types";
 
 const Search = ({ onQueryChanged, queryText }) => {
-
   return (
     <form className="search" method="post" action="#">
       <label htmlFor="searchId">

@@ -5,6 +5,7 @@ import MovieList from "../containers/MovieList";
 import "./App.scss";
 import TopScreen from "../containers/TopScreen";
 
+
 const App = () => {
   return (
     <div className="wrap">
