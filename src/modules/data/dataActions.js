@@ -1,4 +1,4 @@
-import { FETCHED, FETCHING, FETCH_ERROR } from "../actionTypes";
+import { FETCHED_MOVIES, FETCH_START, FETCHED_GENRES, FETCH_ERROR } from "../actionTypes";
 
 const KEY = "?api_key=6da466b0eb7061f0a6aba0e23f44d47d";
 const API = "https://api.themoviedb.org/3/";
@@ -8,18 +8,18 @@ const PAGE = "&page=1";
 const ADULT = "&include_adult=false";
 const REGION = "US";
 
-const POPULAR_LINK = `${API}movie/popular${KEY}${LANG}${PAGE}${REGION}`;
-const SEARCH_LINK = (text) => {
-  return `${API}search/movie${KEY}${LANG}${QUERY + text}${PAGE}${ADULT}`;
-};
-
 export const startFetch = () => ({
-  type: FETCHING
+  type: FETCH_START
 });
 
-export const finishedFetch = (data) => ({
-  type: FETCHED,
+export const finishedFetchMovies = (data) => ({
+  type: FETCHED_MOVIES,
   data
+});
+
+export const finishedFetchGenres = (genres) => ({
+  type: FETCHED_GENRES,
+  genres
 });
 
 export const errorFetch = (error) => ({
@@ -27,13 +27,43 @@ export const errorFetch = (error) => ({
   error
 });
 
+export const fetchGenresData = () => {
+  return (dispatch) => {
+    dispatch(startFetch());
+    return fetch(`${API}genre/movie/list${KEY}${LANG}`)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(finishedFetchGenres(res));
+        return res;
+      })
+      .catch((error) => {
+        dispatch(errorFetch(error));
+      });
+  };
+};
+
+export const fetchPopularData = () => {
+  return (dispatch) => {
+    dispatch(startFetch());
+    return fetch(`${API}movie/popular${KEY}${LANG}${PAGE}${REGION}`)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(finishedFetchMovies(res));
+        return res;
+      })
+      .catch((error) => {
+        dispatch(errorFetch(error));
+      });
+  };
+};
+
 export const fetchData = (query) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetch(query === "" ? POPULAR_LINK : SEARCH_LINK(query))
+    return fetch(`${API}search/movie${KEY}${LANG}${QUERY + query}${PAGE}${ADULT}`)
       .then((res) => res.json())
       .then((res) => {
-        dispatch(finishedFetch(res));
+        dispatch(finishedFetchMovies(res));
         return res;
       })
       .catch((error) => {

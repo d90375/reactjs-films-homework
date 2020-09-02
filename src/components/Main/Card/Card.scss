@@ -7,18 +7,10 @@
 
   &:nth-child(4n) {
     margin-right: 0;
-
-    @media (max-width: 2400px) {
-      margin-right: 40px;
-    }
   }
 
   &:nth-child(n+9) {
     margin-bottom: 0;
-
-    @media (max-width: 2400px) {
-      margin-bottom: 40px;
-    }
   }
 }
 
@@ -31,7 +23,6 @@
 
 .card__img {
   height: 255px;
-  background: url("../../../assets/images/mock/creed.jpg.png") right;
   background-size: cover;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -40,17 +31,21 @@
 .title {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 
 .title__text {
+  width: 12rem;
   color: #242b2d;
   font-family: "Helvetica Neue - bold", serif;
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title__rating {
@@ -63,10 +58,9 @@
 
 .title__number {
   color: #47c3f0;
-  font-family: "Helvetica Neue - bold", serif;
-  font-size: 0.8rem;
+  font-family: "Helvetica Neue - Condensed Black", serif;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 15px;
 }
 
 .card__description {

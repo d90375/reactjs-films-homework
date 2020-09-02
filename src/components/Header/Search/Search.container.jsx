@@ -1,17 +1,33 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Search from "./Search";
+import { fetchData } from "../../../modules/data/dataActions";
 
 const SearchContainer = () => {
+  const dispatch = useDispatch();
   const [queryText, setQueryText] = useState("");
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+  };
 
   const handleQueryChanged = (event) => {
     setQueryText(event.target.value);
   };
 
-  console.log(queryText);
+  const handleKeyQuery = (event) => {
+    if (event.key === "Enter") {
+      dispatch(fetchData(queryText));
+    }
+  };
+
+  const handleClickQuery = () => {
+    dispatch(fetchData(queryText));
+  };
+
   return (
     <>
-      <Search onQueryChanged={handleQueryChanged} />
+      <Search onQueryChanged={handleQueryChanged} onKeyQuery={handleKeyQuery} onClickQuery={handleClickQuery} onSubmit={onSubmit} queryText={queryText} />
     </>
   );
 };

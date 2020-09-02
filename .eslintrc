@@ -66,6 +66,7 @@
       "ignoreStrings": true,
       "code": 240
     }],
+    "react/forbid-prop-types": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-wrap-multilines": "off",
     "react/jsx-one-expression-per-line": "off",
