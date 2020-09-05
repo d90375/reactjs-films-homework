@@ -10,7 +10,7 @@ const MovieList = () => {
   const genres = useSelector(getGenresReselector);
   const isLoading = useSelector(getDataIsLoadingReselector);
 
-  console.log(genres)
+  console.log(genres);
   return (
     <>
       <TopSort />

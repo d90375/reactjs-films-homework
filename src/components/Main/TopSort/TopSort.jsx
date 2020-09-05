@@ -6,11 +6,11 @@ const TopSort = () => {
     <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
-          <span className="title__text title__text_trending">Trending</span>
-          <span className="title__text title__text_rated">Top Rated</span>
-          <span className="title__text title__text_soon">Coming Soon</span>
-          <span className="title__text title__text_genre">Genre</span>
-          <div className="title__arrow" />
+          <button type="button" className="nav__title__text nav__title__text_trending">Trending</button>
+          <button type="button" className="nav__title__text nav__title__text_rated">Top Rated</button>
+          <button type="button" className="nav__title__text nav__title__text_soon">Coming Soon</button>
+          <button type="button" className="nav__title__text nav__title__text_genre">Genre</button>
+          <div className="nav__title__arrow" />
         </div>
         <div className="nav__format">
           <div className="format__box4">

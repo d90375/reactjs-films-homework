@@ -1,21 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Card.scss";
+import { IMAGE_NOT_FOUND_URL } from "../../../constants";
+import HiddenWindow from "./HiddenWindow";
 
 const Card = ({ posterImg, title, score, genresData, genres }) => {
-  const imageNotFoundUrl = `url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg)`;
+  const [isHiddenWindow, setIsHiddenWindow] = useState(false);
+  const [isResizedImg, setIsResizedImg] = useState(false);
 
-  const cardBackGroundStyle = {
-    backgroundImage: posterImg ? `url(https://image.tmdb.org/t/p/w500${posterImg})` : imageNotFoundUrl
+  const onShowWindow = () => {
+    setIsHiddenWindow(true);
   };
+
+  const onHideWindow = () => {
+    setIsHiddenWindow(false);
+  };
+
+  const onResizeImg = () => {
+    setIsResizedImg(true);
+  };
+
+  const onOriginImg = () => {
+    setIsResizedImg(false);
+  };
+
+  const cardImgStyle = {
+    backgroundImage: posterImg ? `url(https://image.tmdb.org/t/p/w500${posterImg})` : IMAGE_NOT_FOUND_URL,
+    width: isResizedImg ? "310px" : "290px",
+    borderRadius: isHiddenWindow ? "5px 5px 5px 5px" : "5px 5px 0 0"
+  };
+
   return (
-    <div className="card">
-      <div className="card__img" style={cardBackGroundStyle} />
-      <div className="card__description">
-        <div className="title">
-          <span className="title__text">{title}</span>
-          <div className="title__rating">
-            <span className="title__number">{score}</span>
+    <div onMouseEnter={onShowWindow} onMouseLeave={onHideWindow} className="card">
+      <div style={cardImgStyle} className="card__img" />
+      <div onMouseEnter={onResizeImg} onMouseLeave={onOriginImg} className="card__description">
+        <div className="card__title">
+          <span className="card__title__text">{title}</span>
+          <div className="card__title__rating">
+            <span className="card__title__number">{score}</span>
           </div>
         </div>
         <span className="card__description__genre">
@@ -27,6 +49,7 @@ const Card = ({ posterImg, title, score, genresData, genres }) => {
               .slice(0, -2)}
         </span>
       </div>
+      {isHiddenWindow ? <HiddenWindow /> : null}
     </div>
   );
 };

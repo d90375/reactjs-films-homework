@@ -39,29 +39,29 @@
   line-height: 20px;
   outline: none;
   font-size: 1rem;
+  font-family: "Helvetica Neue - thin", serif;
+  font-weight: 400;
+  letter-spacing: 1.3px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .btn__watch {
   background-color: #0aaee4;
   border: 1px solid #0aaee4;
   border-radius: 5px;
+
+  &:hover {
+    background: lighten(#0aaee4, 10%);
+  }
 }
 
 .btn__view {
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 5px;
-}
 
-.btn__watch__text {
-  color: #fff;
-  font-family: "Helvetica Neue - thin", serif;
-  letter-spacing: 1.12px;
-}
-
-.btn__view__text {
-  color: #fff;
-  font-family: "Helvetica Neue - thin", serif;
-  font-weight: 400;
-  letter-spacing: 1.12px;
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  }
 }

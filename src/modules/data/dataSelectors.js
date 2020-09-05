@@ -14,7 +14,7 @@ export const getDataIsLoadingReselector = createSelector(getDataIsLoading, (bool
 });
 
 export const getGenresReselector = createSelector(getGenresSelector, (genres) => {
-  console.log(genres)
+  console.log(genres);
   return genres;
   // return genres.reduce((acc, genre) => {
   //   const arr = acc;
