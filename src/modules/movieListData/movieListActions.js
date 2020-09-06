@@ -17,9 +17,9 @@ export const finishedFetchMovies = (data) => ({
   data
 });
 
-export const finishedFetchGenres = (genres) => ({
+export const finishedFetchGenres = (genresData) => ({
   type: FETCHED_GENRES,
-  genres
+  genresData
 });
 
 export const errorFetch = (error) => ({

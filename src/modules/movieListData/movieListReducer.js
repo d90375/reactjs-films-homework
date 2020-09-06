@@ -3,19 +3,23 @@ import { FETCHED_MOVIES, FETCH_START, FETCH_ERROR, FETCHED_GENRES } from "../act
 const initialState = {
   loading: true,
   error: null,
-  data: {},
-  searchText: "",
+  data: { results: {} },
   genres: {}
 };
 
-const dataReducer = (state = initialState, action) => {
+let adjustmentGenreData = {};
+
+const movieListReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START:
       return { ...state, loading: true };
     case FETCHED_MOVIES:
       return { ...state, loading: false, data: action.data };
     case FETCHED_GENRES:
-      return { ...state, loading: false, genres: action.genres };
+      adjustmentGenreData = Object.values(action.genresData.genres).reduce((acc, genre) => {
+        return { ...acc, [genre.id]: genre.name };
+      }, {});
+      return { ...state, loading: false, genresData: adjustmentGenreData };
     case FETCH_ERROR:
       return { ...state, loading: true, error: action.error };
     default:
@@ -23,4 +27,4 @@ const dataReducer = (state = initialState, action) => {
   }
 };
 
-export default dataReducer;
+export default movieListReducer;

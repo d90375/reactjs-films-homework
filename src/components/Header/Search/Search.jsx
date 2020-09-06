@@ -6,8 +6,24 @@ const Search = ({ onQueryChanged, onKeyQuery, onClickQuery, onSubmit, queryText 
   return (
     <form onSubmit={onSubmit} className="search">
       <label htmlFor="searchId">
-        <input  onChange={onQueryChanged} onKeyDown={onKeyQuery} value={queryText} className="search__text" type="text" id="searchId" name="search" placeholder="Search" />
-        <svg onClick={onClickQuery} className="search__icon" xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 28 28">
+        <input
+          onChange={onQueryChanged}
+          onKeyDown={onKeyQuery}
+          value={queryText}
+          className="search__text"
+          type="text"
+          id="searchId"
+          name="search"
+          placeholder="Search"
+        />
+        <svg
+          onClick={onClickQuery}
+          className="search__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="1rem"
+          height="1rem"
+          viewBox="0 0 28 28"
+        >
           <g>
             <g>
               <path

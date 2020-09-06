@@ -1,9 +1,11 @@
 import { applyMiddleware, createStore, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
-import dataReducer from "./data/dataReducer";
+import headerReducer from "./headerData/headerRedcuer";
+import movieListReducer from "./movieListData/movieListReducer";
 
 const rootReducer = combineReducers({
-  dataReducer
+  headerReducer,
+  movieListReducer
 });
 
 const store = () => {
