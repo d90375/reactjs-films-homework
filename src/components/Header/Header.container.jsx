@@ -23,7 +23,9 @@ const HeaderContainer = () => {
     runtime = [calculatedHours, calculatedMinutes];
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log('x')
+  }, []);
 
   return (
     <>

@@ -1,9 +1,31 @@
-.main__wrap {
+.main {
+  background-color: #f5f6f6;
   padding-top: 4rem;
   padding-left: 4rem;
   padding-right: 4rem;
 }
 
-.main {
-  background-color: #f5f6f6;
+.card__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  justify-content: space-between;
+}
+
+.noResults__wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noResults__text {
+  text-transform: capitalize;
+  font-family: "Helvetica Neue", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 1.12px;
+  color: #0aaee4;
+  margin-bottom: 10rem;
 }

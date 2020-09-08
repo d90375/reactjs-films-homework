@@ -1,8 +1,6 @@
 import { FETCH_START_BY_ID, FETCH_ERROR_BY_ID, FETCHED_MOVIE_BY_ID } from "../actionTypes";
 
-const KEY = "?api_key=6da466b0eb7061f0a6aba0e23f44d47d";
-const API = "https://api.themoviedb.org/3/";
-const LANG = "&language=en-US";
+import { API, KEY, LANG } from "../../constants";
 
 export const startFetchMoviesById = () => ({
   type: FETCH_START_BY_ID

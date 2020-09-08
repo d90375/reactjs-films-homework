@@ -11,7 +11,9 @@ const MovieList = ({ data, cardLength, genres }) => {
           <Card key={card.id} cardItem={card} genresItems={genres} cardIndex={cardIndex} />
         ))
       ) : (
-        <span>No results</span>
+        <div className="noResults__wrap">
+          <span className="noResults__text">No results</span>
+        </div>
       )}
     </div>
   );

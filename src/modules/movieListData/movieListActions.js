@@ -1,12 +1,6 @@
-import { FETCHED_MOVIES, FETCH_START, FETCHED_GENRES, FETCH_ERROR } from "../actionTypes";
+import { FETCHED_MOVIES, FETCH_START, FETCHED_GENRES, FETCH_ERROR, FETCHED_GENRES_BY_ID } from "../actionTypes";
 
-const KEY = "?api_key=6da466b0eb7061f0a6aba0e23f44d47d";
-const API = "https://api.themoviedb.org/3/";
-const LANG = "&language=en-US";
-const QUERY = "&query=";
-const PAGE = "&page=1";
-const ADULT = "&include_adult=false";
-const REGION = "US";
+import { API, KEY, LANG, PAGE, REGION, QUERY, ADULT } from "../../constants";
 
 export const startFetch = () => ({
   type: FETCH_START
@@ -22,10 +16,30 @@ export const finishedFetchGenres = (genresData) => ({
   genresData
 });
 
+export const finishedFetchGenresById = (data) => ({
+  type: FETCHED_GENRES_BY_ID,
+  data
+});
+
 export const errorFetch = (error) => ({
   type: FETCH_ERROR,
   error
 });
+
+export const fetchGenresDataById = (id) => {
+  return (dispatch) => {
+    dispatch(startFetch());
+    return fetch(`${API}discover/movie${KEY}&with_genres=${id}`)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(finishedFetchGenresById(res));
+        return res;
+      })
+      .catch((error) => {
+        dispatch(errorFetch(error));
+      });
+  };
+};
 
 export const fetchGenresData = () => {
   return (dispatch) => {

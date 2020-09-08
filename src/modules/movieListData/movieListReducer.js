@@ -1,4 +1,4 @@
-import { FETCHED_MOVIES, FETCH_START, FETCH_ERROR, FETCHED_GENRES } from "../actionTypes";
+import { FETCHED_MOVIES, FETCH_START, FETCH_ERROR, FETCHED_GENRES, FETCHED_GENRES_BY_ID } from "../actionTypes";
 
 const initialState = {
   loading: true,
@@ -14,6 +14,8 @@ const movieListReducer = (state = initialState, action) => {
     case FETCH_START:
       return { ...state, loading: true };
     case FETCHED_MOVIES:
+      return { ...state, loading: false, data: action.data };
+    case FETCHED_GENRES_BY_ID:
       return { ...state, loading: false, data: action.data };
     case FETCHED_GENRES:
       adjustmentGenreData = Object.values(action.genresData.genres).reduce((acc, genre) => {

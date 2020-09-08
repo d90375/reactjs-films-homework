@@ -8,12 +8,10 @@ const App = () => {
   return (
     <div className="wrap">
       <HeaderContainer />
-      <div className="main">
-        <div className="main__wrap">
-          <MovieListContainer />
-        </div>
-        <Footer />
-      </div>
+      <main className="main">
+        <MovieListContainer />
+      </main>
+      <Footer />
     </div>
   );
 };

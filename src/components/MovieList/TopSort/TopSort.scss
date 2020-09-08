@@ -19,6 +19,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    outline: none;
 
     &:hover {
       text-shadow: 0 0 10px rgba(10, 174, 228, 1);
@@ -31,13 +32,28 @@
 }
 
 .nav__title__arrow {
-  display: inline-block;
-  transform: rotate(45deg);
-  margin-top: 15px;
-  height: 6px;
-  width: 6px;
-  border-bottom: 2px solid #0aaee4;
-  border-right: 2px solid #0aaee4;
+  padding: 0 10px;
+  margin: 0;
+  display: block;
+  text-transform: capitalize;
+  font-family: "Helvetica Neue", serif;
+  font-size: 1rem;
+  letter-spacing: 1.12px;
+  font-weight: 600;
+  line-height: 44px;
+  width: 110px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  color: #0aaee4;
+
+  &:hover {
+    text-shadow: 0 0 10px rgba(10, 174, 228, 1);
+  }
 }
 
 .nav__wrap {
