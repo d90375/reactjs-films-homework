@@ -2,10 +2,12 @@ import { applyMiddleware, createStore, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import headerReducer from "./headerData/headerRedcuer";
 import movieListReducer from "./movieListData/movieListReducer";
+import trailerReducer from "./trailerData/trailerReducer";
 
 const rootReducer = combineReducers({
   headerReducer,
-  movieListReducer
+  movieListReducer,
+  trailerReducer
 });
 
 const store = () => {
