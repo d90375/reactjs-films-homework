@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "./Notation.scss";
+import ButtonWatchNow from "./ButtonWatchNow/ButtonWatchNow";
 
-const Notation = () => {
+const Notation = ({ movieId }) => {
   const [isHiddenViewWindow, setIsHiddenViewWindow] = useState(true);
 
   const onHideView = () => {
@@ -23,9 +25,7 @@ const Notation = () => {
           </div>
         )}
         <div className="notation__btn">
-          <button type="button" className="btn btn__watch">
-            Watch Now
-          </button>
+          <ButtonWatchNow movieId={movieId} />
           <button onClick={onHideView} type="button" className="btn btn__view">
             View Info
           </button>
@@ -36,3 +36,11 @@ const Notation = () => {
 };
 
 export default Notation;
+
+Notation.propTypes = {
+  movieId: PropTypes.number
+};
+
+Notation.defaultProps = {
+  movieId: 0
+};

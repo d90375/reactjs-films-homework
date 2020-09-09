@@ -1,4 +1,4 @@
-import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER } from "../actionTypes";
+import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
 
 import { API, KEY, LANG } from "../../constants";
 
@@ -16,7 +16,11 @@ export const errorFetch = (error) => ({
   error
 });
 
-export const fetchTrailer = (id) => {
+export const removeVideoFrame = () => ({
+  type: REMOVE_TRAILER
+})
+
+export const fetchTrailerById = (id) => {
   return (dispatch) => {
     dispatch(startFetch());
     return fetch(`${API}movie/${id}/videos${KEY}${LANG}`)

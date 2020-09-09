@@ -1,10 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import Header from "./Header";
 import { getDataByIdSelector } from "../../modules/headerData/headerSelectors";
+// import { getCompletedMovieList } from "../../modules/movieListData/movieListSelectors";
+// import { fetchMovieById } from "../../modules/headerData/headerActions";
 
 const HeaderContainer = () => {
   const headData = useSelector(getDataByIdSelector);
+  // const data = useSelector(getCompletedMovieList);
+  // const dispatch = useDispatch();
+  // let idd = 0;
+  // if (data.results[0]) {
+  //   idd = data.results[0].id;
+  // }
 
   let { genres, runtime } = headData;
   if (genres) {
@@ -23,9 +31,9 @@ const HeaderContainer = () => {
     runtime = [calculatedHours, calculatedMinutes];
   }
 
-  useEffect(() => {
-    console.log('x')
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchMovieById(idd));
+  // }, [dispatch]);
 
   return (
     <>

@@ -8,7 +8,7 @@ import Notation from "./Notation";
 import "./Header.scss";
 
 const Header = ({ headData, genres, runtime }) => {
-  const { title } = headData;
+  const { title, id } = headData;
   const backDropPath = headData.backdrop_path;
   const voteAverage = headData.vote_average;
   const poster = backDropPath || "/qVygtf2vU15L2yKS4Ke44U4oMdD.jpg";
@@ -26,7 +26,7 @@ const Header = ({ headData, genres, runtime }) => {
       </div>
       <div className="header__btmWrap">
         <Description title={title} genres={genres} runtime={runtime} voteAverage={voteAverage} />
-        <Notation />
+        <Notation movieId={id} />
       </div>
     </header>
   );
