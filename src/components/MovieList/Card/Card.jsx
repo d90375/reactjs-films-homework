@@ -3,20 +3,26 @@ import PropTypes from "prop-types";
 import "./Card.scss";
 import { IMAGE_NOT_FOUND_URL } from "../../../constants";
 import HiddenWindow from "./HiddenWindow";
+import InfoWindow from "./InfoWindow";
 
 const Card = ({
   posterImg,
+  id,
   title,
   score,
   genres,
+  overview,
   cardIndex,
   isResizedImg,
   isHiddenWindow,
+  isInfoShow,
   onShowWindow,
   onHideWindow,
   onChangeHeaderMovie,
   onResizeImg,
-  onOriginImg
+  onOriginImg,
+  handleShowTrailer,
+  handleShowInfo
 }) => {
   const cardImgStyle = {
     backgroundImage: posterImg ? `url(https://image.tmdb.org/t/p/w500${posterImg})` : IMAGE_NOT_FOUND_URL,
@@ -25,25 +31,32 @@ const Card = ({
   };
 
   return (
-    <div onMouseEnter={onShowWindow} onMouseLeave={onHideWindow} className="card">
-      <div style={cardImgStyle} className="card__img" />
-      <div
-        tabIndex={cardIndex}
-        role="button"
-        onClick={onChangeHeaderMovie}
-        onMouseEnter={onResizeImg}
-        onMouseLeave={onOriginImg}
-        className="card__description"
-      >
-        <div className="card__title">
-          <span className="card__title__text">{title}</span>
-          <div className="card__title__rating">
-            <span className="card__title__number">{score}</span>
+    <div className="card">
+      {isInfoShow ? (
+        <InfoWindow cardData={{ id, title, score, genres, posterImg, overview }} onShowInfo={handleShowInfo} />
+      ) : (
+        <>
+          <div onMouseEnter={onShowWindow} onMouseLeave={onHideWindow} style={cardImgStyle} className="card__img">
+            {isHiddenWindow && <HiddenWindow onShowInfo={handleShowInfo} onShowTrailer={handleShowTrailer} />}
           </div>
-        </div>
-        <span className="card__description__genre">{genres}</span>
-      </div>
-      {isHiddenWindow && <HiddenWindow />}
+          <div
+            tabIndex={cardIndex}
+            role="button"
+            onClick={onChangeHeaderMovie}
+            onMouseEnter={onResizeImg}
+            onMouseLeave={onOriginImg}
+            className="card__description"
+          >
+            <div className="card__title">
+              <span className="card__title__text">{title}</span>
+              <div className="card__title__rating">
+                <span className="card__title__number">{score}</span>
+              </div>
+            </div>
+            <span className="card__description__genre">{genres}</span>
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -51,24 +64,31 @@ const Card = ({
 export default Card;
 
 Card.propTypes = {
+  id: PropTypes.number,
   posterImg: PropTypes.string,
   title: PropTypes.string,
   genres: PropTypes.string,
+  overview: PropTypes.string,
   score: PropTypes.number,
   cardIndex: PropTypes.number,
   isResizedImg: PropTypes.bool.isRequired,
   isHiddenWindow: PropTypes.bool.isRequired,
+  isInfoShow: PropTypes.bool.isRequired,
   onShowWindow: PropTypes.func.isRequired,
   onHideWindow: PropTypes.func.isRequired,
   onChangeHeaderMovie: PropTypes.func.isRequired,
   onResizeImg: PropTypes.func.isRequired,
-  onOriginImg: PropTypes.func.isRequired
+  onOriginImg: PropTypes.func.isRequired,
+  handleShowTrailer: PropTypes.func.isRequired,
+  handleShowInfo: PropTypes.func.isRequired
 };
 
 Card.defaultProps = {
   posterImg: null,
   title: "",
   genres: "",
+  overview: "",
   score: 0,
+  id: null,
   cardIndex: null
 };

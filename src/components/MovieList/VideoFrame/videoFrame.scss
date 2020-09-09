@@ -1,0 +1,32 @@
+.videoFrame {
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 5rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+.videoFrame__iframe {
+  width: 65vw;
+  height: 35vw;
+}
+
+.videoFrame__btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: tomato;
+  font-size: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: darken(tomato, 20%);
+  }
+}

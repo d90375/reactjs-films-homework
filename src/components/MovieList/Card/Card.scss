@@ -16,9 +16,8 @@
   }
 }
 
-
-
 .card__img {
+  position: relative;
   border-radius: 5px 5px 0 0;
   height: 305px;
   transition: all 0.4s ease-in;

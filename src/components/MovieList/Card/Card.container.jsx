@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { fetchMovieById } from "../../../modules/headerData/headerActions";
+
 import Card from "./Card";
+import { fetchMovieById } from "../../../modules/headerData/headerActions";
+import { fetchTrailerById } from "../../../modules/trailerData/trailerActions";
 
 const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
   const dispatch = useDispatch();
   const [isHiddenWindow, setIsHiddenWindow] = useState(false);
   const [isResizedImg, setIsResizedImg] = useState(false);
+  const [isInfoShow, setIsInfoShow] = useState(false);
 
   const genres = cardItem.genre_ids
     .reduce((acc, genre) => {
@@ -35,6 +38,14 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
     dispatch(fetchMovieById(cardItem.id));
   };
 
+  const handleShowTrailer = () => {
+    dispatch(fetchTrailerById(cardItem.id));
+  };
+
+  const handleShowInfo = () => {
+    setIsInfoShow(!isInfoShow);
+  };
+
   return (
     <>
       <Card
@@ -42,16 +53,21 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
         key={cardItem.id}
         title={cardItem.title}
         score={cardItem.vote_average}
+        overview={cardItem.overview}
+        id={cardItem.id}
         genres={genres}
         isHiddenWindow={isHiddenWindow}
         isResizedImg={isResizedImg}
+        isInfoShow={isInfoShow}
         genresItems={genresItems}
         cardIndex={cardIndex}
+        handleShowInfo={handleShowInfo}
         onShowWindow={handleShowWindow}
         onHideWindow={handleHideWindow}
         onResizeImg={handleResizeImg}
         onOriginImg={handleOriginImg}
         onChangeHeaderMovie={handleChangeHeaderMovie}
+        handleShowTrailer={handleShowTrailer}
       />
     </>
   );
