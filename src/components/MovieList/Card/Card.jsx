@@ -48,7 +48,7 @@ const Card = ({
             className="card__description"
           >
             <div className="card__title">
-              <span className="card__title__text">{title}</span>
+              <h3 className="card__title__text">{title}</h3>
               <div className="card__title__rating">
                 <span className="card__title__number">{score}</span>
               </div>

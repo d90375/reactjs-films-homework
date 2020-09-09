@@ -6,7 +6,7 @@ import Rating from "./Rating";
 const Description = ({ title, genres, runtime, voteAverage }) => {
   return (
     <div className="description">
-      <span className="description__title">{title}</span>
+      <h2 className="description__title">{title}</h2>
       <div className="description__specification">
         <span className="specification__genre specification__genre_1">{genres}</span>
         <div className="specification__border" />

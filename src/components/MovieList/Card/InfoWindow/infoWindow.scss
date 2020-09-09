@@ -5,6 +5,96 @@
   height: 100%;
   border-radius: 6px;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   overflow: hidden;
+}
+
+.infoWindow__btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0.5rem 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    color: darken(#fff, 20%);
+  }
+}
+
+.infoWindow__wrap {
+  padding: 0 1rem 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.infoWindow__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.infoWindow__title_text {
+  font-family: "Helvetica Neue - bold", serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  width: 14rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 22px;
+  flex-wrap: nowrap;
+  color: #fff;
+}
+
+.infoWindow__title_score {
+  margin: 0;
+  font-family: "Helvetica Neue - Condensed Black", serif;
+  font-size: 18px;
+  width: 30px;
+  height: 19px;
+  font-weight: 500;
+  color: #47c3f0;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #49c1f0;
+}
+
+.infoWindow__genres {
+  margin: 0;
+  padding-top: 0.2rem;
+  font-family: "Helvetica Neue - bold", serif;
+  font-size: 0.7rem;
+  line-height: 16px;
+  letter-spacing: 0.88px;
+  font-weight: 500;
+  color: #49c1f0;
+}
+
+.infoWindow_overview {
+  margin: 0;
+  padding: 1rem;
+  color: #fff;
+  font-family: "Helvetica Neue - thin", serif;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.infoWindow_btnWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0 1rem 1rem;
 }

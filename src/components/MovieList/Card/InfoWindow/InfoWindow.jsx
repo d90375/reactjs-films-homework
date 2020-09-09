@@ -8,24 +8,30 @@ import "./infoWindow.scss";
 const InfoWindow = ({ cardData, onShowInfo }) => {
   const { title, score, genres, posterImg, overview, id } = cardData;
   const infoWindowBackgroundStyle = {
-    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top",
     background: posterImg
-      ? `linear-gradient( rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%), url(https://image.tmdb.org/t/p/w500${posterImg})`
-      : IMAGE_NOT_FOUND_URL
+      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%), url(https://image.tmdb.org/t/p/w500${posterImg})`
+      : IMAGE_NOT_FOUND_URL,
+    backgroundSize: "cover"
   };
 
   return (
     <div className="infoWindow" style={infoWindowBackgroundStyle}>
-      <button className="" type="button" onClick={onShowInfo}>
+      <button className="infoWindow__btn" type="button" onClick={onShowInfo}>
         &#215;
       </button>
-      <div className="">
-        <h3 className="">{title}</h3>
-        <p className="">{score}</p>
-        <p className="">{genres}</p>
+      <div className="infoWindow__wrap">
+        <div className="infoWindow__title">
+          <h3 className="infoWindow__title_text">{title}</h3>
+          <p className="infoWindow__title_score">{score}</p>
+        </div>
+        <p className="infoWindow__genres">{genres}</p>
       </div>
-      <p className="">{overview}</p>
-      <ButtonWatchNow movieId={id} />
+      <p className="infoWindow_overview">{overview}</p>
+      <div className="infoWindow_btnWrap">
+        <ButtonWatchNow movieId={id} />
+      </div>
     </div>
   );
 };
