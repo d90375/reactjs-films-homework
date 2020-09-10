@@ -1,3 +1,3 @@
-import Notation from "./Notation";
+import Notation from "./Notation.container";
 
 export default Notation;

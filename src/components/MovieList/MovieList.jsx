@@ -24,9 +24,10 @@ export default MovieList;
 MovieList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   genres: PropTypes.objectOf(PropTypes.string),
-  cardLength: PropTypes.number.isRequired
+  cardLength: PropTypes.number
 };
 
 MovieList.defaultProps = {
+  cardLength: 0,
   genres: {}
 };

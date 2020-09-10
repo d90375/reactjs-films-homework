@@ -1,18 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Header from "./Header";
 import { getDataByIdSelector } from "../../modules/headerData/headerSelectors";
-// import { getCompletedMovieList } from "../../modules/movieListData/movieListSelectors";
-// import { fetchMovieById } from "../../modules/headerData/headerActions";
+import { getCompletedMovieList } from "../../modules/movieListData/movieListSelectors";
+import { fetchMovieById } from "../../modules/headerData/headerActions";
 
 const HeaderContainer = () => {
   const headData = useSelector(getDataByIdSelector);
-  // const data = useSelector(getCompletedMovieList);
-  // const dispatch = useDispatch();
-  // let idd = 0;
-  // if (data.results[0]) {
-  //   idd = data.results[0].id;
-  // }
+  const { results } = useSelector(getCompletedMovieList);
+
+  const dispatch = useDispatch();
 
   let { genres, runtime } = headData;
   if (genres) {
@@ -23,7 +20,7 @@ const HeaderContainer = () => {
       .slice(0, -2);
   }
 
-  if (runtime) {
+  if (runtime === 0 || runtime) {
     const hours = runtime / 60;
     const calculatedHours = Math.floor(hours);
     const minutes = (hours - calculatedHours) * 60;
@@ -31,9 +28,11 @@ const HeaderContainer = () => {
     runtime = [calculatedHours, calculatedMinutes];
   }
 
-  // useEffect(() => {
-  //   dispatch(fetchMovieById(idd));
-  // }, [dispatch]);
+  useEffect(() => {
+    if (results[0]) {
+      dispatch(fetchMovieById(results[0].id));
+    }
+  }, [results, dispatch]);
 
   return (
     <>

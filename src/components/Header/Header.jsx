@@ -3,19 +3,20 @@ import PropTypes from "prop-types";
 import Search from "./Search";
 import Description from "./Description";
 import Notation from "./Notation";
-// import {IMAGE_NOT_FOUND_URL} from "../../constants";
+import { IMAGE_NOT_FOUND_URL } from "../../constants";
 
 import "./Header.scss";
 
 const Header = ({ headData, genres, runtime }) => {
   const { title, id } = headData;
-  const backDropPath = headData.backdrop_path;
   const voteAverage = headData.vote_average;
-  const poster = backDropPath || "/qVygtf2vU15L2yKS4Ke44U4oMdD.jpg";
+  const poster = headData.backdrop_path
+    ? `url("https://image.tmdb.org/t/p/w1280${headData.backdrop_path}")`
+    : IMAGE_NOT_FOUND_URL;
   const backGroundHeaderStyle = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "top",
-    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), url("https://image.tmdb.org/t/p/w1280${poster}")`,
+    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), ${poster}`,
     backgroundSize: "cover"
   };
   return (
@@ -66,5 +67,5 @@ Header.propTypes = {
 
 Header.defaultProps = {
   genres: "",
-  runtime: []
+  runtime: [0, 0]
 };

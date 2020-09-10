@@ -1,15 +1,9 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React from "react";
 import "./Notation.scss";
 import ButtonWatchNow from "./ButtonWatchNow/ButtonWatchNow";
 
-const Notation = ({ movieId }) => {
-  const [isHiddenViewWindow, setIsHiddenViewWindow] = useState(true);
-
-  const onHideView = () => {
-    setIsHiddenViewWindow(!isHiddenViewWindow);
-  };
-
+const Notation = ({ movieId, isHiddenViewWindow, onHideView }) => {
   return (
     <div className="flexFixedWrap">
       <div className="notation">
@@ -27,7 +21,7 @@ const Notation = ({ movieId }) => {
         <div className="notation__btn">
           <ButtonWatchNow movieId={movieId} />
           <button onClick={onHideView} type="button" className="btn btn__view">
-            View Info
+            {isHiddenViewWindow ? "Hide Info" : "View Info"}
           </button>
         </div>
       </div>
@@ -38,7 +32,9 @@ const Notation = ({ movieId }) => {
 export default Notation;
 
 Notation.propTypes = {
-  movieId: PropTypes.number
+  isHiddenViewWindow: PropTypes.bool.isRequired,
+  movieId: PropTypes.number,
+  onHideView: PropTypes.func.isRequired
 };
 
 Notation.defaultProps = {

@@ -3,7 +3,7 @@ import { FETCHED_MOVIES, FETCH_START, FETCH_ERROR, FETCHED_GENRES, FETCHED_GENRE
 const initialState = {
   loading: true,
   error: null,
-  data: { results: {} },
+  data: { results: [] },
   genres: {}
 };
 

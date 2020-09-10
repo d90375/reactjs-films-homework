@@ -1,19 +1,38 @@
 import PropTypes from "prop-types";
 import React from "react";
 import "./TopSort.scss";
+import { useDispatch } from "react-redux";
+import {
+  fetchPopularData,
+  fetchTopRatedData,
+  fetchUpcomingData
+} from "../../../modules/movieListData/movieListActions";
 
 const TopSort = ({ genres, onSelectChange }) => {
+  const dispatch = useDispatch();
+  const onGetTrendingList = () => {
+    dispatch(fetchPopularData());
+  };
+
+  const onGetTopRatedList = () => {
+    dispatch(fetchTopRatedData());
+  };
+
+  const onGetUpcomingList = () => {
+    dispatch(fetchUpcomingData());
+  };
+
   return (
     <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
-          <button type="button" className="nav__title__text nav__title__text_trending">
+          <button onClick={onGetTrendingList} type="button" className="nav__title__text nav__title__text_trending">
             Trending
           </button>
-          <button type="button" className="nav__title__text nav__title__text_rated">
+          <button onClick={onGetTopRatedList} type="button" className="nav__title__text nav__title__text_rated">
             Top Rated
           </button>
-          <button type="button" className="nav__title__text nav__title__text_soon">
+          <button onClick={onGetUpcomingList} type="button" className="nav__title__text nav__title__text_soon">
             Coming Soon
           </button>
           <select name="genre" className="nav__title__arrow" onChange={onSelectChange}>

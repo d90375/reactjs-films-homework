@@ -71,6 +71,36 @@ export const fetchPopularData = () => {
   };
 };
 
+export const fetchUpcomingData = () => {
+  return (dispatch) => {
+    dispatch(startFetch());
+    return fetch(`${API}movie/upcoming${KEY}${LANG}${PAGE}${REGION}`)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(finishedFetchMovies(res));
+        return res;
+      })
+      .catch((error) => {
+        dispatch(errorFetch(error));
+      });
+  };
+};
+
+export const fetchTopRatedData = () => {
+  return (dispatch) => {
+    dispatch(startFetch());
+    return fetch(`${API}movie/top_rated${KEY}${LANG}${PAGE}${REGION}`)
+      .then((res) => res.json())
+      .then((res) => {
+        dispatch(finishedFetchMovies(res));
+        return res;
+      })
+      .catch((error) => {
+        dispatch(errorFetch(error));
+      });
+  };
+};
+
 export const fetchData = (query) => {
   return (dispatch) => {
     dispatch(startFetch());

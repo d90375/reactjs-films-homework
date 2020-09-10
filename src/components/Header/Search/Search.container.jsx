@@ -27,7 +27,13 @@ const SearchContainer = () => {
 
   return (
     <>
-      <Search onQueryChanged={handleQueryChanged} onKeyQuery={handleKeyQuery} onClickQuery={handleClickQuery} onSubmit={onSubmit} queryText={queryText} />
+      <Search
+        onQueryChanged={handleQueryChanged}
+        onKeyQuery={handleKeyQuery}
+        onClickQuery={handleClickQuery}
+        onSubmit={onSubmit}
+        queryText={queryText}
+      />
     </>
   );
 };

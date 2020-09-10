@@ -18,7 +18,7 @@ export const errorFetch = (error) => ({
 
 export const removeVideoFrame = () => ({
   type: REMOVE_TRAILER
-})
+});
 
 export const fetchTrailerById = (id) => {
   return (dispatch) => {

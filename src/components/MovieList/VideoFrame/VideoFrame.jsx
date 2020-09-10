@@ -28,5 +28,5 @@ VideoFrame.propTypes = {
 };
 
 VideoFrame.defaultProps = {
-  trailer: [""]
+  trailer: [{}]
 };

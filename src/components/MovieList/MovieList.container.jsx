@@ -16,7 +16,7 @@ const MovieListContainer = () => {
     dispatch(fetchGenresDataById(event.target.value));
   };
 
-  if (results.length > NUMBER_OF_CARDS) {
+  if (results && results.length > NUMBER_OF_CARDS) {
     results.length = NUMBER_OF_CARDS;
   }
 
