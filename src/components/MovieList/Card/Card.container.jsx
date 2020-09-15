@@ -8,11 +8,12 @@ import { fetchTrailerById } from "../../../modules/trailerData/trailerActions";
 
 const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
   const dispatch = useDispatch();
+
   const [isHiddenWindow, setIsHiddenWindow] = useState(false);
   const [isResizedImg, setIsResizedImg] = useState(false);
   const [isInfoShow, setIsInfoShow] = useState(false);
 
-  const genres = cardItem.genre_ids
+  const genres = cardItem?.genre_ids
     .reduce((acc, genre) => {
       return `${acc}${genresItems[genre]}, `;
     }, "")
@@ -35,11 +36,11 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
   };
 
   const handleChangeHeaderMovie = () => {
-    dispatch(fetchMovieById(cardItem.id));
+    dispatch(fetchMovieById(cardItem?.id));
   };
 
   const handleShowTrailer = () => {
-    dispatch(fetchTrailerById(cardItem.id));
+    dispatch(fetchTrailerById(cardItem?.id));
   };
 
   const handleShowInfo = () => {
@@ -49,12 +50,12 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
   return (
     <>
       <Card
-        posterImg={cardItem.poster_path}
-        key={cardItem.id}
-        title={cardItem.title}
-        score={cardItem.vote_average}
-        overview={cardItem.overview}
-        id={cardItem.id}
+        posterImg={cardItem?.poster_path}
+        key={cardItem?.id}
+        title={cardItem?.title}
+        score={cardItem?.vote_average}
+        overview={cardItem?.overview}
+        id={cardItem?.id}
         genres={genres}
         isHiddenWindow={isHiddenWindow}
         isResizedImg={isResizedImg}

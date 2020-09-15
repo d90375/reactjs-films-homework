@@ -8,16 +8,19 @@ import { IMAGE_NOT_FOUND_URL } from "../../constants";
 import "./Header.scss";
 
 const Header = ({ headData, genres, runtime }) => {
-  const { title, id } = headData;
+  const { title, id, overview } = headData;
   const voteAverage = headData.vote_average;
-  const poster = headData.backdrop_path
+  let poster = "";
+
+  poster = headData.backdrop_path
     ? `url("https://image.tmdb.org/t/p/w1280${headData.backdrop_path}")`
-    : IMAGE_NOT_FOUND_URL;
+    : `url(${IMAGE_NOT_FOUND_URL})`;
+
   const backGroundHeaderStyle = {
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top",
     backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), ${poster}`,
-    backgroundSize: "cover"
+    backgroundSize: headData.backdrop_path ? "cover" : "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top"
   };
   return (
     <header className="header" style={backGroundHeaderStyle}>
@@ -27,7 +30,7 @@ const Header = ({ headData, genres, runtime }) => {
       </div>
       <div className="header__btmWrap">
         <Description title={title} genres={genres} runtime={runtime} voteAverage={voteAverage} />
-        <Notation movieId={id} />
+        <Notation movieId={id} overview={overview} />
       </div>
     </header>
   );

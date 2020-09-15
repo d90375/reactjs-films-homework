@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ButtonWatchNow from "../../../Header/Notation/ButtonWatchNow";
+import ButtonWatchNow from "../../../VideoFrame/ButtonWatchNow";
 
 import { IMAGE_NOT_FOUND_URL } from "../../../../constants";
 import "./infoWindow.scss";
@@ -8,12 +8,12 @@ import "./infoWindow.scss";
 const InfoWindow = ({ cardData, onShowInfo }) => {
   const { title, score, genres, posterImg, overview, id } = cardData;
   const infoWindowBackgroundStyle = {
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top",
     background: posterImg
       ? `linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%), url(https://image.tmdb.org/t/p/w500${posterImg})`
-      : IMAGE_NOT_FOUND_URL,
-    backgroundSize: "cover"
+      : `url(${IMAGE_NOT_FOUND_URL}) 0% 0% / contain`,
+    backgroundSize: posterImg ? "cover" : "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top"
   };
 
   return (

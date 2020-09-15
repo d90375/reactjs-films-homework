@@ -1,8 +1,12 @@
 import { createSelector } from "reselect";
+import { useSelector } from "react-redux";
 
-export const getDataIsLoading = (state) => state.headerReducer.loading;
-export const getDataById = (state) => state.headerReducer.data;
+const getDataById = (state) => state.headerReducer.data;
 
-export const getDataByIdSelector = createSelector(getDataById, (data) => {
+const getDataByIdSelector = createSelector(getDataById, (data) => {
   return data;
 });
+
+export const useCurrentMovieData = () => useSelector(getDataByIdSelector);
+
+export const useCurrentMovie = () => useSelector((state) => state.headerReducer);

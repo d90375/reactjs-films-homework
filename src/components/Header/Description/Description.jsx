@@ -3,7 +3,7 @@ import React from "react";
 import "./Description.scss";
 import Rating from "./Rating";
 
-const Description = ({ title, genres, runtime, voteAverage }) => {
+const Description = React.memo(({ title, genres, runtime, voteAverage }) => {
   return (
     <div className="description">
       <h2 className="description__title">{title}</h2>
@@ -17,9 +17,11 @@ const Description = ({ title, genres, runtime, voteAverage }) => {
       <Rating voteAverage={voteAverage} />
     </div>
   );
-};
+});
 
 export default Description;
+
+Description.displayName = "Description";
 
 Description.propTypes = {
   genres: PropTypes.string,

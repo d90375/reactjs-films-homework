@@ -2,14 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./videoFrame.scss";
 
-const VideoFrame = ({ trailer, onRemoveVideoFrame }) => {
-  const link = trailer[0].key;
+const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
   return (
     <div className="videoFrame">
       <iframe
         className="videoFrame__iframe"
         title="trailer"
-        src={`https://www.youtube.com/embed/${link}`}
+        src={`https://www.youtube.com/embed/${trailerKey}`}
         allowFullScreen
         frameBorder="0"
       />
@@ -24,9 +23,9 @@ export default VideoFrame;
 
 VideoFrame.propTypes = {
   onRemoveVideoFrame: PropTypes.func.isRequired,
-  trailer: PropTypes.arrayOf(PropTypes.object)
+  trailerKey: PropTypes.string
 };
 
 VideoFrame.defaultProps = {
-  trailer: [{}]
+  trailerKey: ""
 };

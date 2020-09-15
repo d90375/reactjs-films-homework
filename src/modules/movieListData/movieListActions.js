@@ -1,5 +1,4 @@
 import { FETCHED_MOVIES, FETCH_START, FETCHED_GENRES, FETCH_ERROR, FETCHED_GENRES_BY_ID } from "../actionTypes";
-
 import { API, KEY, LANG, PAGE, REGION, QUERY, ADULT } from "../../constants";
 
 export const startFetch = () => ({

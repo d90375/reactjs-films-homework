@@ -1,5 +1,7 @@
-import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
 
+import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
 import { API, KEY, LANG } from "../../constants";
 
 export const startFetch = () => ({
@@ -33,4 +35,20 @@ export const fetchTrailerById = (id) => {
         dispatch(errorFetch(error));
       });
   };
+};
+
+export const useTrailerActions = () => {
+  const dispatch = useDispatch();
+
+  const handleRemoveVideoFrame = useCallback(() => dispatch(removeVideoFrame()), [dispatch]);
+
+  return { handleRemoveVideoFrame };
+};
+
+export const useTrailerFetchActions = (id) => {
+  const dispatch = useDispatch();
+
+  const onShowTrailer = useCallback(() => dispatch(fetchTrailerById(id)), [id, dispatch]);
+
+  return { onShowTrailer };
 };

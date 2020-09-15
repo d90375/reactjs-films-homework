@@ -1,15 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { fetchTrailerById } from "../../../../modules/trailerData/trailerActions";
+import { useTrailerFetchActions } from "../../../modules/trailerData/trailerActions";
 import "./buttonWatchNow.scss";
 
 const ButtonWatchNow = ({ movieId }) => {
-  const dispatch = useDispatch();
-
-  const onShowTrailer = () => {
-    dispatch(fetchTrailerById(movieId));
-  };
+  const { onShowTrailer } = useTrailerFetchActions(movieId);
 
   return (
     <>
@@ -20,8 +15,10 @@ const ButtonWatchNow = ({ movieId }) => {
   );
 };
 
-export default ButtonWatchNow;
+export default React.memo(ButtonWatchNow);
 
 ButtonWatchNow.propTypes = {
   movieId: PropTypes.number.isRequired
 };
+
+ButtonWatchNow.displayName = "ButtonWatchNow";

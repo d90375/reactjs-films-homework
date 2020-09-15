@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useCallback } from "react";
 import "./TopSort.scss";
 import { useDispatch } from "react-redux";
 import {
@@ -8,19 +8,20 @@ import {
   fetchUpcomingData
 } from "../../../modules/movieListData/movieListActions";
 
-const TopSort = ({ genres, onSelectChange }) => {
+const TopSort = React.memo(({ genres, onSelectChange }) => {
   const dispatch = useDispatch();
-  const onGetTrendingList = () => {
+
+  const onGetTrendingList = useCallback(() => {
     dispatch(fetchPopularData());
-  };
+  }, [dispatch]);
 
-  const onGetTopRatedList = () => {
+  const onGetTopRatedList = useCallback(() => {
     dispatch(fetchTopRatedData());
-  };
+  }, [dispatch]);
 
-  const onGetUpcomingList = () => {
+  const onGetUpcomingList = useCallback(() => {
     dispatch(fetchUpcomingData());
-  };
+  }, [dispatch]);
 
   return (
     <nav className="nav">
@@ -64,7 +65,7 @@ const TopSort = ({ genres, onSelectChange }) => {
       </div>
     </nav>
   );
-};
+});
 
 export default TopSort;
 
@@ -76,3 +77,5 @@ TopSort.propTypes = {
 TopSort.defaultProps = {
   genres: {}
 };
+
+TopSort.displayName = "TopSort";

@@ -1,13 +1,16 @@
 import { createSelector } from "reselect";
+import { useSelector } from "react-redux";
 
-export const getMovieDataSelector = (state) => state.movieListReducer.data;
-export const getMovieGenresSelector = (state) => state.movieListReducer.genresData;
-export const getMovieIsLoadingSelector = (state) => state.movieListReducer.loading;
-export const getMovieDataError = (state) => state.movieListReducer.error;
+const getMovieDataSelector = (state) => state.movieListReducer.data;
+const getMovieGenresSelector = (state) => state.movieListReducer.genresData;
 
-export const getCompletedMovieList = createSelector(
+const getCompletedMovieListSelector = createSelector(
   [getMovieDataSelector, getMovieGenresSelector],
   (data, genresData) => {
     return { ...data, genres: genresData };
   }
 );
+
+export const useMovieListData = () => useSelector(getCompletedMovieListSelector);
+
+export const useMovieList = () => useSelector((state) => state.movieListReducer);

@@ -1,23 +1,26 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
+
 import TopSort from "./TopSort";
 import Preloader from "./Preloader";
 import MovieList from "./MovieList";
-import { getCompletedMovieList, getMovieIsLoadingSelector } from "../../modules/movieListData/movieListSelectors";
+import VideoFrame from "../VideoFrame";
+
+import { useMovieListData, useMovieList } from "../../modules/movieListData/movieListSelectors";
 import { fetchGenresData, fetchGenresDataById, fetchPopularData } from "../../modules/movieListData/movieListActions";
+
 import { NUMBER_OF_CARDS } from "../../constants";
-import VideoFrame from "./VideoFrame";
 
 const MovieListContainer = () => {
   const dispatch = useDispatch();
-  const { results, genres } = useSelector(getCompletedMovieList);
-  const isLoading = useSelector(getMovieIsLoadingSelector);
-  const onSelectChange = (event) => {
-    dispatch(fetchGenresDataById(event.target.value));
-  };
 
-  if (results && results.length > NUMBER_OF_CARDS) {
-    results.length = NUMBER_OF_CARDS;
+  const onSelectChange = useCallback((event) => dispatch(fetchGenresDataById(event.target.value)), [dispatch]);
+
+  const data = useMovieListData();
+  const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useMovieList();
+
+  if (data.results?.length > NUMBER_OF_CARDS) {
+    data.results.length = NUMBER_OF_CARDS;
   }
 
   // First load:
@@ -29,8 +32,14 @@ const MovieListContainer = () => {
   return (
     <>
       <VideoFrame />
-      <TopSort genres={genres} onSelectChange={onSelectChange} />
-      {isLoading ? <Preloader /> : <MovieList data={results} cardLength={results.length} genres={genres} />}
+      <TopSort genres={data.genres} onSelectChange={onSelectChange} />
+      {isLoadingMovieList && <Preloader />}
+      {isFulfilledMovieList && <MovieList data={data.results} cardLength={data.results.length} genres={data.genres} />}
+      {hasErrorMovieList && (
+        <div className="error error__movieList">
+          <span>Error ${errorMovieList.status_code}</span>
+        </div>
+      )}
     </>
   );
 };

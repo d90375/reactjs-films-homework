@@ -1,19 +1,27 @@
 import { FETCH_ERROR_BY_ID, FETCH_START_BY_ID, FETCHED_MOVIE_BY_ID } from "../actionTypes";
 
 const initialState = {
-  loading: true,
-  data: {},
-  error: null
+  isLoadingHeader: false,
+  isFulfilledHeader: false,
+  hasErrorHeader: false,
+  errorHeader: {},
+  data: {}
 };
 
 const headerReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START_BY_ID:
-      return { ...state, loading: true };
+      return { ...state, isFulfilledHeader: false, isLoadingHeader: true, hasErrorHeader: false, data: {} };
     case FETCHED_MOVIE_BY_ID:
-      return { ...state, loading: false, data: action.data };
+      return { ...state, isFulfilledHeader: true, isLoadingHeader: false, hasErrorHeader: false, data: action.data };
     case FETCH_ERROR_BY_ID:
-      return { ...state, loading: true, error: action.error };
+      return {
+        ...state,
+        isFulfilledHeader: false,
+        isLoadingHeader: false,
+        hasErrorHeader: true,
+        errorHeader: action.error
+      };
     default:
       return state;
   }

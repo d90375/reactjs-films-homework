@@ -1,4 +1,12 @@
-export const getTrailerDataSelector = (state) => state.trailerReducer.data;
-export const getTrailerIsLoadingSelector = (state) => state.trailerReducer.loading;
-export const getTrailerDataErrorSelector = (state) => state.trailerReducer.error;
-export const isShowTrailerSelector = (state) => state.trailerReducer.isShowVideoFrame;
+import { createSelector } from "reselect";
+import { useSelector } from "react-redux";
+
+const getTrailerSelector = (state) => state.trailerReducer.data;
+
+const getTrailerDataSelector = createSelector(getTrailerSelector, (data) => {
+  return data;
+});
+
+export const useTrailer = () => useSelector((state) => state.trailerReducer);
+
+export const useTrailerData = () => useSelector(getTrailerDataSelector);
