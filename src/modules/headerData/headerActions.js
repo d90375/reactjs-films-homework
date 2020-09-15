@@ -1,5 +1,5 @@
+import fetchJSON from "../../utils/fetch";
 import { FETCH_START_BY_ID, FETCH_ERROR_BY_ID, FETCHED_MOVIE_BY_ID } from "../actionTypes";
-
 import { API, KEY, LANG } from "../../constants";
 
 export const startFetchMoviesById = () => ({
@@ -19,8 +19,7 @@ export const errorFetchMoviesById = (error) => ({
 export const fetchMovieById = (id) => {
   return (dispatch) => {
     dispatch(startFetchMoviesById());
-    return fetch(`${API}movie/${id}${KEY}${LANG}`)
-      .then((res) => res.json())
+    return fetchJSON(`${API}movie/${id}${KEY}${LANG}`)
       .then((res) => {
         dispatch(finishFetchMoviesById(res));
         return res;

@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
+import fetchJSON from "../../utils/fetch"
 
 import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
 import { API, KEY, LANG } from "../../constants";
@@ -25,8 +26,7 @@ export const removeVideoFrame = () => ({
 export const fetchTrailerById = (id) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetch(`${API}movie/${id}/videos${KEY}${LANG}`)
-      .then((res) => res.json())
+    return fetchJSON(`${API}movie/${id}/videos${KEY}${LANG}`)
       .then((res) => {
         dispatch(finishedFetchTrailerById(res));
         return res;
