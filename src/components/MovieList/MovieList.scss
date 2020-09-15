@@ -1,8 +1,8 @@
 .main {
   background-color: #f5f6f6;
-  padding-top: 4rem;
   padding-left: 4rem;
   padding-right: 4rem;
+  padding-top: 4rem;
 }
 
 .card__wrap {
@@ -12,19 +12,19 @@
 }
 
 .noResults__wrap {
-  width: 100%;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 .noResults__text {
-  text-transform: capitalize;
+  color: #0aaee4;
   font-family: "Helvetica Neue", serif;
   font-size: 1rem;
   font-weight: 600;
-  line-height: 44px;
   letter-spacing: 1.12px;
-  color: #0aaee4;
+  line-height: 44px;
   margin-bottom: 10rem;
+  text-transform: capitalize;
 }

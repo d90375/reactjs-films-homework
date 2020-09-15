@@ -9,7 +9,8 @@ const InfoWindow = ({ cardData, onShowInfo }) => {
   const { title, score, genres, posterImg, overview, id } = cardData;
   const infoWindowBackgroundStyle = {
     background: posterImg
-      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%), url(https://image.tmdb.org/t/p/w500${posterImg})`
+      ? `linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%),
+    url(https://image.tmdb.org/t/p/w500${posterImg})`
       : `url(${IMAGE_NOT_FOUND_URL}) 0% 0% / contain`,
     backgroundSize: posterImg ? "cover" : "contain",
     backgroundRepeat: "no-repeat",

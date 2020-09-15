@@ -13,8 +13,8 @@ const trailerReducer = (state = initialState, action) => {
     case FETCH_START_TRAILER:
       return {
         ...state,
-        isFulfilledTrailer: true,
-        isLoadingTrailer: false,
+        isFulfilledTrailer: false,
+        isLoadingTrailer: true,
         hasErrorTrailer: false,
         data: {}
       };

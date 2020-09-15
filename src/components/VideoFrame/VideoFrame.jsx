@@ -3,6 +3,7 @@ import React from "react";
 import "./videoFrame.scss";
 
 const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
+  console.log('render');
   return (
     <div className="videoFrame">
       <iframe

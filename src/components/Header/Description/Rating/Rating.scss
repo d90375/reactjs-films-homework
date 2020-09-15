@@ -1,16 +1,16 @@
 .rating {
   display: flex;
-  margin-top: 1rem;
   flex-direction: row;
+  margin-top: 1rem;
 }
 
 .rating__container {
-  text-align: center;
-  line-height: 16px;
-  width: 30px;
-  height: 1rem;
   border: 2px solid #0aaee4;
   border-radius: 5px;
+  height: 1rem;
+  line-height: 16px;
+  text-align: center;
+  width: 30px;
 }
 
 .rating__number {

@@ -3,13 +3,13 @@
  **/
 
 html {
-  font-size: 16px;
   color: #fff;
+  font-size: 16px;
 }
 
 body {
-  margin: 0;
   font-family: "Helvetica Neue", serif;
+  margin: 0;
 }
 
 .wrap {
@@ -17,9 +17,9 @@ body {
 }
 
 .error {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   span {
     color: #e40001;

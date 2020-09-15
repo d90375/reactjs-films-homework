@@ -1,36 +1,36 @@
 .preloader__wrap {
-  width: 100%;
-  height: 50vh;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 50vh;
   justify-content: center;
+  width: 100%;
 }
 
 .preloader {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .preloader__picture {
   .preloader__child {
-    width: (28px / 2);
-    height: (28px / 2);
+    animation: preloader__picture 0.5s ease-in-out 0s infinite both;
     background-color: #0aaee4;
     border-radius: 100%;
     display: inline-block;
-    animation: preloader__picture 1.4s ease-in-out 0s infinite both;
+    height: (28px / 2);
+    width: (28px / 2);
   }
 
   .preloader__bounce-1 {
-    margin-right: 9px;
     animation-delay: 0.32s;
+    margin-right: 9px;
   }
 
   .preloader__bounce-2 {
-    margin-right: 9px;
     animation-delay: (0.32s / 2);
+    margin-right: 9px;
   }
 }
 
@@ -47,13 +47,13 @@
 }
 
 .preloader__text {
-  opacity: 0.35;
   color: #242b2d;
   font-family: "Helvetica Neue", serif;
   font-size: 1rem;
   font-weight: 500;
-  line-height: 33px;
-  text-transform: uppercase;
   letter-spacing: 0.88px;
+  line-height: 33px;
   margin-bottom: 54px;
+  opacity: 0.35;
+  text-transform: uppercase;
 }

@@ -40,11 +40,17 @@ const HeaderContainer = () => {
 
   return (
     <>
-      {isLoadingHeader && <Preloader />}
+      {isLoadingHeader && (
+        <div className="header__wrap">
+          <Preloader />
+        </div>
+      )}
       {isFulfilledHeader && <Header headData={headData} genres={genres} runtime={runtime} />}
       {hasErrorHeader && (
-        <div className="error error__header">
-          <span>Error ${errorHeader.status_code}</span>
+        <div className="header__wrap">
+          <div className="error error__header">
+            <span>Error ${errorHeader.status_code}</span>
+          </div>
         </div>
       )}
     </>

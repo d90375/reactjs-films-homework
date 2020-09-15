@@ -1,26 +1,26 @@
 .flexFixedWrap {
   display: flex;
+  flex-basis: 27%;
   flex-direction: column;
   justify-content: flex-end;
-  flex-basis: 27%;
 }
 
 .notation {
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   margin-right: 20px;
 }
 
 .notation__wrap {
-  width: calc(270px - 0.5rem * 2);
-  height: calc(135px - 0.5rem);
-  overflow: hidden;
-  text-overflow: clip;
   background-color: rgba(0, 0, 0, 0.64);
-  padding: 0.5rem 1rem 0 1rem;
+  height: calc(135px - 0.5rem);
   margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0.5rem 1rem 0 1rem;
   text-align: justify;
+  text-overflow: clip;
+  width: calc(270px - 0.5rem * 2);
 }
 
 .notation__btn {
@@ -35,22 +35,22 @@
   color: #fff;
   font-family: "Helvetica Neue - thin", serif;
   font-size: 0.9rem;
-  line-height: 1.5rem;
   letter-spacing: 1px;
+  line-height: 1.5rem;
 }
 
 .btn {
-  width: 8rem;
-  height: 2rem;
-  text-align: center;
-  line-height: 20px;
-  outline: none;
-  font-size: 1rem;
-  font-family: "Helvetica Neue - thin", serif;
-  font-weight: 400;
-  letter-spacing: 1.3px;
   color: #fff;
   cursor: pointer;
+  font-family: "Helvetica Neue - thin", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  height: 2rem;
+  letter-spacing: 1.3px;
+  line-height: 20px;
+  outline: none;
+  text-align: center;
+  width: 8rem;
 }
 
 .btn__view {

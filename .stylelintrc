@@ -26,5 +26,11 @@
   "plugins": [
     "stylelint-order"
   ],
-  "ignoreFiles": ["**/*.snap"]
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.snap",
+    "**/*.ico",
+    "**/*.png",
+     "src/assets/fonts/**"]
 }

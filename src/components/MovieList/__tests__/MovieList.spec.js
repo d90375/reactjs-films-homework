@@ -1,6 +1,6 @@
 import React from "react";
 import ShallowRenderer from "react-test-renderer/shallow";
-import MovieList from "../Main";
+import MovieList from "../MovieList";
 
 const renderer = new ShallowRenderer();
 const setUp = (props) => {

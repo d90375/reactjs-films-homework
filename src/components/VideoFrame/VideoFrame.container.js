@@ -10,10 +10,15 @@ const VideoFrameContainer = React.memo(() => {
 
   const { isLoadingTrailer, isFulfilledTrailer, hasErrorTrailer, errorTrailer } = useTrailer();
   const trailer = useTrailerData();
+  console.log(trailer);
 
   return (
     <>
-      {isLoadingTrailer && <Preloader />}
+      {isLoadingTrailer && (
+        <div className="videoFrame__wrap">
+          <Preloader />
+        </div>
+      )}
       {isFulfilledTrailer && (
         <VideoFrame trailerKey={trailer.results?.[0]?.key} onRemoveVideoFrame={handleRemoveVideoFrame} />
       )}

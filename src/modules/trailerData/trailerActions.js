@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import fetchJSON from "../../utils/fetch"
+import fetchJSON from "../../utils/fetch";
 
 import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
 import { API, KEY, LANG } from "../../constants";
