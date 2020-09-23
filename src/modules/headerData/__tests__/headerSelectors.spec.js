@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { renderHook } from "@testing-library/react-hooks";
-import { useCurrentMovieData, useCurrentMovie } from "../headerSelectors";
+import { useCurrentMovie } from "../headerSelectors";
 
 describe("modules > header > useCurrentMovie/useCurrentMovieData", () => {
   const mockStore = configureStore([]);
@@ -20,12 +20,12 @@ describe("modules > header > useCurrentMovie/useCurrentMovieData", () => {
     expect(result.current).toBe(state);
   });
 
-  it("returns current movie data value", () => {
-    const wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
-    const { result } = renderHook(() => useCurrentMovieData(), {
-      wrapper
-    });
-
-    expect(result.current).toBe(state);
-  });
+  // it("returns current movie data value", () => {
+  //   const wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
+  //   const { result } = renderHook(() => useCurrentMovieData(), {
+  //     wrapper
+  //   });
+  //
+  //   expect(result.current).toBe(state);
+  // });
 });

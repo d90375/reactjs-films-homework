@@ -12,7 +12,7 @@ describe("Card component", () => {
   });
 
   const mockProps = {
-    posterImg: "posterImg",
+    posterImg: "",
     title: "title",
     genres: "genres",
     overview: "overview",
@@ -29,7 +29,8 @@ describe("Card component", () => {
   });
 
   it("should render Card component with props", () => {
-    expect(component).toMatchSnapshot({ ...mockProps });
+    component = setUp({ ...mockProps });
+    expect(component).toMatchSnapshot();
   });
 
   describe("defaultProps", () => {

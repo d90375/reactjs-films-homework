@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card component should render Card component with props 1`] = `Object {}`;
+exports[`Card component should render Card component with props 1`] = `
+<div
+  className="card"
+>
+  <InfoWindow
+    cardData={
+      Object {
+        "genres": "genres",
+        "id": 0,
+        "overview": "overview",
+        "posterImg": "",
+        "score": 0,
+        "title": "title",
+      }
+    }
+    onShowInfo={[Function]}
+  />
+</div>
+`;
 
 exports[`Card component should render Card component without props 1`] = `
 <div
