@@ -1,25 +1,30 @@
-import fetchJSON from "../../utils/fetch";
-import { FETCH_START_BY_ID, FETCH_ERROR_BY_ID, FETCHED_MOVIE_BY_ID } from "../actionTypes";
+import axios from "axios";
+import {
+  FETCH_CURRENT_MOVIE_PENDING,
+  FETCH_CURRENT_MOVIE_FULFILLED,
+  FETCH_CURRENT_MOVIE_REJECTED
+} from "../actionTypes";
 import { API, KEY, LANG } from "../../constants";
 
-export const startFetchMoviesById = () => ({
-  type: FETCH_START_BY_ID
+const startFetchMoviesById = () => ({
+  type: FETCH_CURRENT_MOVIE_PENDING
 });
 
-export const finishFetchMoviesById = (data) => ({
-  type: FETCHED_MOVIE_BY_ID,
-  data
+const finishFetchMoviesById = (data) => ({
+  type: FETCH_CURRENT_MOVIE_FULFILLED,
+  payload: data
 });
 
-export const errorFetchMoviesById = (error) => ({
-  type: FETCH_ERROR_BY_ID,
-  error
+const errorFetchMoviesById = (data) => ({
+  type: FETCH_CURRENT_MOVIE_REJECTED,
+  payload: data
 });
 
-export const fetchMovieById = (id) => {
+const fetchMovieById = (id) => {
   return (dispatch) => {
     dispatch(startFetchMoviesById());
-    return fetchJSON(`${API}movie/${id}${KEY}${LANG}`)
+    return axios
+      .get(`${API}movie/${id}${KEY}${LANG}`)
       .then((res) => {
         dispatch(finishFetchMoviesById(res));
         return res;
@@ -29,3 +34,5 @@ export const fetchMovieById = (id) => {
       });
   };
 };
+
+export default fetchMovieById;

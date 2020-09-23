@@ -25,7 +25,7 @@ Description.displayName = "Description";
 
 Description.propTypes = {
   genres: PropTypes.string,
-  runtime: PropTypes.arrayOf(PropTypes.number).isRequired,
+  runtime: PropTypes.arrayOf(PropTypes.number),
   title: PropTypes.string,
   voteAverage: PropTypes.number
 };
@@ -33,5 +33,6 @@ Description.propTypes = {
 Description.defaultProps = {
   genres: "",
   title: "",
-  voteAverage: 0
+  voteAverage: 0,
+  runtime: [0, 0]
 };

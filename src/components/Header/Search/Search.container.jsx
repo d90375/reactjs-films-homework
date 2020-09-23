@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Search from "./Search";
-import { fetchData } from "../../../modules/movieListData/movieListActions";
+import { fetchData } from "../../../modules/movieListData";
 
 const SearchContainer = () => {
   const dispatch = useDispatch();

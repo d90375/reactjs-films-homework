@@ -1,4 +1,10 @@
-import { FETCHED_MOVIES, FETCH_START, FETCH_ERROR, FETCHED_GENRES, FETCHED_GENRES_BY_ID } from "../actionTypes";
+import {
+  FETCH_MOVIES_REJECTED,
+  FETCH_MOVIES_FULFILLED,
+  FETCH_MOVIES_PENDING,
+  FETCH_MOVIES_GENRES,
+  FETCH_MOVIES_GENRES_BY_ID
+} from "../actionTypes";
 
 const initialState = {
   isLoadingMovieList: false,
@@ -6,35 +12,37 @@ const initialState = {
   hasErrorMovieList: false,
   errorMovieList: {},
   data: {},
-  genres: {}
+  genresData: {}
 };
 
 let adjustmentGenreData = {};
 
-const movieListReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_START:
+    case FETCH_MOVIES_PENDING:
       return { ...state, isFulfilledMovieList: false, isLoadingMovieList: true, hasErrorMovieList: false, data: {} };
-    case FETCHED_MOVIES:
+    case FETCH_MOVIES_FULFILLED:
       return {
         ...state,
         isFulfilledMovieList: true,
         isLoadingMovieList: false,
         hasErrorMovieList: false,
-        data: action.data
+        data: action.payload.data
       };
-    case FETCHED_GENRES_BY_ID:
+    case FETCH_MOVIES_GENRES_BY_ID:
       return {
         ...state,
         isFulfilledMovieList: true,
         isLoadingMovieList: false,
         hasErrorMovieList: false,
-        data: action.data
+        data: action.payload.data
       };
-    case FETCHED_GENRES:
-      adjustmentGenreData = Object.values(action.genresData.genres).reduce((acc, genre) => {
+
+    case FETCH_MOVIES_GENRES:
+      adjustmentGenreData = Object.values(action.payload.data.genres).reduce((acc, genre) => {
         return { ...acc, [genre.id]: genre.name };
       }, {});
+
       return {
         ...state,
         isFulfilledMovieList: true,
@@ -42,17 +50,16 @@ const movieListReducer = (state = initialState, action) => {
         hasErrorMovieList: false,
         genresData: adjustmentGenreData
       };
-    case FETCH_ERROR:
+
+    case FETCH_MOVIES_REJECTED:
       return {
         ...state,
         isFulfilledMovieList: false,
         isLoadingMovieList: false,
         hasErrorMovieList: true,
-        errorMovieList: action.error
+        errorMovieList: action.payload
       };
     default:
       return state;
   }
 };
-
-export default movieListReducer;

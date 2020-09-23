@@ -1,24 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component should render Header component 1`] = `
-<header
-  className="header"
->
-  <div
-    className="header__topWrap"
-  >
-    <span
-      className="logo"
-    >
-      FILMS
-    </span>
-    <Search />
-  </div>
-  <div
-    className="header__btmWrap"
-  >
-    <Description />
-    <Notation />
-  </div>
-</header>
-`;
+exports[`Header component should render Header component with props  1`] = `undefined`;
+
+exports[`Header component should render Header component without props  1`] = `undefined`;

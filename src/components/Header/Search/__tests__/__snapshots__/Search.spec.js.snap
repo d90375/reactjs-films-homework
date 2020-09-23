@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search component should render Search component 1`] = `
+exports[`Search component should render Search component with props 1`] = `
 <form
-  action="#"
   className="search"
-  method="post"
+  onSubmit={[Function]}
 >
   <label
     htmlFor="searchId"
@@ -13,10 +12,68 @@ exports[`Search component should render Search component 1`] = `
       className="search__text"
       id="searchId"
       name="search"
-      placeholder="the jungle book"
-      required={true}
-      type="text"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search"
+      type="search"
+      value="queryText"
     />
+    <svg
+      className="search__icon"
+      height="1rem"
+      onClick={[Function]}
+      viewBox="0 0 28 28"
+      width="1rem"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <g>
+          <path
+            d="M26.3 28l-8.253-8.27a11.037 11.037 0 0 1-6.964 2.466C4.965 22.196 0 17.223 0 11.098 0 4.973 4.958 0 11.083 0c6.118 0 11.084 4.965 11.084 11.098 0 2.625-.912 5.038-2.429 6.934L28 26.3zm-15.217-7.796c2.427 0 4.714-.95 6.432-2.668a9.069 9.069 0 0 0 2.66-6.438 9.04 9.04 0 0 0-2.66-6.439 9.043 9.043 0 0 0-6.432-2.667c-2.427 0-4.72.956-6.432 2.674a9.07 9.07 0 0 0-2.66 6.438c0 2.434.942 4.72 2.66 6.439a9.01 9.01 0 0 0 6.432 2.66z"
+            fill="#fff"
+          />
+        </g>
+      </g>
+    </svg>
+  </label>
+</form>
+`;
+
+exports[`Search component should render Search component without props 1`] = `
+<form
+  className="search"
+  onSubmit={[Function]}
+>
+  <label
+    htmlFor="searchId"
+  >
+    <input
+      className="search__text"
+      id="searchId"
+      name="search"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search"
+      type="search"
+      value=""
+    />
+    <svg
+      className="search__icon"
+      height="1rem"
+      onClick={[Function]}
+      viewBox="0 0 28 28"
+      width="1rem"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <g>
+          <path
+            d="M26.3 28l-8.253-8.27a11.037 11.037 0 0 1-6.964 2.466C4.965 22.196 0 17.223 0 11.098 0 4.973 4.958 0 11.083 0c6.118 0 11.084 4.965 11.084 11.098 0 2.625-.912 5.038-2.429 6.934L28 26.3zm-15.217-7.796c2.427 0 4.714-.95 6.432-2.668a9.069 9.069 0 0 0 2.66-6.438 9.04 9.04 0 0 0-2.66-6.439 9.043 9.043 0 0 0-6.432-2.667c-2.427 0-4.72.956-6.432 2.674a9.07 9.07 0 0 0-2.66 6.438c0 2.434.942 4.72 2.66 6.439a9.01 9.01 0 0 0 6.432 2.66z"
+            fill="#fff"
+          />
+        </g>
+      </g>
+    </svg>
   </label>
 </form>
 `;

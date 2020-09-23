@@ -15,7 +15,7 @@ exports[`Footer component should render Posts component 1`] = `
     className="footer__copyright"
   >
     <span>
-      Copyright © 2018 FILMS. YOUR NAME
+      Copyright © 2018 d90375
     </span>
   </div>
 </footer>

@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Header from "./Header";
-import { useCurrentMovieData, useCurrentMovie } from "../../modules/headerData/headerSelectors";
-import { useMovieListData } from "../../modules/movieListData/movieListSelectors";
-import { fetchMovieById } from "../../modules/headerData/headerActions";
+import { fetchMovieById, useCurrentMovieData, useCurrentMovie } from "../../modules/headerData";
+import { useMovieListData } from "../../modules/movieListData";
 import Preloader from "../MovieList/Preloader";
 
 const HeaderContainer = () => {
@@ -49,7 +48,7 @@ const HeaderContainer = () => {
       {hasErrorHeader && (
         <div className="header__wrap">
           <div className="error error__header">
-            <span>Error ${errorHeader.status_code}</span>
+            <span>Error {errorHeader}</span>
           </div>
         </div>
       )}

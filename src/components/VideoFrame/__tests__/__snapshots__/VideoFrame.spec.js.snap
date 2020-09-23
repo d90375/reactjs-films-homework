@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoFrame component should render VideoFrame component with props 1`] = `
+<div
+  className="videoFrame"
+>
+  <iframe
+    allowFullScreen={true}
+    className="videoFrame__iframe"
+    frameBorder="0"
+    src="https://www.youtube.com/embed/key"
+    title="trailer"
+  />
+  <button
+    className="videoFrame__btn"
+    onClick={[Function]}
+    type="button"
+  >
+    ✘
+  </button>
+</div>
+`;
+
+exports[`VideoFrame component should render VideoFrame component without props 1`] = `
+<div
+  className="videoFrame"
+>
+  <iframe
+    allowFullScreen={true}
+    className="videoFrame__iframe"
+    frameBorder="0"
+    src="https://www.youtube.com/embed/"
+    title="trailer"
+  />
+  <button
+    className="videoFrame__btn"
+    onClick={[Function]}
+    type="button"
+  >
+    ✘
+  </button>
+</div>
+`;

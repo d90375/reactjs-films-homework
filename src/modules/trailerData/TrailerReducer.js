@@ -1,4 +1,9 @@
-import { FETCH_ERROR_TRAILER, FETCH_START_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
+import {
+  FETCH_TRAILER_FULFILLED,
+  FETCH_TRAILER_PENDING,
+  FETCH_TRAILER_REJECTED,
+  FETCH_TRAILER_REMOVE
+} from "../actionTypes";
 
 const initialState = {
   isLoadingTrailer: false,
@@ -8,9 +13,9 @@ const initialState = {
   data: {}
 };
 
-const trailerReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_START_TRAILER:
+    case FETCH_TRAILER_PENDING:
       return {
         ...state,
         isFulfilledTrailer: false,
@@ -18,28 +23,26 @@ const trailerReducer = (state = initialState, action) => {
         hasErrorTrailer: false,
         data: {}
       };
-    case FETCHED_TRAILER:
+    case FETCH_TRAILER_FULFILLED:
       return {
         ...state,
         isFulfilledTrailer: true,
         isLoadingTrailer: false,
         hasErrorTrailer: false,
-        data: action.data
+        data: action.payload.data
       };
-    case FETCH_ERROR_TRAILER:
+    case FETCH_TRAILER_REJECTED:
       return {
         ...state,
         isFulfilledTrailer: false,
         isLoadingTrailer: false,
         hasErrorTrailer: true,
-        errorTrailer: action.error
+        errorTrailer: action.payload
       };
-    case REMOVE_TRAILER: {
+    case FETCH_TRAILER_REMOVE: {
       return { ...state, ...initialState };
     }
     default:
       return state;
   }
 };
-
-export default trailerReducer;

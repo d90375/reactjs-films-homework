@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 
 import Card from "./Card";
-import { fetchMovieById } from "../../../modules/headerData/headerActions";
-import { fetchTrailerById } from "../../../modules/trailerData/trailerActions";
+import { fetchMovieById } from "../../../modules/headerData";
+import { useTrailerActions } from "../../../modules/trailerData";
 
 const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
   const dispatch = useDispatch();
+
+  const { handleShowTrailer } = useTrailerActions(cardItem?.id);
 
   const [isHiddenWindow, setIsHiddenWindow] = useState(false);
   const [isResizedImg, setIsResizedImg] = useState(false);
@@ -37,10 +39,6 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
 
   const handleChangeHeaderMovie = () => {
     dispatch(fetchMovieById(cardItem?.id));
-  };
-
-  const handleShowTrailer = () => {
-    dispatch(fetchTrailerById(cardItem?.id));
   };
 
   const handleShowInfo = () => {
@@ -92,9 +90,32 @@ CardContainer.propTypes = {
     vote_average: PropTypes.number,
     overview: PropTypes.string,
     release_date: PropTypes.string
-  }).isRequired,
+  }),
   genresItems: PropTypes.shape({
     number: PropTypes.string
-  }).isRequired,
-  cardIndex: PropTypes.number.isRequired
+  }),
+  cardIndex: PropTypes.number
+};
+
+CardContainer.defaultProps = {
+  cardItem: {
+    popularity: 0,
+    vote_count: 0,
+    video: false,
+    poster_path: "",
+    id: 0,
+    adult: false,
+    backdrop_path: "",
+    original_language: "",
+    original_title: "",
+    genre_ids: [0, 0],
+    title: "",
+    vote_average: 0,
+    overview: "",
+    release_date: ""
+  },
+  genresItems: {
+    0: ""
+  },
+  cardIndex: 0
 };

@@ -1,35 +1,42 @@
-import { FETCHED_MOVIES, FETCH_START, FETCHED_GENRES, FETCH_ERROR, FETCHED_GENRES_BY_ID } from "../actionTypes";
+import axios from "axios";
+import {
+  FETCH_MOVIES_PENDING,
+  FETCH_MOVIES_FULFILLED,
+  FETCH_MOVIES_GENRES,
+  FETCH_MOVIES_REJECTED,
+  FETCH_MOVIES_GENRES_BY_ID
+} from "../actionTypes";
 import { API, KEY, LANG, PAGE, REGION, QUERY, ADULT } from "../../constants";
-import fetchJSON from "../../utils/fetch";
 
-export const startFetch = () => ({
-  type: FETCH_START
+const startFetch = () => ({
+  type: FETCH_MOVIES_PENDING
 });
 
-export const finishedFetchMovies = (data) => ({
-  type: FETCHED_MOVIES,
-  data
+const finishedFetchMovies = (movieData) => ({
+  type: FETCH_MOVIES_FULFILLED,
+  payload: movieData
 });
 
-export const finishedFetchGenres = (genresData) => ({
-  type: FETCHED_GENRES,
-  genresData
+const finishedFetchGenres = (genresData) => ({
+  type: FETCH_MOVIES_GENRES,
+  payload: genresData
 });
 
-export const finishedFetchGenresById = (data) => ({
-  type: FETCHED_GENRES_BY_ID,
-  data
+const finishedFetchGenresById = (movieData) => ({
+  type: FETCH_MOVIES_GENRES_BY_ID,
+  payload: movieData
 });
 
-export const errorFetch = (error) => ({
-  type: FETCH_ERROR,
-  error
+const errorFetch = (error) => ({
+  type: FETCH_MOVIES_REJECTED,
+  payload: error
 });
 
 export const fetchGenresDataById = (id) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}discover/movie${KEY}&with_genres=${id}`)
+    return axios
+      .get(`${API}discover/movie${KEY}&with_genres=${id}`)
       .then((res) => {
         dispatch(finishedFetchGenresById(res));
         return res;
@@ -43,7 +50,8 @@ export const fetchGenresDataById = (id) => {
 export const fetchGenresData = () => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}genre/movie/list${KEY}${LANG}`)
+    return axios
+      .get(`${API}genre/movie/list${KEY}${LANG}`)
       .then((res) => {
         dispatch(finishedFetchGenres(res));
         return res;
@@ -57,7 +65,8 @@ export const fetchGenresData = () => {
 export const fetchPopularData = () => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}movie/popular${KEY}${LANG}${PAGE}${REGION}`)
+    return axios
+      .get(`${API}movie/popular${KEY}${LANG}${PAGE}${REGION}`)
       .then((res) => {
         dispatch(finishedFetchMovies(res));
         return res;
@@ -71,7 +80,8 @@ export const fetchPopularData = () => {
 export const fetchUpcomingData = () => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}movie/upcoming${KEY}${LANG}${PAGE}${REGION}`)
+    return axios
+      .get(`${API}movie/upcoming${KEY}${LANG}${PAGE}${REGION}`)
       .then((res) => {
         dispatch(finishedFetchMovies(res));
         return res;
@@ -85,7 +95,8 @@ export const fetchUpcomingData = () => {
 export const fetchTopRatedData = () => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}movie/top_rated${KEY}${LANG}${PAGE}${REGION}`)
+    return axios
+      .get(`${API}movie/top_rated${KEY}${LANG}${PAGE}${REGION}`)
       .then((res) => {
         dispatch(finishedFetchMovies(res));
         return res;
@@ -99,7 +110,8 @@ export const fetchTopRatedData = () => {
 export const fetchData = (query) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}search/movie${KEY}${LANG}${QUERY + query}${PAGE}${ADULT}`)
+    return axios
+      .get(`${API}search/movie${KEY}${LANG}${QUERY + query}${PAGE}${ADULT}`)
       .then((res) => {
         dispatch(finishedFetchMovies(res));
         return res;

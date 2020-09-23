@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoWindow component should render InfoWindow component with props 1`] = `
+<div
+  className="infoWindow"
+  style={
+    Object {
+      "background": "linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%),
+    url(https://image.tmdb.org/t/p/w500posterImg)",
+      "backgroundPosition": "top",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <button
+    className="infoWindow__btn"
+    onClick={[Function]}
+    type="button"
+  >
+    ×
+  </button>
+  <div
+    className="infoWindow__wrap"
+  >
+    <div
+      className="infoWindow__title"
+    >
+      <h3
+        className="infoWindow__title_text"
+      >
+        title
+      </h3>
+      <p
+        className="infoWindow__title_score"
+      >
+        999
+      </p>
+    </div>
+    <p
+      className="infoWindow__genres"
+    >
+      genres
+    </p>
+  </div>
+  <p
+    className="infoWindow_overview"
+  >
+    overview
+  </p>
+  <div
+    className="infoWindow_btnWrap"
+  >
+    <Memo(ButtonWatchNow)
+      movieId={9}
+    />
+  </div>
+</div>
+`;
+
+exports[`InfoWindow component should render InfoWindow component without props 1`] = `
+<div
+  className="infoWindow"
+  style={
+    Object {
+      "background": "url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg) 0% 0% / contain",
+      "backgroundPosition": "top",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "contain",
+    }
+  }
+>
+  <button
+    className="infoWindow__btn"
+    onClick={[Function]}
+    type="button"
+  >
+    ×
+  </button>
+  <div
+    className="infoWindow__wrap"
+  >
+    <div
+      className="infoWindow__title"
+    >
+      <h3
+        className="infoWindow__title_text"
+      />
+      <p
+        className="infoWindow__title_score"
+      >
+        0
+      </p>
+    </div>
+    <p
+      className="infoWindow__genres"
+    />
+  </div>
+  <p
+    className="infoWindow_overview"
+  />
+  <div
+    className="infoWindow_btnWrap"
+  >
+    <Memo(ButtonWatchNow)
+      movieId={0}
+    />
+  </div>
+</div>
+`;

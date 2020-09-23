@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notation container component should render Notation container component 1`] = `
+<Fragment>
+  <Notation
+    isHiddenViewWindow={true}
+    movieId={0}
+    onHideView={[Function]}
+    overview=""
+  />
+</Fragment>
+`;

@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { useTrailerFetchActions } from "../../../modules/trailerData/trailerActions";
+import { useTrailerActions } from "../../../modules/trailerData";
 import "./buttonWatchNow.scss";
 
 const ButtonWatchNow = ({ movieId }) => {
-  const { onShowTrailer } = useTrailerFetchActions(movieId);
+  const { handleShowTrailer } = useTrailerActions(movieId);
 
   return (
     <>
-      <button onClick={onShowTrailer} type="button" className="btn btn__watch">
+      <button onClick={handleShowTrailer} type="button" className="btn btn__watch">
         Watch Now
       </button>
     </>
@@ -18,7 +18,11 @@ const ButtonWatchNow = ({ movieId }) => {
 export default React.memo(ButtonWatchNow);
 
 ButtonWatchNow.propTypes = {
-  movieId: PropTypes.number.isRequired
+  movieId: PropTypes.number
+};
+
+ButtonWatchNow.defaultProps = {
+  movieId: 0
 };
 
 ButtonWatchNow.displayName = "ButtonWatchNow";

@@ -1,11 +1,8 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import Header from "../Header";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  renderer.render(<Header {...props} />);
-  return renderer.getRenderOutput();
+  shallow(<Header {...props} />);
 };
 
 describe("Header component", () => {
@@ -14,7 +11,12 @@ describe("Header component", () => {
     component = setUp();
   });
 
-  it("should render Header component", () => {
+  it("should render Header component without props ", () => {
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Header component with props ", () => {
+    component = setUp();
     expect(component).toMatchSnapshot();
   });
 });

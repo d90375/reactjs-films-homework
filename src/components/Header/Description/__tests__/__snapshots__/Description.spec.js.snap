@@ -1,36 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Description component should render Description component 1`] = `
+exports[`Description component should render Description component with props 1`] = `
 <div
   className="description"
 >
-  <span
+  <h2
     className="description__title"
   >
-    The Jungle Book
-  </span>
+    title
+  </h2>
   <div
     className="description__specification"
   >
     <span
       className="specification__genre specification__genre_1"
     >
-      Adventure
-    </span>
-    <span
-      className="specification__genre specification__genre_2"
-    >
-      Drama
-    </span>
-    <span
-      className="specification__genre specification__genre_3"
-    >
-      Family
-    </span>
-    <span
-      className="specification__genre specification__genre_4"
-    >
-      Fantasy
+      genres
     </span>
     <div
       className="specification__border"
@@ -41,10 +26,44 @@ exports[`Description component should render Description component 1`] = `
       <span
         className="duration__time"
       >
-        1h 46m
+        1h 1m
       </span>
     </div>
   </div>
-  <Rating />
+  <Rating
+    voteAverage={10}
+  />
+</div>
+`;
+
+exports[`Description component should render Description component without props 1`] = `
+<div
+  className="description"
+>
+  <h2
+    className="description__title"
+  />
+  <div
+    className="description__specification"
+  >
+    <span
+      className="specification__genre specification__genre_1"
+    />
+    <div
+      className="specification__border"
+    />
+    <div
+      className="specification__duration"
+    >
+      <span
+        className="duration__time"
+      >
+        0h 0m
+      </span>
+    </div>
+  </div>
+  <Rating
+    voteAverage={0}
+  />
 </div>
 `;

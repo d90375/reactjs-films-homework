@@ -1,10 +1,8 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import Preloader from "../Preloader";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  return renderer.render(<Preloader {...props} />);
+  return shallow(<Preloader {...props} />);
 };
 
 describe("Preloader component", () => {

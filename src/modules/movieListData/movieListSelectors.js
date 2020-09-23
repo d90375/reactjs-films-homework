@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 import { useSelector } from "react-redux";
 
-const getMovieDataSelector = (state) => state.movieListReducer.data;
-const getMovieGenresSelector = (state) => state.movieListReducer.genresData;
+const getMovieDataSelector = (state) => state.movieList.data;
+const getMovieGenresSelector = (state) => state.movieList.genresData;
 
 const getCompletedMovieListSelector = createSelector(
   [getMovieDataSelector, getMovieGenresSelector],
@@ -13,4 +13,4 @@ const getCompletedMovieListSelector = createSelector(
 
 export const useMovieListData = () => useSelector(getCompletedMovieListSelector);
 
-export const useMovieList = () => useSelector((state) => state.movieListReducer);
+export const useMovieList = () => useSelector((state) => state.movieList);

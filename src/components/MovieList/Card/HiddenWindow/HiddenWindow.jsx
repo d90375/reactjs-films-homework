@@ -19,6 +19,11 @@ const HiddenWindow = ({ onShowTrailer, onShowInfo }) => {
 export default HiddenWindow;
 
 HiddenWindow.propTypes = {
-  onShowInfo: PropTypes.func.isRequired,
-  onShowTrailer: PropTypes.func.isRequired
+  onShowInfo: PropTypes.func,
+  onShowTrailer: PropTypes.func
+};
+
+HiddenWindow.defaultProps = {
+  onShowInfo: () => {},
+  onShowTrailer: () => {}
 };

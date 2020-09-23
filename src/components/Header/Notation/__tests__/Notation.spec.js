@@ -1,19 +1,39 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import Notation from "../Notation";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  return renderer.render(<Notation {...props} />);
+  return shallow(<Notation {...props} />);
 };
 
 describe("Notation component", () => {
   let component;
+
   beforeEach(() => {
     component = setUp();
   });
 
-  it("should render Notation component", () => {
+  const mockProps = {
+    movieId: 999,
+    isHiddenViewWindow: true,
+    overview: "overview"
+  };
+
+  it("should render Notation component without props", () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it("should render Notation component with props", () => {
+    component = setUp({ ...mockProps });
+    expect(component).toMatchSnapshot();
+  });
+
+  describe("should handler", () => {
+    it("should call onHideView method", () => {
+      const mockCallBack = jest.fn();
+      component = setUp({ onHideView: mockCallBack });
+      expect(mockCallBack.mock.calls.length).toBe(0);
+      component.find(".btn__view").simulate("click");
+      expect(mockCallBack.mock.calls.length).toBe(1);
+    });
   });
 });

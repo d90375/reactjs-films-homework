@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main component should render Main component with cards 1`] = `
+<div
+  className="card__wrap"
+>
+  <CardContainer
+    cardIndex={0}
+    cardItem={
+      Object {
+        "data": "data",
+        "id": 1,
+      }
+    }
+    genresItems={
+      Object {
+        "12": "12",
+      }
+    }
+    key="1"
+  />
+</div>
+`;
+
+exports[`Main component should render Main component without cards  1`] = `
+<div
+  className="card__wrap"
+>
+  <div
+    className="noResults__wrap"
+  >
+    <span
+      className="noResults__text"
+    >
+      No results
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Main component should render Main component without props 1`] = `
+<div
+  className="card__wrap"
+>
+  <div
+    className="noResults__wrap"
+  >
+    <span
+      className="noResults__text"
+    >
+      No results
+    </span>
+  </div>
+</div>
+`;

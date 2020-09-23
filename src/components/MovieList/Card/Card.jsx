@@ -75,16 +75,16 @@ Card.propTypes = {
   overview: PropTypes.string,
   score: PropTypes.number,
   cardIndex: PropTypes.number,
-  isResizedImg: PropTypes.bool.isRequired,
-  isHiddenWindow: PropTypes.bool.isRequired,
-  isInfoShow: PropTypes.bool.isRequired,
-  onShowWindow: PropTypes.func.isRequired,
-  onHideWindow: PropTypes.func.isRequired,
-  onChangeHeaderMovie: PropTypes.func.isRequired,
-  onResizeImg: PropTypes.func.isRequired,
-  onOriginImg: PropTypes.func.isRequired,
-  handleShowTrailer: PropTypes.func.isRequired,
-  handleShowInfo: PropTypes.func.isRequired
+  isResizedImg: PropTypes.bool,
+  isHiddenWindow: PropTypes.bool,
+  isInfoShow: PropTypes.bool,
+  onShowWindow: PropTypes.func,
+  onHideWindow: PropTypes.func,
+  onChangeHeaderMovie: PropTypes.func,
+  onResizeImg: PropTypes.func,
+  onOriginImg: PropTypes.func,
+  handleShowTrailer: PropTypes.func,
+  handleShowInfo: PropTypes.func
 };
 
 Card.defaultProps = {
@@ -93,6 +93,16 @@ Card.defaultProps = {
   genres: "",
   overview: "",
   score: 0,
-  id: null,
-  cardIndex: null
+  id: 0,
+  cardIndex: 0,
+  isResizedImg: false,
+  isHiddenWindow: false,
+  isInfoShow: false,
+  onShowWindow: () => {},
+  onHideWindow: () => {},
+  onChangeHeaderMovie: () => {},
+  onResizeImg: () => {},
+  onOriginImg: () => {},
+  handleShowTrailer: () => {},
+  handleShowInfo: () => {}
 };

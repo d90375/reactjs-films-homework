@@ -6,8 +6,13 @@ import Preloader from "./Preloader";
 import MovieList from "./MovieList";
 import VideoFrame from "../VideoFrame";
 
-import { useMovieListData, useMovieList } from "../../modules/movieListData/movieListSelectors";
-import { fetchGenresData, fetchGenresDataById, fetchPopularData } from "../../modules/movieListData/movieListActions";
+import {
+  fetchGenresData,
+  fetchGenresDataById,
+  fetchPopularData,
+  useMovieListData,
+  useMovieList
+} from "../../modules/movieListData";
 
 import { NUMBER_OF_CARDS } from "../../constants";
 
@@ -19,7 +24,7 @@ const MovieListContainer = () => {
   const data = useMovieListData();
   const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useMovieList();
 
-  if (data.results?.length > NUMBER_OF_CARDS) {
+  if (data?.results?.length > NUMBER_OF_CARDS) {
     data.results.length = NUMBER_OF_CARDS;
   }
 
@@ -32,12 +37,15 @@ const MovieListContainer = () => {
   return (
     <>
       <VideoFrame />
-      <TopSort genres={data.genres} onSelectChange={onSelectChange} />
+
+      <TopSort genres={data?.genres} onSelectChange={onSelectChange} />
       {isLoadingMovieList && <Preloader />}
-      {isFulfilledMovieList && <MovieList data={data.results} cardLength={data.results.length} genres={data.genres} />}
+      {isFulfilledMovieList && (
+        <MovieList data={data?.results} cardLength={data?.results?.length} genres={data?.genres} />
+      )}
       {hasErrorMovieList && (
         <div className="error error__movieList">
-          <span>Error ${errorMovieList.status_code}</span>
+          <span>Error {errorMovieList}</span>
         </div>
       )}
     </>

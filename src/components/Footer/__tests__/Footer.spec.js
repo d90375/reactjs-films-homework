@@ -1,10 +1,8 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import Footer from "../Footer";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  return renderer.render(<Footer {...props} />);
+  return shallow(<Footer {...props} />);
 };
 
 describe("Footer component", () => {

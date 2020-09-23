@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modules > trailer > TrailerReducer updates state according to dispatched action 1`] = `
+Object {
+  "data": 1,
+  "hasErrorTrailer": false,
+  "isFulfilledTrailer": true,
+  "isLoadingTrailer": false,
+  "value": 0,
+}
+`;
+
+exports[`modules > trailer > TrailerReducer updates state according to dispatched action 2`] = `
+Object {
+  "data": Object {},
+  "hasErrorTrailer": false,
+  "isFulfilledTrailer": false,
+  "isLoadingTrailer": true,
+  "value": 0,
+}
+`;
+
+exports[`modules > trailer > TrailerReducer updates state according to dispatched action 3`] = `
+Object {
+  "errorTrailer": undefined,
+  "hasErrorTrailer": true,
+  "isFulfilledTrailer": false,
+  "isLoadingTrailer": false,
+  "value": 0,
+}
+`;
+
+exports[`modules > trailer > TrailerReducer updates state according to dispatched action 4`] = `
+Object {
+  "data": Object {},
+  "errorTrailer": Object {},
+  "hasErrorTrailer": false,
+  "isFulfilledTrailer": false,
+  "isLoadingTrailer": false,
+  "value": 0,
+}
+`;

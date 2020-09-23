@@ -1,10 +1,8 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import MovieList from "../MovieList";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  return renderer.render(<MovieList {...props} />);
+  return shallow(<MovieList {...props} />);
 };
 
 describe("Main component", () => {
@@ -13,7 +11,22 @@ describe("Main component", () => {
     component = setUp();
   });
 
-  it("should render Main component", () => {
+  const mockProps = {
+    data: [{ data: "data", id: 1 }],
+    genres: { 12: "12" }
+  };
+
+  it("should render Main component without props", () => {
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Main component without cards ", () => {
+    component = setUp({ cardLength: 0, ...mockProps });
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Main component with cards", () => {
+    component = setUp({ cardLength: 5, ...mockProps });
     expect(component).toMatchSnapshot();
   });
 });

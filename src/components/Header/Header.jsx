@@ -10,8 +10,8 @@ import "./Header.scss";
 const Header = ({ headData, genres, runtime }) => {
   const { title, id, overview } = headData;
   const voteAverage = headData.vote_average;
-  let poster = "";
 
+  let poster = "";
   poster = headData.backdrop_path
     ? `url("https://image.tmdb.org/t/p/w1280${headData.backdrop_path}")`
     : `url(${IMAGE_NOT_FOUND_URL})`;
@@ -64,11 +64,18 @@ Header.propTypes = {
     video: PropTypes.bool,
     vote_average: PropTypes.number,
     vote_count: PropTypes.number
-  }).isRequired,
+  }),
   runtime: PropTypes.arrayOf(PropTypes.number)
 };
 
 Header.defaultProps = {
   genres: "",
-  runtime: [0, 0]
+  runtime: [0, 0],
+  headData: {
+    vote_average: 0,
+    backdrop_path: "",
+    title: "",
+    id: 0,
+    overview: ""
+  }
 };

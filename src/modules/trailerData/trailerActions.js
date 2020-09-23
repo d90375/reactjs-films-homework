@@ -1,54 +1,57 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import fetchJSON from "../../utils/fetch";
+import axios from "axios";
 
-import { FETCH_START_TRAILER, FETCH_ERROR_TRAILER, FETCHED_TRAILER, REMOVE_TRAILER } from "../actionTypes";
+import {
+  FETCH_TRAILER_FULFILLED,
+  FETCH_TRAILER_PENDING,
+  FETCH_TRAILER_REJECTED,
+  FETCH_TRAILER_REMOVE
+} from "../actionTypes";
+
 import { API, KEY, LANG } from "../../constants";
 
-export const startFetch = () => ({
-  type: FETCH_START_TRAILER
+const startFetch = () => ({
+  type: FETCH_TRAILER_PENDING
 });
 
-export const finishedFetchTrailerById = (data) => ({
-  type: FETCHED_TRAILER,
-  data
+const finishedFetchTrailerById = (data) => ({
+  type: FETCH_TRAILER_FULFILLED,
+  payload: data
 });
 
-export const errorFetch = (error) => ({
-  type: FETCH_ERROR_TRAILER,
-  error
+const errorFetch = (data) => ({
+  type: FETCH_TRAILER_REJECTED,
+  payload: data
 });
 
-export const removeVideoFrame = () => ({
-  type: REMOVE_TRAILER
+const removeVideoFrame = () => ({
+  type: FETCH_TRAILER_REMOVE
 });
 
-export const fetchTrailerById = (id) => {
+const fetchTrailerById = (id) => {
   return (dispatch) => {
     dispatch(startFetch());
-    return fetchJSON(`${API}movie/${id}/videos${KEY}${LANG}`)
+    return axios
+      .get(`${API}movie/${id}/videos${KEY}${LANG}`)
       .then((res) => {
         dispatch(finishedFetchTrailerById(res));
         return res;
       })
       .catch((error) => {
         dispatch(errorFetch(error));
+        throw Error(error);
       });
   };
 };
 
-export const useTrailerActions = () => {
+const useTrailerActions = (id) => {
   const dispatch = useDispatch();
 
   const handleRemoveVideoFrame = useCallback(() => dispatch(removeVideoFrame()), [dispatch]);
+  const handleShowTrailer = useCallback(() => dispatch(fetchTrailerById(id)), [id, dispatch]);
 
-  return { handleRemoveVideoFrame };
+  return { handleShowTrailer, handleRemoveVideoFrame };
 };
 
-export const useTrailerFetchActions = (id) => {
-  const dispatch = useDispatch();
-
-  const onShowTrailer = useCallback(() => dispatch(fetchTrailerById(id)), [id, dispatch]);
-
-  return { onShowTrailer };
-};
+export default useTrailerActions;

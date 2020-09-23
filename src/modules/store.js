@@ -1,24 +1,24 @@
 import { applyMiddleware, createStore, combineReducers, compose } from "redux";
+import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import headerReducer from "./headerData/headerRedcuer";
-import movieListReducer from "./movieListData/movieListReducer";
-import trailerReducer from "./trailerData/trailerReducer";
+import { HeaderReducer } from "./headerData";
+import { MovieListReducer } from "./movieListData";
+import { TrailerReducer } from "./trailerData";
+import withProvider from "../withProvider";
 
 const rootReducer = combineReducers({
-  headerReducer,
-  movieListReducer,
-  trailerReducer
+  header: HeaderReducer,
+  movieList: MovieListReducer,
+  trailer: TrailerReducer
 });
 
-const store = () => {
-  const middleware = [thunk];
+const middleware = thunk;
 
-  const composeEnhancers =
-    typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-      : compose;
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
 
-  return createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)));
-};
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(middleware)));
 
-export default store();
+export default withProvider({ store, Provider });

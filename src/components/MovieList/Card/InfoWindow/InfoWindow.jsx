@@ -47,6 +47,18 @@ InfoWindow.propTypes = {
     posterImg: PropTypes.string,
     overview: PropTypes.string,
     id: PropTypes.number
-  }).isRequired,
-  onShowInfo: PropTypes.func.isRequired
+  }),
+  onShowInfo: PropTypes.func
+};
+
+InfoWindow.defaultProps = {
+  cardData: {
+    genres: "",
+    score: 0,
+    title: "",
+    posterImg: "",
+    overview: "",
+    id: 0
+  },
+  onShowInfo: () => {}
 };

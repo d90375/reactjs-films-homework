@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import App from "./components/App";
-import store from "./modules/store";
 import "./scss/main.scss";
+import withReduxFeatures from "./modules/store";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
+const WrappedApp = withReduxFeatures(App);
+
+ReactDOM.render(<WrappedApp />, document.getElementById("root"));

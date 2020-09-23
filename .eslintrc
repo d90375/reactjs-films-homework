@@ -44,7 +44,10 @@
     "deferredPrompt": true,
     "axios": true,
     "globalThis": true,
-    "ENABLE_SOCKETS": true
+    "ENABLE_SOCKETS": true,
+    "shallow": true,
+    "render": true,
+    "mount": true
   },
   "rules": {
     "prettier/prettier": ["warn"],
@@ -74,6 +77,9 @@
     "react-hooks/exhaustive-deps": "warn",
     "jsx-a11y/control-has-associated-label": "warn",
     "jsx-a11y/no-autofocus": "warn",
-    "react/jsx-props-no-spreading": ["off"]
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prop-types": "off",
+    "react/destructuring-assignment": "off",
+    "react/display-name": "off"
   }
 }

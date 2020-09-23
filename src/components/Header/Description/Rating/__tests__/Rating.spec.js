@@ -1,10 +1,8 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
 import Footer from "../Rating";
 
-const renderer = new ShallowRenderer();
 const setUp = (props) => {
-  return renderer.render(<Footer {...props} />);
+  return shallow(<Footer {...props} />);
 };
 
 describe("Rating component", () => {
@@ -13,7 +11,12 @@ describe("Rating component", () => {
     component = setUp();
   });
 
-  it("should render Rating component", () => {
+  it("should render Rating component without props", () => {
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Rating component with props", () => {
+    component = setUp({ voteAverage: 10 });
     expect(component).toMatchSnapshot();
   });
 });

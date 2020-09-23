@@ -2,11 +2,7 @@ import PropTypes from "prop-types";
 import React, { useCallback } from "react";
 import "./TopSort.scss";
 import { useDispatch } from "react-redux";
-import {
-  fetchPopularData,
-  fetchTopRatedData,
-  fetchUpcomingData
-} from "../../../modules/movieListData/movieListActions";
+import { fetchPopularData, fetchTopRatedData, fetchUpcomingData } from "../../../modules/movieListData";
 
 const TopSort = React.memo(({ genres, onSelectChange }) => {
   const dispatch = useDispatch();
@@ -71,11 +67,12 @@ export default TopSort;
 
 TopSort.propTypes = {
   genres: PropTypes.objectOf(PropTypes.string),
-  onSelectChange: PropTypes.func.isRequired
+  onSelectChange: PropTypes.func
 };
 
 TopSort.defaultProps = {
-  genres: {}
+  genres: {},
+  onSelectChange: () => {}
 };
 
 TopSort.displayName = "TopSort";

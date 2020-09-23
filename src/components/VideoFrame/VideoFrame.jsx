@@ -3,7 +3,6 @@ import React from "react";
 import "./videoFrame.scss";
 
 const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
-  console.log('render');
   return (
     <div className="videoFrame">
       <iframe
@@ -23,10 +22,11 @@ const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
 export default VideoFrame;
 
 VideoFrame.propTypes = {
-  onRemoveVideoFrame: PropTypes.func.isRequired,
+  onRemoveVideoFrame: PropTypes.func,
   trailerKey: PropTypes.string
 };
 
 VideoFrame.defaultProps = {
-  trailerKey: ""
+  trailerKey: "",
+  onRemoveVideoFrame: () => {}
 };

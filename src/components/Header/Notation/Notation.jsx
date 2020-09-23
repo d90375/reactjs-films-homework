@@ -26,8 +26,15 @@ const Notation = ({ movieId, overview, isHiddenViewWindow, onHideView }) => {
 export default Notation;
 
 Notation.propTypes = {
-  isHiddenViewWindow: PropTypes.bool.isRequired,
-  movieId: PropTypes.number.isRequired,
-  onHideView: PropTypes.func.isRequired,
-  overview: PropTypes.string.isRequired
+  isHiddenViewWindow: PropTypes.bool,
+  movieId: PropTypes.number,
+  onHideView: PropTypes.func,
+  overview: PropTypes.string
+};
+
+Notation.defaultProps = {
+  isHiddenViewWindow: false,
+  movieId: 0,
+  onHideView: () => {},
+  overview: ""
 };
