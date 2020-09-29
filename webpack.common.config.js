@@ -1,5 +1,4 @@
 const { resolve } = require("path");
-const path = require("path");
 
 require("dotenv").config();
 
@@ -81,7 +80,8 @@ const config = {
   entry: ["@babel/polyfill", "./index.js"],
   output: {
     filename: filename("js"),
-    path: resolve(__dirname, "build")
+    path: resolve(__dirname, "build"),
+    publicPath: "/"
   },
   resolve: {
     extensions: [".js", ".jsx"]

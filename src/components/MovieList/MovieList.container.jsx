@@ -19,7 +19,7 @@ import { NUMBER_OF_CARDS } from "../../constants";
 const MovieListContainer = () => {
   const dispatch = useDispatch();
 
-  const onSelectChange = useCallback((event) => dispatch(fetchGenresDataById(event.target.value)), [dispatch]);
+  const onSelectChange = useCallback((event) => {dispatch(fetchGenresDataById(event.target.value))}, [dispatch]);
 
   const data = useMovieListData();
   const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useMovieList();
