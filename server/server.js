@@ -3,6 +3,7 @@ require("dotenv").config();
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
+const path = require("path");
 
 const config = require("../webpack.development.config");
 
@@ -25,17 +26,21 @@ app.use(
   })
 );
 
+app.use("*", (req, res, next) => {
+  const filename = path.join(compiler.outputPath, "/index.html");
+  compiler.outputFileSystem.readFile(filename, (err, result) => {
+    if (err) {
+      return next(err);
+    }
+    res.set("content-type", "text/html");
+    res.send(result);
+    return res.end();
+  });
+});
+
 console.log("env port", port);
 
 app.use("/public", express.static("public"));
-
-app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
-});
-
-// app.get('*', function(req, res) {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
 
 app.listen(port, (err) => {
   if (err) {
