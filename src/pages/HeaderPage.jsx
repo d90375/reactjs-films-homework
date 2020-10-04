@@ -3,7 +3,7 @@ import MovieListContainer from "../components/MovieList";
 import Footer from "../components/Footer";
 import HeaderContainer from "../components/Header";
 
-const MainPage = () => {
+const HeaderPage = () => {
   return (
     <>
       <HeaderContainer />
@@ -15,4 +15,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HeaderPage;
