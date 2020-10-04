@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 
 import Card from "./Card";
-import { fetchMovieById } from "../../../modules/headerData";
 import { useTrailerActions } from "../../../modules/trailerData";
 
 const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
-  const dispatch = useDispatch();
-
+  const { search } = useLocation();
+  const history = useHistory();
   const { handleShowTrailer } = useTrailerActions(cardItem?.id);
 
   const [isHiddenWindow, setIsHiddenWindow] = useState(false);
@@ -22,23 +21,23 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
     .slice(0, -2);
 
   const handleShowWindow = () => {
-    setIsHiddenWindow(true);
+    setIsHiddenWindow(!isHiddenWindow);
   };
 
   const handleHideWindow = () => {
-    setIsHiddenWindow(false);
+    setIsHiddenWindow(!isHiddenWindow);
   };
 
   const handleResizeImg = () => {
-    setIsResizedImg(true);
+    setIsResizedImg(!isResizedImg);
   };
 
   const handleOriginImg = () => {
-    setIsResizedImg(false);
+    setIsResizedImg(!isResizedImg);
   };
 
   const handleChangeHeaderMovie = () => {
-    dispatch(fetchMovieById(cardItem?.id));
+    history.push({ pathname: `/film/${cardItem?.id}`, search });
   };
 
   const handleShowInfo = () => {

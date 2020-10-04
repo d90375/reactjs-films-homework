@@ -1,9 +1,8 @@
+import PropTypes from "prop-types";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import "./Tab.scss";
 
 const Tab = ({ children, onSelectTab }) => {
-  const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <>
       <button type="button" onClick={onSelectTab} className="nav__title__text">
@@ -14,3 +13,11 @@ const Tab = ({ children, onSelectTab }) => {
 };
 
 export default Tab;
+
+Tab.propTypes = {
+  onSelectTab: PropTypes.func
+};
+
+Tab.defaultProps = {
+  onSelectTab: () => {}
+};

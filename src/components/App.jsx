@@ -3,6 +3,9 @@ import { hot } from "react-hot-loader/root";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import MainPage from "../pages/MainPage";
+import HeaderPage from "../pages/HeaderPage";
+
+
 
 const App = () => {
   return (
@@ -10,6 +13,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          <Route path="/film/:id" component={HeaderPage} />
           <Route component={NotFound} />
         </Switch>
       </Router>
