@@ -8,3 +8,4 @@ export const QUERY = "&query=";
 export const PAGE = "&page=1";
 export const ADULT = "&include_adult=false";
 export const REGION = "US";
+export const TABS_INFO = ["Trending", "Top Rated", "Coming Soon"];
