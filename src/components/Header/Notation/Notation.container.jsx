@@ -5,7 +5,7 @@ import Notation from "./Notation";
 const NotationContainer = React.memo(({ movieId, overview }) => {
   const [isHiddenViewWindow, setIsHiddenViewWindow] = useState(true);
 
-  const handleHideView = () => {
+  const handleToggleView = () => {
     setIsHiddenViewWindow(!isHiddenViewWindow);
   };
   return (
@@ -14,7 +14,7 @@ const NotationContainer = React.memo(({ movieId, overview }) => {
         movieId={movieId}
         overview={overview}
         isHiddenViewWindow={isHiddenViewWindow}
-        onHideView={handleHideView}
+        onToggleView={handleToggleView}
       />
     </>
   );

@@ -1,83 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopSort component should render ButtonWatchNow component with props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
-    }
-  }
+exports[`TopSort should render TopSort component with props 1`] = `
+<nav
+  className="nav"
 >
-  <TopSort
-    genres={
-      Object {
-        "obj": "obj",
-      }
-    }
-    onSelectChange={[Function]}
-  />
-</ContextProvider>
+  <div
+    className="nav__wrap"
+  >
+    <div
+      className="nav__title"
+    >
+      <TabContainer />
+      <select
+        className="nav__title__arrow"
+        name="genre"
+        onChange={[MockFunction]}
+      >
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+        <option
+          key="genres"
+          value="genres"
+        >
+          genres
+        </option>
+        <option
+          key="genres2"
+          value="genres2"
+        >
+          genres2
+        </option>
+      </select>
+    </div>
+    <div
+      className="nav__format"
+    >
+      <div
+        className="format__box4"
+      >
+        <div
+          className="box4 box4_topLeft"
+        />
+        <div
+          className="box4 box4_topRight"
+        />
+        <div
+          className="box4 box4_btmLeft"
+        />
+        <div
+          className="box4 box4_btmRight"
+        />
+      </div>
+      <div
+        className="format__box2"
+      >
+        <div
+          className="box2 box2_top"
+        />
+        <div
+          className="box2 box2_btm"
+        />
+      </div>
+    </div>
+  </div>
+</nav>
 `;
 
-exports[`TopSort component should render ButtonWatchNow component without props 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
-    }
-  }
+exports[`TopSort should render TopSort component without props 1`] = `
+<nav
+  className="nav"
 >
-  <TopSort
-    genres={Object {}}
-    onSelectChange={[Function]}
-  />
-</ContextProvider>
+  <div
+    className="nav__wrap"
+  >
+    <div
+      className="nav__title"
+    >
+      <TabContainer />
+      <select
+        className="nav__title__arrow"
+        name="genre"
+        onChange={[MockFunction]}
+      >
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+      </select>
+    </div>
+    <div
+      className="nav__format"
+    >
+      <div
+        className="format__box4"
+      >
+        <div
+          className="box4 box4_topLeft"
+        />
+        <div
+          className="box4 box4_topRight"
+        />
+        <div
+          className="box4 box4_btmLeft"
+        />
+        <div
+          className="box4 box4_btmRight"
+        />
+      </div>
+      <div
+        className="format__box2"
+      >
+        <div
+          className="box2 box2_top"
+        />
+        <div
+          className="box2 box2_btm"
+        />
+      </div>
+    </div>
+  </div>
+</nav>
 `;

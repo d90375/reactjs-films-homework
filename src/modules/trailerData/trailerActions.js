@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import {
@@ -25,11 +23,11 @@ const errorFetch = (data) => ({
   payload: data
 });
 
-const removeVideoFrame = () => ({
+export const removeVideoFrame = () => ({
   type: FETCH_TRAILER_REMOVE
 });
 
-const fetchTrailerById = (id) => {
+export const fetchTrailerById = (id) => {
   return (dispatch) => {
     dispatch(startFetch());
     return axios
@@ -44,14 +42,3 @@ const fetchTrailerById = (id) => {
       });
   };
 };
-
-const useTrailerActions = (id) => {
-  const dispatch = useDispatch();
-
-  const handleRemoveVideoFrame = useCallback(() => dispatch(removeVideoFrame()), [dispatch]);
-  const handleShowTrailer = useCallback(() => dispatch(fetchTrailerById(id)), [id, dispatch]);
-
-  return { handleShowTrailer, handleRemoveVideoFrame };
-};
-
-export default useTrailerActions;

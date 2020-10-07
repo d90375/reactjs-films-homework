@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HiddenWindow component should render HiddenWindow component 1`] = `
+exports[`HiddenWindow should render HiddenWindow component 1`] = `
 <div
   className="hiddenWindow"
 >
   <button
     className="hiddenWindow__playBtn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     ►
@@ -18,7 +18,7 @@ exports[`HiddenWindow component should render HiddenWindow component 1`] = `
   </span>
   <button
     className="hiddenWindow__infoBtn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     View Info

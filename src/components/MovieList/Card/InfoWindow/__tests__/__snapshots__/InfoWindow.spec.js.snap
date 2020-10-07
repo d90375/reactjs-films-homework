@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfoWindow component should render InfoWindow component with props 1`] = `
+exports[`InfoWindow should render InfoWindow component with props 1`] = `
 <div
   className="infoWindow"
   style={
@@ -15,7 +15,7 @@ exports[`InfoWindow component should render InfoWindow component with props 1`] 
 >
   <button
     className="infoWindow__btn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     ×
@@ -51,14 +51,14 @@ exports[`InfoWindow component should render InfoWindow component with props 1`] 
   <div
     className="infoWindow_btnWrap"
   >
-    <Memo(ButtonWatchNow)
+    <Memo(ButtonWatchNowContainer)
       movieId={9}
     />
   </div>
 </div>
 `;
 
-exports[`InfoWindow component should render InfoWindow component without props 1`] = `
+exports[`InfoWindow should render InfoWindow component without props 1`] = `
 <div
   className="infoWindow"
   style={
@@ -72,7 +72,7 @@ exports[`InfoWindow component should render InfoWindow component without props 1
 >
   <button
     className="infoWindow__btn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     ×
@@ -102,7 +102,7 @@ exports[`InfoWindow component should render InfoWindow component without props 1
   <div
     className="infoWindow_btnWrap"
   >
-    <Memo(ButtonWatchNow)
+    <Memo(ButtonWatchNowContainer)
       movieId={0}
     />
   </div>

@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component should render Header component with props  1`] = `undefined`;
+exports[`Header should render Header component with props = (genres: "genres", runtime: [9,9]) 1`] = `
+<header
+  className="header"
+  style={
+    Object {
+      "backgroundImage": "linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), url(\\"https://image.tmdb.org/t/p/w1280backdrop_path\\")",
+      "backgroundPosition": "top",
+      "backgroundRepeat": "no-repeat",
+    }
+  }
+>
+  <div
+    className="header__topWrap"
+  >
+    <h1
+      className="logo"
+    >
+      FILMS
+    </h1>
+    <SearchContainer />
+  </div>
+  <div
+    className="header__btmWrap"
+  >
+    <Description
+      genres="genres"
+      runtime={
+        Array [
+          9,
+          9,
+        ]
+      }
+      title="title"
+      voteAverage={9}
+    />
+    <NotationContainer
+      movieId={9}
+      overview="overview"
+    />
+  </div>
+</header>
+`;
 
-exports[`Header component should render Header component without props  1`] = `undefined`;
+exports[`Header should render Header component without props  1`] = `
+<header
+  className="header"
+  style={
+    Object {
+      "backgroundImage": "linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg)",
+      "backgroundPosition": "top",
+      "backgroundRepeat": "no-repeat",
+    }
+  }
+>
+  <div
+    className="header__topWrap"
+  >
+    <h1
+      className="logo"
+    >
+      FILMS
+    </h1>
+    <SearchContainer />
+  </div>
+  <div
+    className="header__btmWrap"
+  >
+    <Description
+      genres=""
+      runtime={
+        Array [
+          0,
+          0,
+        ]
+      }
+      title=""
+      voteAverage={0}
+    />
+    <NotationContainer
+      movieId={0}
+      overview=""
+    />
+  </div>
+</header>
+`;

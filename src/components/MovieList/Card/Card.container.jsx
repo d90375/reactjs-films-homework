@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 
 import Card from "./Card";
 import { fetchMovieById } from "../../../modules/headerData";
-import { useTrailerActions } from "../../../modules/trailerData";
+import { fetchTrailerById } from "../../../modules/trailerData";
 
-const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
+const CardContainer = React.memo(({ cardItem, genresItems, cardIndex }) => {
   const dispatch = useDispatch();
 
-  const { handleShowTrailer } = useTrailerActions(cardItem?.id);
-
-  const [isHiddenWindow, setIsHiddenWindow] = useState(false);
-  const [isResizedImg, setIsResizedImg] = useState(false);
   const [isInfoShow, setIsInfoShow] = useState(false);
 
   const genres = cardItem?.genre_ids
@@ -21,58 +17,34 @@ const CardContainer = ({ cardItem, genresItems, cardIndex }) => {
     }, "")
     .slice(0, -2);
 
-  const handleShowWindow = () => {
-    setIsHiddenWindow(true);
-  };
+  const handleShowTrailer = useCallback(() => dispatch(fetchTrailerById(cardItem?.id)), [cardItem?.id, dispatch]);
 
-  const handleHideWindow = () => {
-    setIsHiddenWindow(false);
-  };
-
-  const handleResizeImg = () => {
-    setIsResizedImg(true);
-  };
-
-  const handleOriginImg = () => {
-    setIsResizedImg(false);
-  };
-
-  const handleChangeHeaderMovie = () => {
+  const handleChangeHeaderMovie = useCallback(() => {
     dispatch(fetchMovieById(cardItem?.id));
-  };
+  }, [dispatch, cardItem?.id]);
 
-  const handleShowInfo = () => {
+  const handleShowInfo = useCallback(() => {
     setIsInfoShow(!isInfoShow);
-  };
+  }, [isInfoShow]);
 
   return (
     <>
       <Card
-        posterImg={cardItem?.poster_path}
-        key={cardItem?.id}
-        title={cardItem?.title}
-        score={cardItem?.vote_average}
-        overview={cardItem?.overview}
-        id={cardItem?.id}
-        genres={genres}
-        isHiddenWindow={isHiddenWindow}
-        isResizedImg={isResizedImg}
-        isInfoShow={isInfoShow}
-        genresItems={genresItems}
+        cardItem={cardItem}
         cardIndex={cardIndex}
+        genres={genres}
+        isInfoShow={isInfoShow}
         handleShowInfo={handleShowInfo}
-        onShowWindow={handleShowWindow}
-        onHideWindow={handleHideWindow}
-        onResizeImg={handleResizeImg}
-        onOriginImg={handleOriginImg}
         onChangeHeaderMovie={handleChangeHeaderMovie}
         handleShowTrailer={handleShowTrailer}
       />
     </>
   );
-};
+});
 
 export default CardContainer;
+
+Card.displayName = "Card";
 
 CardContainer.propTypes = {
   cardItem: PropTypes.shape({

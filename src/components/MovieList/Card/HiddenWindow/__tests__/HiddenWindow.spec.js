@@ -1,28 +1,32 @@
 import React from "react";
 import HiddenWindow from "../HiddenWindow";
 
-const setUp = (props) => {
-  return shallow(<HiddenWindow {...props} />);
-};
-
-describe("HiddenWindow component", () => {
+describe("HiddenWindow", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
-  });
+
+  const mockCallBacks = {
+    onShowInfo: jest.fn(),
+    onShowTrailer: jest.fn()
+  };
 
   it("should render HiddenWindow component", () => {
+    component = shallow(<HiddenWindow {...mockCallBacks} />);
     expect(component).toMatchSnapshot();
   });
 
-  describe("defaultProps", () => {
-    it("should use default onShowInfo", () => {
-      const result = HiddenWindow.defaultProps.onShowInfo();
-      expect(result).toBe(undefined);
+  describe("should handler", () => {
+    it("should call onShowInfo method", () => {
+      component = shallow(<HiddenWindow {...mockCallBacks} />);
+      expect(mockCallBacks.onShowInfo.mock.calls.length).toBe(0);
+      component.find(".hiddenWindow__infoBtn").simulate("click");
+      expect(mockCallBacks.onShowInfo.mock.calls.length).toBe(1);
     });
-    it("should use default onShowTrailer", () => {
-      const result = HiddenWindow.defaultProps.onShowTrailer();
-      expect(result).toBe(undefined);
+
+    it("should call onShowTrailer method", () => {
+      component = shallow(<HiddenWindow {...mockCallBacks} />);
+      expect(mockCallBacks.onShowTrailer.mock.calls.length).toBe(0);
+      component.find(".hiddenWindow__playBtn").simulate("click");
+      expect(mockCallBacks.onShowTrailer.mock.calls.length).toBe(1);
     });
   });
 });

@@ -1,12 +1,8 @@
 import { createSelector } from "reselect";
-import { useSelector } from "react-redux";
 
-const getTrailerSelector = (state) => state.trailer.data;
+const getDataTrailer = (state) => state.trailer.data;
+export const getTrailerSelector = (state) => state.trailer;
 
-const getTrailerDataSelector = createSelector(getTrailerSelector, (data) => {
+export const getTrailerDataSelector = createSelector(getDataTrailer, (data) => {
   return data;
 });
-
-export const useTrailerData = () => useSelector(getTrailerDataSelector);
-
-export const useTrailer = () => useSelector((state) => state.trailer);

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import VideoFrame from "./VideoFrame";
-import { useTrailerActions, useTrailer, useTrailerData } from "../../modules/trailerData";
-
+import { getTrailerDataSelector, getTrailerSelector, removeVideoFrame } from "../../modules/trailerData";
 import Preloader from "../MovieList/Preloader";
 
 const VideoFrameContainer = React.memo(() => {
-  const { handleRemoveVideoFrame } = useTrailerActions();
+  const dispatch = useDispatch();
 
-  const { isLoadingTrailer, isFulfilledTrailer, hasErrorTrailer, errorTrailer } = useTrailer();
-  const trailer = useTrailerData();
+  const { isLoadingTrailer, isFulfilledTrailer, hasErrorTrailer, errorTrailer } = useSelector(getTrailerSelector);
+  const trailer = useSelector(getTrailerDataSelector);
+
+  const handleRemoveVideoFrame = useCallback(() => dispatch(removeVideoFrame()), [dispatch]);
 
   return (
     <>

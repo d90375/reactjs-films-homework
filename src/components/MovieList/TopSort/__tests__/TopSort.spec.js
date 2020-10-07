@@ -1,68 +1,27 @@
 import React from "react";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import thunk from "redux-thunk";
 import TopSort from "../TopSort";
 
-describe("TopSort component", () => {
+describe("TopSort", () => {
   let component;
 
-  const mockStore = configureStore([thunk]);
+  const mockCallBack = jest.fn();
+  const event = { target: { value: "value" } };
 
-  const store = mockStore({
-    mock: {
-      mock: "mock"
-    }
-  });
-
-  const setUp = (props) => {
-    return shallow(
-      <Provider store={store}>
-        <TopSort {...props} />
-      </Provider>
-    );
-  };
-
-  beforeEach(() => {
-    component = setUp();
-  });
-
-  // beforeEach(() => {
-  //   component = setUp();
-  //   const data = {};
-  //   const mockDispatch = jest.fn();
-  //   jest.mock("react-redux", () => ({
-  //     useSelector: jest.fn(),
-  //     useDispatch: () => mockDispatch
-  //   }));
-  //   const mockedDispatch = jest.fn();
-  //   useSelector.mockImplementation((selectorFn) => selectorFn(data));
-  //   useDispatch.mockReturnValue(mockedDispatch);
-  //   expect(mockDispatch).toHaveBeenCalledWith();
-  // });
-  //
-
-  it("should render connected component TopSort", () => {
-    expect(component.find(TopSort).length).toEqual(1);
-  });
-
-  it("should check props matches with store", () => {
-    expect(component.find(TopSort).props.output).toEqual(store.output);
-  });
-
-  it("should render ButtonWatchNow component without props", () => {
+  it("should render TopSort component without props", () => {
+    component = shallow(<TopSort onSelectChange={mockCallBack} />);
     expect(component).toMatchSnapshot();
   });
 
-  it("should render ButtonWatchNow component with props", () => {
-    component = setUp({ genres: { obj: "obj" } });
+  it("should render TopSort component with props", () => {
+    component = shallow(<TopSort genres={{ genres: "genres", genres2: "genres2" }} onSelectChange={mockCallBack} />);
     expect(component).toMatchSnapshot();
   });
 
-  describe("defaultProps", () => {
-    it("should use default onSelectChange", () => {
-      const res = TopSort.defaultProps.onSelectChange();
-      expect(res).toBe(undefined);
+  describe("handlers", () => {
+    it("should call onSelectChange method", () => {
+      component = shallow(<TopSort onSelectChange={mockCallBack} />);
+      component.find("select").simulate("change", event);
+      expect(mockCallBack).toBeCalledWith(event);
     });
   });
 });

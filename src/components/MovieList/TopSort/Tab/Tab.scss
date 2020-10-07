@@ -1,0 +1,32 @@
+.nav__title__text {
+  background-color: transparent;
+  border: none;
+  color: #0aaee4;
+  cursor: pointer;
+  font-family: "Helvetica Neue", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1.12px;
+  line-height: 44px;
+  outline: none;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:hover {
+    text-shadow: 0 0 10px rgba(10, 174, 228, 1);
+  }
+
+  &:nth-child(4) {
+    margin-right: 12px;
+  }
+
+  &.nav__active {
+    border-bottom: 2px solid #0aaee4;
+  }
+}

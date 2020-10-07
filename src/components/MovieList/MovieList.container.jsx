@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import TopSort from "./TopSort";
 import Preloader from "./Preloader";
@@ -8,36 +8,35 @@ import VideoFrame from "../VideoFrame";
 
 import {
   fetchGenresData,
-  fetchGenresDataById,
-  fetchPopularData,
-  useMovieListData,
-  useMovieList
+  getMovieSelector,
+  fetchMovieDataFilter,
+  getCompletedMovieListSelector
 } from "../../modules/movieListData";
-
-import { NUMBER_OF_CARDS } from "../../constants";
+import { GENRE_ID, NUMBER_OF_CARDS } from "../../constants";
 
 const MovieListContainer = () => {
   const dispatch = useDispatch();
-
-  const onSelectChange = useCallback((event) => dispatch(fetchGenresDataById(event.target.value)), [dispatch]);
-
-  const data = useMovieListData();
-  const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useMovieList();
+  const data = useSelector(getCompletedMovieListSelector);
+  const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useSelector(getMovieSelector);
 
   if (data?.results?.length > NUMBER_OF_CARDS) {
     data.results.length = NUMBER_OF_CARDS;
   }
 
-  // First load:
+  // Load static genres of the list:
   useEffect(() => {
-    dispatch(fetchPopularData());
+    dispatch(fetchMovieDataFilter());
     dispatch(fetchGenresData());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onSelectChange = useCallback((event) => dispatch(fetchMovieDataFilter(GENRE_ID, event.target.value)), [
+    dispatch
+  ]);
 
   return (
     <>
       <VideoFrame />
-
       <TopSort genres={data?.genres} onSelectChange={onSelectChange} />
       {isLoadingMovieList && <Preloader />}
       {isFulfilledMovieList && (

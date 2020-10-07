@@ -1,22 +1,28 @@
 import React from "react";
 import Header from "../Header";
 
-const setUp = (props) => {
-  shallow(<Header {...props} />);
-};
-
-describe("Header component", () => {
+describe("Header", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
-  });
+
+  const mockProps = {
+    headData: {
+      vote_average: 9,
+      backdrop_path: "backdrop_path",
+      title: "title",
+      id: 9,
+      overview: "overview"
+    },
+    genres: "genres",
+    runtime: [9, 9]
+  };
 
   it("should render Header component without props ", () => {
+    component = shallow(<Header />);
     expect(component).toMatchSnapshot();
   });
 
-  it("should render Header component with props ", () => {
-    component = setUp();
+  it('should render Header component with props = (genres: "genres", runtime: [9,9])', () => {
+    component = shallow(<Header {...mockProps} />);
     expect(component).toMatchSnapshot();
   });
 });

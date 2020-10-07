@@ -1,22 +1,21 @@
 import React from "react";
 import Footer from "../Rating";
 
-const setUp = (props) => {
-  return shallow(<Footer {...props} />);
-};
-
-describe("Rating component", () => {
+describe("Rating", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
-  });
 
   it("should render Rating component without props", () => {
+    component = shallow(<Footer />);
     expect(component).toMatchSnapshot();
   });
 
-  it("should render Rating component with props", () => {
-    component = setUp({ voteAverage: 10 });
+  it("should render Rating component with correct props", () => {
+    component = shallow(<Footer voteAverage={9} />);
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Rating component with not correct props", () => {
+    component = shallow(<Footer voteAverage={99} />);
     expect(component).toMatchSnapshot();
   });
 });

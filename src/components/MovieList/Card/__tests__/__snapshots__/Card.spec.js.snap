@@ -1,68 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card component should render Card component with props 1`] = `
+exports[`Card should render Card component with props 1`] = `
 <div
-  className="card"
+  className="card__wrap"
 >
   <InfoWindow
-    cardData={
+    cardItem={
       Object {
         "genres": "genres",
-        "id": 0,
+        "id": 9,
         "overview": "overview",
-        "posterImg": "",
-        "score": 0,
+        "posterImg": "posterImg",
+        "score": 9,
         "title": "title",
       }
     }
-    onShowInfo={[Function]}
+    onShowInfo={[MockFunction]}
+  />
+  <HiddenWindow
+    onShowInfo={[MockFunction]}
+    onShowTrailer={[MockFunction]}
   />
 </div>
 `;
 
-exports[`Card component should render Card component without props 1`] = `
+exports[`Card should render Card component without props 1`] = `
 <div
-  className="card"
+  className="card__wrap"
 >
   <div
-    className="card__img"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    style={
-      Object {
-        "backgroundImage": "url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg)",
-        "borderRadius": "5px 5px 0 0",
-        "width": "290px",
-      }
-    }
-  />
-  <div
-    className="card__description"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    role="button"
-    tabIndex={0}
+    className="card"
   >
     <div
-      className="card__title"
-    >
-      <h3
-        className="card__title__text"
-      />
-      <div
-        className="card__title__rating"
-      >
-        <span
-          className="card__title__number"
-        >
-          0
-        </span>
-      </div>
-    </div>
-    <span
-      className="card__description__genre"
+      className="card__img"
+      style={
+        Object {
+          "backgroundImage": "url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg)",
+        }
+      }
     />
+    <button
+      className="card__description"
+      onClick={[MockFunction]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="card__title"
+      >
+        <h3
+          className="card__title__text"
+        />
+        <div
+          className="card__title__rating"
+        >
+          <span
+            className="card__title__number"
+          />
+        </div>
+      </div>
+      <span
+        className="card__description__genre"
+      />
+    </button>
   </div>
+  <HiddenWindow
+    onShowInfo={[MockFunction]}
+    onShowTrailer={[MockFunction]}
+  />
 </div>
 `;

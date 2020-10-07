@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VideoFrame component should render VideoFrame component with props 1`] = `
+exports[`VideoFrame should render VideoFrame component with props 1`] = `
 <div
   className="videoFrame"
 >
@@ -8,12 +8,12 @@ exports[`VideoFrame component should render VideoFrame component with props 1`] 
     allowFullScreen={true}
     className="videoFrame__iframe"
     frameBorder="0"
-    src="https://www.youtube.com/embed/key"
+    src="https://www.youtube.com/embed/trailerKey"
     title="trailer"
   />
   <button
     className="videoFrame__btn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     ✘
@@ -21,7 +21,7 @@ exports[`VideoFrame component should render VideoFrame component with props 1`] 
 </div>
 `;
 
-exports[`VideoFrame component should render VideoFrame component without props 1`] = `
+exports[`VideoFrame should render VideoFrame component without props 1`] = `
 <div
   className="videoFrame"
 >
@@ -34,7 +34,7 @@ exports[`VideoFrame component should render VideoFrame component without props 1
   />
   <button
     className="videoFrame__btn"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     ✘

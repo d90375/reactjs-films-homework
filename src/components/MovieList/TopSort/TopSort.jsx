@@ -1,37 +1,15 @@
 import PropTypes from "prop-types";
-import React, { useCallback } from "react";
+import React from "react";
+import Tab from "./Tab";
+
 import "./TopSort.scss";
-import { useDispatch } from "react-redux";
-import { fetchPopularData, fetchTopRatedData, fetchUpcomingData } from "../../../modules/movieListData";
 
 const TopSort = React.memo(({ genres, onSelectChange }) => {
-  const dispatch = useDispatch();
-
-  const onGetTrendingList = useCallback(() => {
-    dispatch(fetchPopularData());
-  }, [dispatch]);
-
-  const onGetTopRatedList = useCallback(() => {
-    dispatch(fetchTopRatedData());
-  }, [dispatch]);
-
-  const onGetUpcomingList = useCallback(() => {
-    dispatch(fetchUpcomingData());
-  }, [dispatch]);
-
   return (
     <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
-          <button onClick={onGetTrendingList} type="button" className="nav__title__text nav__title__text_trending">
-            Trending
-          </button>
-          <button onClick={onGetTopRatedList} type="button" className="nav__title__text nav__title__text_rated">
-            Top Rated
-          </button>
-          <button onClick={onGetUpcomingList} type="button" className="nav__title__text nav__title__text_soon">
-            Coming Soon
-          </button>
+          <Tab />
           <select name="genre" className="nav__title__arrow" onChange={onSelectChange}>
             <option value="Genre" hidden>
               Genre
@@ -62,17 +40,15 @@ const TopSort = React.memo(({ genres, onSelectChange }) => {
     </nav>
   );
 });
-
 export default TopSort;
 
 TopSort.propTypes = {
   genres: PropTypes.objectOf(PropTypes.string),
-  onSelectChange: PropTypes.func
+  onSelectChange: PropTypes.func.isRequired
 };
 
 TopSort.defaultProps = {
-  genres: {},
-  onSelectChange: () => {}
+  genres: {}
 };
 
 TopSort.displayName = "TopSort";

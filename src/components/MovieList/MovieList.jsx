@@ -5,7 +5,7 @@ import "./MovieList.scss";
 
 const MovieList = ({ data, cardLength, genres }) => {
   return (
-    <div className="card__wrap">
+    <div className="movieList">
       {cardLength > 0 ? (
         Object.values(data).map((card, cardIndex) => (
           <Card key={card.id} cardItem={card} genresItems={genres} cardIndex={cardIndex} />

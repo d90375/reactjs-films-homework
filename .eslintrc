@@ -34,17 +34,10 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
     "es6": true
   },
   "globals": {
-    "IS_PROD": true,
-    "STRIPE_PUBLIC_KEY": true,
-    "SENTRY_CLIENT_URL": true,
-    "deferredPrompt": true,
     "axios": true,
-    "globalThis": true,
-    "ENABLE_SOCKETS": true,
     "shallow": true,
     "render": true,
     "mount": true

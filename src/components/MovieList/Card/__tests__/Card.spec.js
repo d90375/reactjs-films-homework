@@ -1,69 +1,43 @@
 import React from "react";
 import Card from "../Card";
 
-const setUp = (props) => {
-  return shallow(<Card {...props} />);
-};
-
-describe("Card component", () => {
+describe("Card", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
-  });
 
   const mockProps = {
-    posterImg: "",
-    title: "title",
+    cardIndex: 9,
     genres: "genres",
-    overview: "overview",
-    score: 0,
-    id: 0,
-    cardIndex: 0,
-    isResizedImg: true,
-    isHiddenWindow: true,
     isInfoShow: true
   };
 
+  const mockCallBacks = {
+    onChangeHeaderMovie: jest.fn(),
+    handleShowTrailer: jest.fn(),
+    handleShowInfo: jest.fn()
+  };
+
   it("should render Card component without props", () => {
+    component = shallow(<Card {...mockCallBacks} />);
     expect(component).toMatchSnapshot();
   });
 
   it("should render Card component with props", () => {
-    component = setUp({ ...mockProps });
+    component = shallow(
+      <Card
+        {...mockProps}
+        cardItem={{ poster_path: "posterImg", title: "title", overview: "overview", vote_average: 9, id: 9 }}
+        {...mockCallBacks}
+      />
+    );
     expect(component).toMatchSnapshot();
   });
 
-  describe("defaultProps", () => {
-    it("should use default onShowWindow", () => {
-      const result = Card.defaultProps.onShowWindow();
-      expect(result).toBe(undefined);
-    });
-
-    it("should use default onHideWindow", () => {
-      const result = Card.defaultProps.onHideWindow();
-      expect(result).toBe(undefined);
-    });
-
-    it("should use default onChangeHeaderMovie", () => {
-      const result = Card.defaultProps.onChangeHeaderMovie();
-      expect(result).toBe(undefined);
-    });
-    it("should use default onResizeImg", () => {
-      const result = Card.defaultProps.onResizeImg();
-      expect(result).toBe(undefined);
-    });
-    it("should use default onOriginImg", () => {
-      const result = Card.defaultProps.onOriginImg();
-      expect(result).toBe(undefined);
-    });
-
-    it("should use default handleShowTrailer", () => {
-      const result = Card.defaultProps.handleShowTrailer();
-      expect(result).toBe(undefined);
-    });
-    it("should use default handleShowInfo", () => {
-      const result = Card.defaultProps.handleShowInfo();
-      expect(result).toBe(undefined);
+  describe("should handler", () => {
+    it("should call onChangeHeaderMovie method ", () => {
+      component = shallow(<Card {...mockCallBacks} />);
+      expect(mockCallBacks.onChangeHeaderMovie.mock.calls.length).toBe(0);
+      component.find(".card__description").simulate("click");
+      expect(mockCallBacks.onChangeHeaderMovie.mock.calls.length).toBe(1);
     });
   });
 });

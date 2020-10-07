@@ -8,20 +8,21 @@ import { IMAGE_NOT_FOUND_URL } from "../../constants";
 import "./Header.scss";
 
 const Header = ({ headData, genres, runtime }) => {
-  const { title, id, overview } = headData;
-  const voteAverage = headData.vote_average;
+  const { title, id, overview, vote_average: voteAverage } = headData;
+  let { backdrop_path: backdropPath } = headData;
 
-  let poster = "";
-  poster = headData.backdrop_path
-    ? `url("https://image.tmdb.org/t/p/w1280${headData.backdrop_path}")`
-    : `url(${IMAGE_NOT_FOUND_URL})`;
+  if (backdropPath) {
+    backdropPath = `url("https://image.tmdb.org/t/p/w1280${backdropPath}")`;
+  } else {
+    backdropPath = `url(${IMAGE_NOT_FOUND_URL})`;
+  }
 
   const backGroundHeaderStyle = {
-    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), ${poster}`,
-    backgroundSize: headData.backdrop_path ? "cover" : "contain",
+    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.2) 33%), ${backdropPath}`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "top"
   };
+
   return (
     <header className="header" style={backGroundHeaderStyle}>
       <div className="header__topWrap">

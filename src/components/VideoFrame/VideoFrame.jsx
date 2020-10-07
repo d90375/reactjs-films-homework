@@ -22,11 +22,10 @@ const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
 export default VideoFrame;
 
 VideoFrame.propTypes = {
-  onRemoveVideoFrame: PropTypes.func,
+  onRemoveVideoFrame: PropTypes.func.isRequired,
   trailerKey: PropTypes.string
 };
 
 VideoFrame.defaultProps = {
-  trailerKey: "",
-  onRemoveVideoFrame: () => {}
+  trailerKey: ""
 };

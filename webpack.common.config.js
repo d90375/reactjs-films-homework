@@ -1,9 +1,6 @@
 const { resolve } = require("path");
-const path = require("path");
 
 require("dotenv").config();
-
-// const objectHash = require("object-hash");
 
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -11,7 +8,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-// const eslintCacheIdentifier = objectHash(require("./.eslintrc"));
 
 const CONSTANTS = new webpack.DefinePlugin(
   Object.keys(process.env).reduce((res, key) => ({ ...res, [key]: JSON.stringify(process.env[key]) }), {
@@ -67,10 +63,6 @@ const jsLoaders = () => {
   if (isDev) {
     loaders.push({
       loader: "eslint-loader"
-      // options: {
-      //   cache: true,
-      //   cacheIdentifer: isDev ? [] : eslintCacheIdentifier
-      // }
     });
   }
 

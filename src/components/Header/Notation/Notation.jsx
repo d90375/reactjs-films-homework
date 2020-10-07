@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./Notation.scss";
-import ButtonWatchNow from "../../VideoFrame/ButtonWatchNow/ButtonWatchNow";
+import ButtonWatchNow from "../../VideoFrame/ButtonWatchNow";
 
-const Notation = ({ movieId, overview, isHiddenViewWindow, onHideView }) => {
+import "./Notation.scss";
+
+const Notation = ({ movieId, overview, isHiddenViewWindow, onToggleView }) => {
   return (
     <div className="flexFixedWrap">
       <div className="notation">
@@ -14,7 +15,7 @@ const Notation = ({ movieId, overview, isHiddenViewWindow, onHideView }) => {
         )}
         <div className="notation__btn">
           <ButtonWatchNow movieId={movieId} />
-          <button onClick={onHideView} type="button" className="btn btn__view">
+          <button onClick={onToggleView} type="button" className="btn btn__view">
             {isHiddenViewWindow ? "Hide Info" : "View Info"}
           </button>
         </div>
@@ -28,13 +29,12 @@ export default Notation;
 Notation.propTypes = {
   isHiddenViewWindow: PropTypes.bool,
   movieId: PropTypes.number,
-  onHideView: PropTypes.func,
+  onToggleView: PropTypes.func.isRequired,
   overview: PropTypes.string
 };
 
 Notation.defaultProps = {
   isHiddenViewWindow: false,
   movieId: 0,
-  onHideView: () => {},
   overview: ""
 };

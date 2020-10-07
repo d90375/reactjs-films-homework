@@ -1,23 +1,17 @@
 import React from "react";
 import Description from "../Description";
 
-const setUp = (props) => {
-  return shallow(<Description {...props} />);
-};
-
-describe("Description component", () => {
+describe("Description", () => {
   let component;
   const mockProps = { genres: "genres", title: "title", voteAverage: 10, runtime: [1, 1] };
-  beforeEach(() => {
-    component = setUp();
-  });
 
   it("should render Description component without props", () => {
+    component = shallow(<Description />);
     expect(component).toMatchSnapshot();
   });
 
-  it("should render Description component with props", () => {
-    component = setUp({ ...mockProps });
+  it('should render Description component with props = (genres: "genres", title: "title", voteAverage: 10, runtime: [1, 1])', () => {
+    component = shallow(<Description {...mockProps} />);
     expect(component).toMatchSnapshot();
   });
 });

@@ -5,8 +5,8 @@ import ButtonWatchNow from "../../../VideoFrame/ButtonWatchNow";
 import { IMAGE_NOT_FOUND_URL } from "../../../../constants";
 import "./infoWindow.scss";
 
-const InfoWindow = ({ cardData, onShowInfo }) => {
-  const { title, score, genres, posterImg, overview, id } = cardData;
+const InfoWindow = ({ cardItem, onShowInfo }) => {
+  const { title, score, genres, posterImg, overview, id } = cardItem;
   const infoWindowBackgroundStyle = {
     background: posterImg
       ? `linear-gradient(0deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%),
@@ -40,7 +40,7 @@ const InfoWindow = ({ cardData, onShowInfo }) => {
 export default InfoWindow;
 
 InfoWindow.propTypes = {
-  cardData: PropTypes.shape({
+  cardItem: PropTypes.shape({
     genres: PropTypes.string,
     score: PropTypes.number,
     title: PropTypes.string,
@@ -48,17 +48,16 @@ InfoWindow.propTypes = {
     overview: PropTypes.string,
     id: PropTypes.number
   }),
-  onShowInfo: PropTypes.func
+  onShowInfo: PropTypes.func.isRequired
 };
 
 InfoWindow.defaultProps = {
-  cardData: {
+  cardItem: {
     genres: "",
     score: 0,
     title: "",
     posterImg: "",
     overview: "",
     id: 0
-  },
-  onShowInfo: () => {}
+  }
 };

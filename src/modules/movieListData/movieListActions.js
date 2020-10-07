@@ -6,7 +6,19 @@ import {
   FETCH_MOVIES_REJECTED,
   FETCH_MOVIES_GENRES_BY_ID
 } from "../actionTypes";
-import { API, KEY, LANG, PAGE, REGION, QUERY, ADULT } from "../../constants";
+import {
+  API,
+  KEY,
+  LANG,
+  PAGE,
+  REGION,
+  QUERY,
+  ADULT,
+  TRENDING,
+  TOP_RATED,
+  COMING_SOON,
+  GENRE_ID
+} from "../../constants";
 
 const startFetch = () => ({
   type: FETCH_MOVIES_PENDING
@@ -119,5 +131,27 @@ export const fetchData = (query) => {
       .catch((error) => {
         dispatch(errorFetch(error));
       });
+  };
+};
+
+export const fetchMovieDataFilter = (type, id) => {
+  return (dispatch) => {
+    switch (type) {
+      case TRENDING:
+        dispatch(fetchPopularData());
+        break;
+      case TOP_RATED:
+        dispatch(fetchTopRatedData());
+        break;
+      case COMING_SOON:
+        dispatch(fetchUpcomingData());
+        break;
+      case GENRE_ID:
+        dispatch(fetchGenresDataById(id));
+        break;
+      default:
+        dispatch(fetchPopularData());
+        break;
+    }
   };
 };

@@ -1,40 +1,37 @@
 import React from "react";
 import Search from "../Search";
 
-describe("Search component", () => {
+describe("Search", () => {
   let component;
 
-  const setUp = (props) => {
-    return shallow(<Search {...props} />);
-  };
-
-  beforeEach(() => {
-    component = setUp();
-  });
+  const mockOnQueryChanged = jest.fn();
+  const mockOnKeyQuery = jest.fn();
+  const mockOnClickQuery = jest.fn();
 
   it("should render Search component without props", () => {
+    component = shallow(
+      <Search onKeyQuery={mockOnKeyQuery} onClickQuery={mockOnClickQuery} onQueryChanged={mockOnQueryChanged} />
+    );
     expect(component).toMatchSnapshot();
   });
 
-  it("should render Search component with props", () => {
-    component = setUp({ queryText: "queryText" });
+  it('should render Search component with props = (valueText="valueText")', () => {
+    component = shallow(
+      <Search
+        onKeyQuery={mockOnKeyQuery}
+        onClickQuery={mockOnClickQuery}
+        onQueryChanged={mockOnQueryChanged}
+        valueText="valueText"
+      />
+    );
     expect(component).toMatchSnapshot();
   });
 
   describe("should calls handlers", () => {
-    const mockOnQueryChanged = jest.fn();
-    const mockOnKeyQuery = jest.fn();
-    const mockOnClickQuery = jest.fn();
-
-    beforeEach(() => {
-      component = setUp({
-        onQueryChanged: mockOnQueryChanged,
-        onKeyQuery: mockOnKeyQuery,
-        onClickQuery: mockOnClickQuery
-      });
-    });
-
     it("should handle input text", () => {
+      component = shallow(
+        <Search onKeyQuery={mockOnKeyQuery} onClickQuery={mockOnClickQuery} onQueryChanged={mockOnQueryChanged} />
+      );
       expect(mockOnKeyQuery).not.toBeCalled();
       const mockEvent = {
         target: { value: "value" }
@@ -44,16 +41,16 @@ describe("Search component", () => {
     });
 
     it("should handle of search by keypress enter", () => {
+      component = shallow(
+        <Search onKeyQuery={mockOnKeyQuery} onClickQuery={mockOnClickQuery} onQueryChanged={mockOnQueryChanged} />
+      );
+      const mockEvent = {
+        preventDefault: () => {}
+      };
       expect(mockOnKeyQuery).not.toBeCalled();
-      component.find(".search__text").simulate("keydown", { key: "Enter" });
-      expect(mockOnKeyQuery).toHaveBeenCalledWith({ key: "Enter" });
+      expect(mockOnKeyQuery.mock.calls.length).toBe(0);
+      component.find(".search").simulate("submit", mockEvent);
       expect(mockOnKeyQuery.mock.calls.length).toBe(1);
-    });
-
-    it("should handle of click search", () => {
-      expect(mockOnClickQuery.mock.calls.length).toBe(0);
-      component.find(".search__icon").simulate("click");
-      expect(mockOnClickQuery.mock.calls.length).toBe(1);
     });
   });
 });

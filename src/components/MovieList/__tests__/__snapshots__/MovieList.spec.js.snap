@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main component should render Main component with cards 1`] = `
+exports[`Main should render Main component with cards 1`] = `
 <div
-  className="card__wrap"
+  className="movieList"
 >
-  <CardContainer
+  <Memo()
     cardIndex={0}
     cardItem={
       Object {
@@ -22,9 +22,9 @@ exports[`Main component should render Main component with cards 1`] = `
 </div>
 `;
 
-exports[`Main component should render Main component without cards  1`] = `
+exports[`Main should render Main component without cards  1`] = `
 <div
-  className="card__wrap"
+  className="movieList"
 >
   <div
     className="noResults__wrap"
@@ -38,9 +38,9 @@ exports[`Main component should render Main component without cards  1`] = `
 </div>
 `;
 
-exports[`Main component should render Main component without props 1`] = `
+exports[`Main should render Main component without props 1`] = `
 <div
-  className="card__wrap"
+  className="movieList"
 >
   <div
     className="noResults__wrap"

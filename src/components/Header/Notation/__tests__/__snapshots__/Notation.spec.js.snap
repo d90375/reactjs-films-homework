@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notation component should render Notation component with props 1`] = `
+exports[`Notation should render Notation component with props = (movieId: 999, isHiddenViewWindow: true, overview: "overview") 1`] = `
 <div
   className="flexFixedWrap"
 >
@@ -19,12 +19,12 @@ exports[`Notation component should render Notation component with props 1`] = `
     <div
       className="notation__btn"
     >
-      <Memo(ButtonWatchNow)
+      <Memo(ButtonWatchNowContainer)
         movieId={999}
       />
       <button
         className="btn btn__view"
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Hide Info
@@ -34,7 +34,7 @@ exports[`Notation component should render Notation component with props 1`] = `
 </div>
 `;
 
-exports[`Notation component should render Notation component without props 1`] = `
+exports[`Notation should render Notation component without props 1`] = `
 <div
   className="flexFixedWrap"
 >
@@ -44,12 +44,12 @@ exports[`Notation component should render Notation component without props 1`] =
     <div
       className="notation__btn"
     >
-      <Memo(ButtonWatchNow)
+      <Memo(ButtonWatchNowContainer)
         movieId={0}
       />
       <button
         className="btn btn__view"
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         View Info

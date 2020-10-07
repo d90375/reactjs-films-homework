@@ -1,33 +1,27 @@
 import React from "react";
 import VideoFrame from "../VideoFrame";
 
-const setUp = (props) => {
-  return shallow(<VideoFrame {...props} />);
-};
-
-describe("VideoFrame component", () => {
+describe("VideoFrame", () => {
   let component;
 
-  beforeEach(() => {
-    component = setUp();
-  });
+  const mockFunction = jest.fn();
 
   it("should render VideoFrame component without props", () => {
+    component = shallow(<VideoFrame onRemoveVideoFrame={mockFunction} />);
     expect(component).toMatchSnapshot();
   });
 
   it("should render VideoFrame component with props", () => {
-    component = setUp({ trailerKey: "key" });
+    component = shallow(<VideoFrame onRemoveVideoFrame={mockFunction} trailerKey="trailerKey" />);
     expect(component).toMatchSnapshot();
   });
 
   describe("should handler", () => {
     it("should call onHideView method", () => {
-      const mockCallBack = jest.fn();
-      component = setUp({ onRemoveVideoFrame: mockCallBack });
-      expect(mockCallBack.mock.calls.length).toBe(0);
+      component = shallow(<VideoFrame onRemoveVideoFrame={mockFunction} />);
+      expect(mockFunction.mock.calls.length).toBe(0);
       component.find(".videoFrame__btn").simulate("click");
-      expect(mockCallBack.mock.calls.length).toBe(1);
+      expect(mockFunction.mock.calls.length).toBe(1);
     });
   });
 });

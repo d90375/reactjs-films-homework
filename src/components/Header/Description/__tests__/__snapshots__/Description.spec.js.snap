@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Description component should render Description component with props 1`] = `
+exports[`Description should render Description component with props = (genres: "genres", title: "title", voteAverage: 10, runtime: [1, 1]) 1`] = `
 <div
   className="description"
 >
@@ -36,7 +36,7 @@ exports[`Description component should render Description component with props 1`
 </div>
 `;
 
-exports[`Description component should render Description component without props 1`] = `
+exports[`Description should render Description component without props 1`] = `
 <div
   className="description"
 >

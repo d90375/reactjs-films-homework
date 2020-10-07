@@ -1,18 +1,29 @@
-.card {
+.card__wrap {
   background-color: #eaeaea;
   border-radius: 5px;
+  width: 290px;
   height: 380px;
   margin-bottom: 1.5rem;
   overflow: hidden;
   position: relative;
-  width: 290px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
 
   &:nth-child(4n) {
     margin-right: 0;
   }
 
-  &:nth-child(n+14) {
+  &:last-child {
     margin-bottom: 5rem;
+  }
+}
+
+.card {
+  height: 100%;
+  position: relative;
+
+  &:hover + div {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
   }
 }
 
@@ -23,7 +34,6 @@
   border-radius: 5px 5px 0 0;
   height: calc(100% - 80px);
   position: relative;
-  transition: all 0.4s ease-in;
 }
 
 .card__title {
@@ -64,10 +74,13 @@
 
 .card__description {
   background-color: #fff;
-  cursor: pointer;
   height: 80px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
   outline: none;
-  padding: 1rem 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
+  text-align: left;
 }
 
 .card__description__genre {
