@@ -1,16 +1,27 @@
 import PropTypes from "prop-types";
 import React from "react";
+
 import Tab from "./Tab";
+import SortBox from "./SortBox";
+import { GENRE_ID } from "../../../constants";
 
-import "./TopSort.scss";
+import "./topSort.scss";
 
-const TopSort = React.memo(({ genres, onSelectChange }) => {
+const TopSort = ({ genres, onSelectChange, handleSelectTab, TABS_INFO, selectedTab }) => {
+  const selectStyle = selectedTab === GENRE_ID ? `nav__title__arrow nav__active` : `nav__title__arrow`;
+
   return (
     <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
-          <Tab />
-          <select name="genre" className="nav__title__arrow" onChange={onSelectChange}>
+          {TABS_INFO.map((currTab) => {
+            return (
+              <Tab key={currTab} onSelectTab={handleSelectTab(currTab)} selectedTab={selectedTab}>
+                {currTab}
+              </Tab>
+            );
+          })}
+          <select name="genre" className={selectStyle} onChange={onSelectChange}>
             <option value="Genre" hidden>
               Genre
             </option>
@@ -24,31 +35,23 @@ const TopSort = React.memo(({ genres, onSelectChange }) => {
               })}
           </select>
         </div>
-        <div className="nav__format">
-          <div className="format__box4">
-            <div className="box4 box4_topLeft" />
-            <div className="box4 box4_topRight" />
-            <div className="box4 box4_btmLeft" />
-            <div className="box4 box4_btmRight" />
-          </div>
-          <div className="format__box2">
-            <div className="box2 box2_top" />
-            <div className="box2 box2_btm" />
-          </div>
-        </div>
+        <SortBox />
       </div>
     </nav>
   );
-});
+};
 export default TopSort;
 
 TopSort.propTypes = {
   genres: PropTypes.objectOf(PropTypes.string),
-  onSelectChange: PropTypes.func.isRequired
+  TABS_INFO: PropTypes.arrayOf(PropTypes.string),
+  selectedTab: PropTypes.string,
+  onSelectChange: PropTypes.func.isRequired,
+  handleSelectTab: PropTypes.func.isRequired
 };
 
 TopSort.defaultProps = {
-  genres: {}
+  genres: {},
+  TABS_INFO: [],
+  selectedTab: ""
 };
-
-TopSort.displayName = "TopSort";

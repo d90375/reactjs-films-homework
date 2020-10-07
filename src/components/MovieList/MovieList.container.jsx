@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import TopSort from "./TopSort";
@@ -12,7 +12,7 @@ import {
   fetchMovieDataFilter,
   getCompletedMovieListSelector
 } from "../../modules/movieListData";
-import { GENRE_ID, NUMBER_OF_CARDS } from "../../constants";
+import { NUMBER_OF_CARDS } from "../../constants";
 
 const MovieListContainer = () => {
   const dispatch = useDispatch();
@@ -30,14 +30,10 @@ const MovieListContainer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSelectChange = useCallback((event) => dispatch(fetchMovieDataFilter(GENRE_ID, event.target.value)), [
-    dispatch
-  ]);
-
   return (
     <>
       <VideoFrame />
-      <TopSort genres={data?.genres} onSelectChange={onSelectChange} />
+      <TopSort genres={data?.genres} />
       {isLoadingMovieList && <Preloader />}
       {isFulfilledMovieList && (
         <MovieList data={data?.results} cardLength={data?.results?.length} genres={data?.genres} />

@@ -10,7 +10,6 @@ exports[`TopSort should render TopSort component with props 1`] = `
     <div
       className="nav__title"
     >
-      <TabContainer />
       <select
         className="nav__title__arrow"
         name="genre"
@@ -36,36 +35,54 @@ exports[`TopSort should render TopSort component with props 1`] = `
         </option>
       </select>
     </div>
+    <SortBox />
+  </div>
+</nav>
+`;
+
+exports[`TopSort should render TopSort component with props, should change className 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="nav__wrap"
+  >
     <div
-      className="nav__format"
+      className="nav__title"
     >
-      <div
-        className="format__box4"
+      <Tab
+        key="selected"
+        onSelectTab={[Function]}
+        selectedTab="genreId"
       >
-        <div
-          className="box4 box4_topLeft"
-        />
-        <div
-          className="box4 box4_topRight"
-        />
-        <div
-          className="box4 box4_btmLeft"
-        />
-        <div
-          className="box4 box4_btmRight"
-        />
-      </div>
-      <div
-        className="format__box2"
+        selected
+      </Tab>
+      <select
+        className="nav__title__arrow nav__active"
+        name="genre"
+        onChange={[MockFunction]}
       >
-        <div
-          className="box2 box2_top"
-        />
-        <div
-          className="box2 box2_btm"
-        />
-      </div>
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+        <option
+          key="genres"
+          value="genres"
+        >
+          genres
+        </option>
+        <option
+          key="genres2"
+          value="genres2"
+        >
+          genres2
+        </option>
+      </select>
     </div>
+    <SortBox />
   </div>
 </nav>
 `;
@@ -80,7 +97,6 @@ exports[`TopSort should render TopSort component without props 1`] = `
     <div
       className="nav__title"
     >
-      <TabContainer />
       <select
         className="nav__title__arrow"
         name="genre"
@@ -94,36 +110,7 @@ exports[`TopSort should render TopSort component without props 1`] = `
         </option>
       </select>
     </div>
-    <div
-      className="nav__format"
-    >
-      <div
-        className="format__box4"
-      >
-        <div
-          className="box4 box4_topLeft"
-        />
-        <div
-          className="box4 box4_topRight"
-        />
-        <div
-          className="box4 box4_btmLeft"
-        />
-        <div
-          className="box4 box4_btmRight"
-        />
-      </div>
-      <div
-        className="format__box2"
-      >
-        <div
-          className="box2 box2_top"
-        />
-        <div
-          className="box2 box2_btm"
-        />
-      </div>
-    </div>
+    <SortBox />
   </div>
 </nav>
 `;

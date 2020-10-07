@@ -1,3 +1,3 @@
-import TopSort from "./TopSort";
+import TopSort from "./TopSort.container";
 
 export default TopSort;

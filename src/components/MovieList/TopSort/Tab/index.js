@@ -1,3 +1,3 @@
-import Tab from "./Tab.container";
+import Tab from "./Tab";
 
 export default Tab;
