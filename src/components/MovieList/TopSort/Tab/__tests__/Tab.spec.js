@@ -27,5 +27,10 @@ describe("Tab", () => {
       component.find("button").simulate("click");
       expect(mockCallBack.mock.calls.length).toBe(1);
     });
+
+    it("should use default onSelectTab", () => {
+      const result = Tab.defaultProps.onSelectTab();
+      expect(result).toBe(undefined);
+    });
   });
 });
