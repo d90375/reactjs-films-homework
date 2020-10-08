@@ -2,7 +2,6 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "function-calc-no-unspaced-operator": true,
-    "property-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
     "at-rule-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,

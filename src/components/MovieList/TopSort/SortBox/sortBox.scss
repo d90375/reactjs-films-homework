@@ -9,6 +9,10 @@
       opacity: 0.8;
     }
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 }
 
 .format__box4 {

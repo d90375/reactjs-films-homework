@@ -10,6 +10,10 @@
   display: flex;
   flex-direction: column;
   margin-right: 20px;
+
+  @media (max-width: 767px) {
+    align-items: flex-start;
+  }
 }
 
 .notation__wrap {
@@ -21,20 +25,26 @@
   text-align: justify;
   text-overflow: clip;
   width: calc(270px - 0.5rem * 2);
+  font-size: 0.9rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 .notation__btn {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-right: 1.5rem;
 }
 
 .notation__text {
   color: #fff;
   font-family: "Helvetica Neue - thin", serif;
-  font-size: 0.9rem;
   letter-spacing: 1px;
   line-height: 1.5rem;
 }

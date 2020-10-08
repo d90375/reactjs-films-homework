@@ -5,6 +5,14 @@
   height: 700px;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    height: 580px;
+  }
+
+  @media (max-width: 767px) {
+    height: 500px;
+  }
 }
 
 .header__wrap {
@@ -30,6 +38,11 @@
   justify-content: space-between;
   margin: 0 4rem 0 4rem;
   padding-top: 1rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin: 0 2rem 0 2rem;
+  }
 }
 
 .header__btmWrap {
@@ -37,4 +50,9 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0  0 2rem  4rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin: 0  0 2rem  2rem;
+  }
 }
