@@ -17,6 +17,7 @@ exports[`Main should render Main component with cards 1`] = `
         "12": "12",
       }
     }
+    isDisplayCardDirection="line"
     key="1"
   />
 </div>

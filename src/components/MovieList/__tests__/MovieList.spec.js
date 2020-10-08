@@ -6,7 +6,8 @@ describe("Main", () => {
 
   const mockProps = {
     data: [{ data: "data", id: 1 }],
-    genres: { 12: "12" }
+    genres: { 12: "12" },
+    isDisplayCardDirection: "line"
   };
 
   it("should render Main component without props", () => {

@@ -6,7 +6,7 @@ import Card from "./Card";
 import { fetchMovieById } from "../../../modules/headerData";
 import { fetchTrailerById } from "../../../modules/trailerData";
 
-const CardContainer = React.memo(({ cardItem, genresItems, cardIndex }) => {
+const CardContainer = React.memo(({ cardItem, genresItems, cardIndex, isDisplayCardDirection }) => {
   const dispatch = useDispatch();
 
   const [isInfoShow, setIsInfoShow] = useState(false);
@@ -37,6 +37,7 @@ const CardContainer = React.memo(({ cardItem, genresItems, cardIndex }) => {
         handleShowInfo={handleShowInfo}
         onChangeHeaderMovie={handleChangeHeaderMovie}
         handleShowTrailer={handleShowTrailer}
+        isDisplayCardDirection={isDisplayCardDirection}
       />
     </>
   );
@@ -66,7 +67,8 @@ CardContainer.propTypes = {
   genresItems: PropTypes.shape({
     number: PropTypes.string
   }),
-  cardIndex: PropTypes.number
+  cardIndex: PropTypes.number,
+  isDisplayCardDirection: PropTypes.string
 };
 
 CardContainer.defaultProps = {
@@ -89,5 +91,6 @@ CardContainer.defaultProps = {
   genresItems: {
     0: ""
   },
-  cardIndex: 0
+  cardIndex: 0,
+  isDisplayCardDirection: "square"
 };

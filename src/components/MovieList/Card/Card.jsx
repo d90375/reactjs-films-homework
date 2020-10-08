@@ -5,15 +5,28 @@ import { IMAGE_NOT_FOUND_URL } from "../../../constants";
 import HiddenWindow from "./HiddenWindow";
 import InfoWindow from "./InfoWindow";
 
-const Card = ({ cardItem, cardIndex, genres, isInfoShow, onChangeHeaderMovie, handleShowTrailer, handleShowInfo }) => {
+const Card = ({
+  cardItem,
+  cardIndex,
+  genres,
+  isInfoShow,
+  onChangeHeaderMovie,
+  handleShowTrailer,
+  handleShowInfo,
+  isDisplayCardDirection
+}) => {
   const { poster_path: posterImg, id, title, vote_average: score, overview } = cardItem;
 
   const cardImgStyle = {
     backgroundImage: posterImg ? `url(https://image.tmdb.org/t/p/w500${posterImg})` : `url(${IMAGE_NOT_FOUND_URL})`
   };
 
+  const cardWrapStyle = {
+    width: isDisplayCardDirection === "square" ? "290px" : "100%"
+  };
+
   return (
-    <div className="card__wrap">
+    <div className="card__wrap" style={cardWrapStyle}>
       {isInfoShow ? (
         <InfoWindow cardItem={{ id, title, score, genres, posterImg, overview }} onShowInfo={handleShowInfo} />
       ) : (
@@ -50,7 +63,8 @@ Card.propTypes = {
   isInfoShow: PropTypes.bool,
   onChangeHeaderMovie: PropTypes.func.isRequired,
   handleShowTrailer: PropTypes.func.isRequired,
-  handleShowInfo: PropTypes.func.isRequired
+  handleShowInfo: PropTypes.func.isRequired,
+  isDisplayCardDirection: PropTypes.string
 };
 
 Card.defaultProps = {
@@ -63,5 +77,6 @@ Card.defaultProps = {
   },
   genres: "",
   cardIndex: 0,
-  isInfoShow: false
+  isInfoShow: false,
+  isDisplayCardDirection: "square"
 };

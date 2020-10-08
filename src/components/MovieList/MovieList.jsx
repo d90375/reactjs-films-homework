@@ -3,12 +3,18 @@ import React from "react";
 import Card from "./Card";
 import "./MovieList.scss";
 
-const MovieList = ({ data, cardLength, genres }) => {
+const MovieList = ({ data, cardLength, genres, isDisplayCardDirection }) => {
   return (
     <div className="movieList">
       {cardLength > 0 ? (
         Object.values(data).map((card, cardIndex) => (
-          <Card key={card.id} cardItem={card} genresItems={genres} cardIndex={cardIndex} />
+          <Card
+            key={card.id}
+            cardItem={card}
+            genresItems={genres}
+            cardIndex={cardIndex}
+            isDisplayCardDirection={isDisplayCardDirection}
+          />
         ))
       ) : (
         <div className="noResults__wrap">

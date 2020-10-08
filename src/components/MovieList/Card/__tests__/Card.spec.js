@@ -7,7 +7,8 @@ describe("Card", () => {
   const mockProps = {
     cardIndex: 9,
     genres: "genres",
-    isInfoShow: true
+    isInfoShow: true,
+    isDisplayCardDirection: "line"
   };
 
   const mockCallBacks = {

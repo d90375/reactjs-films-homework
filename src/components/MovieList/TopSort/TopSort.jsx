@@ -7,7 +7,16 @@ import { GENRE_ID } from "../../../constants";
 
 import "./topSort.scss";
 
-const TopSort = ({ genres, onSelectChange, handleSelectTab, TABS_INFO, selectedTab }) => {
+const TopSort = ({
+  isDisplayCardDirection,
+  handleSwitchToSquare,
+  handleSwitchToLine,
+  genres,
+  onSelectChange,
+  handleSelectTab,
+  TABS_INFO,
+  selectedTab
+}) => {
   const selectStyle = selectedTab === GENRE_ID ? `nav__title__arrow nav__active` : `nav__title__arrow`;
 
   return (
@@ -35,7 +44,11 @@ const TopSort = ({ genres, onSelectChange, handleSelectTab, TABS_INFO, selectedT
               })}
           </select>
         </div>
-        <SortBox />
+        <SortBox
+          isDisplayCardDirection={isDisplayCardDirection}
+          onSwitchToSquare={handleSwitchToSquare}
+          onSwitchToLine={handleSwitchToLine}
+        />
       </div>
     </nav>
   );

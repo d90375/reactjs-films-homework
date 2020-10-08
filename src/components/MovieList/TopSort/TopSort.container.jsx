@@ -6,7 +6,7 @@ import TopSort from "./TopSort";
 import { COMING_SOON, GENRE_ID, TOP_RATED, TRENDING } from "../../../constants";
 import { fetchMovieDataFilter } from "../../../modules/movieListData";
 
-const TopSortContainer = React.memo(({ genres }) => {
+const TopSortContainer = React.memo(({ genres, handleSwitchToSquare, handleSwitchToLine, isDisplayCardDirection }) => {
   const TABS_INFO = [TRENDING, TOP_RATED, COMING_SOON];
 
   const dispatch = useDispatch();
@@ -38,6 +38,9 @@ const TopSortContainer = React.memo(({ genres }) => {
         handleSelectTab={handleSelectTab}
         selectedTab={selectedTab}
         TABS_INFO={TABS_INFO}
+        handleSwitchToSquare={handleSwitchToSquare}
+        handleSwitchToLine={handleSwitchToLine}
+        isDisplayCardDirection={isDisplayCardDirection}
       />
     </>
   );

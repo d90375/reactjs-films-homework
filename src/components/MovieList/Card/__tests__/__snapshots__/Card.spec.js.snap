@@ -3,6 +3,11 @@
 exports[`Card should render Card component with props 1`] = `
 <div
   className="card__wrap"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
 >
   <InfoWindow
     cardItem={
@@ -27,6 +32,11 @@ exports[`Card should render Card component with props 1`] = `
 exports[`Card should render Card component without props 1`] = `
 <div
   className="card__wrap"
+  style={
+    Object {
+      "width": "290px",
+    }
+  }
 >
   <div
     className="card"
