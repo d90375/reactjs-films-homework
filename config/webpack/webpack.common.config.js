@@ -69,16 +69,17 @@ const jsLoaders = () => {
   return loaders;
 };
 
-const config = {
-  entry: ["@babel/polyfill", "./index.js"],
+module.exports = {
+  entry: { main: ["@babel/polyfill", `./index.js`] },
   output: {
     filename: filename("js"),
-    path: resolve(__dirname, "build")
+    path: resolve("build"),
+    publicPath: "/"
   },
   resolve: {
     extensions: [".js", ".jsx"]
   },
-  context: resolve(__dirname, "src"),
+  context: resolve("src"),
   module: {
     rules: [
       {
@@ -183,8 +184,7 @@ const config = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: resolve(__dirname, "src/favicon.ico"),
-          to: resolve(__dirname, "build")
+          from: "favicon.ico"
         }
       ]
     }),
@@ -195,7 +195,7 @@ const config = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       inject: true,
-      template: resolve(__dirname, "src", "index.html"),
+      template: "index.html",
       minify: {
         collapseWhitespace: isProd
       }
@@ -204,4 +204,3 @@ const config = {
     CONSTANTS
   ]
 };
-module.exports = config;

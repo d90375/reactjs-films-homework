@@ -1,14 +1,9 @@
-const { resolve } = require("path");
-
 const cssnano = require("cssnano");
-
-const { merge } = require("webpack-merge");
 
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
-const commonConfig = require("./webpack.common.config");
 
-module.exports = merge(commonConfig, {
+module.exports = {
   devtool: false,
   mode: "production",
   optimization: {
@@ -23,23 +18,9 @@ module.exports = merge(commonConfig, {
       })
     ]
   },
-  devServer: {
-    hot: false,
-    contentBase: resolve(__dirname, "build"),
-    watchContentBase: true,
-    host: "localhost",
-    port: 8099,
-    disableHostCheck: true,
-    open: true,
-    historyApiFallback: true,
-    overlay: {
-      warnings: false,
-      errors: true
-    }
-  },
   performance: {
     hints: "warning",
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    maxEntrypointSize: 1024000,
+    maxAssetSize: 710000
   }
-});
+};

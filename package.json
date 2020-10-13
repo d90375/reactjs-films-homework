@@ -10,14 +10,13 @@
     "not ie <= 11"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development cross-env node ./server/server.js",
-    "prod": "cross-env NODE_ENV=production npm run clean && webpack-dev-server --mode production --config webpack.production.config.js --open",
-    "build": "cross-env NODE_ENV=production npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
+    "start": "cross-env NODE_ENV=development node ./server/server.js",
+    "prod": "cross-env-shell NODE_ENV=production PORT=4000 \"npm run build && node ./server/server.js\"",
+    "build": "cross-env-shell NODE_ENV=production \"npm run clean && webpack --env production --progress --profile --colors\"",
     "prettier": "prettier ./src/**/**.js --write",
     "lint": "eslint ./src/**/**.js",
-    "fix:lint": "eslint ./src/**/**.js --fix",
     "lint:style": "npx stylelint ./src/",
-    "fix:style": "npx stylelint ./src/ --fix",
+    "fix:lint": "eslint ./src/**/**.js --fix && npx stylelint ./src/ --fix",
     "test:jest": "jest",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
