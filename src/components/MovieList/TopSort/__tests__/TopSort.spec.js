@@ -1,4 +1,5 @@
 import React from "react";
+import { shallow } from "enzyme";
 import TopSort from "../TopSort";
 import { GENRE_ID } from "../../../../constants";
 

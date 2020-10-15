@@ -1,4 +1,5 @@
 import React from "react";
+import { shallow } from "enzyme";
 import Preloader from "../Preloader";
 
 describe("Preloader component", () => {
