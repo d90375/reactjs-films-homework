@@ -1,49 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopSort with free route should render TopSort component without route, query is equal ''  1`] = `
-<nav
-  className="nav"
->
-  <div
-    className="nav__wrap"
-  >
-    <div
-      className="nav__title"
-    >
-      <select
-        className="nav__title__arrow"
-        name="genre"
-        onChange={[MockFunction]}
-      >
-        <option
-          hidden={true}
-          value="Genre"
-        >
-          Genre
-        </option>
-        <option
-          key="genres"
-          value="genres"
-        >
-          genres
-        </option>
-        <option
-          key="genres2"
-          value="genres2"
-        >
-          genres2
-        </option>
-      </select>
-    </div>
-    <SortBox
-      isDisplayCardDirection="square"
-      onSwitchToLine={[Function]}
-      onSwitchToSquare={[Function]}
-    />
-  </div>
-</nav>
-`;
-
 exports[`TopSort with free route, equal ''  should render TopSort component without route, query is equal ''  1`] = `
 <nav
   className="nav"
