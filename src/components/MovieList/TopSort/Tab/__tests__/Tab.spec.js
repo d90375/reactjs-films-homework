@@ -13,11 +13,7 @@ describe("Tab", () => {
   });
 
   it("should render TopSort component with props, should changed className", () => {
-    component = shallow(
-      <Tab selectedTab="child" onSelectTab={mockCallBack}>
-        child
-      </Tab>
-    );
+    component = shallow(<Tab onSelectTab={mockCallBack}>child</Tab>);
     expect(component).toMatchSnapshot();
   });
 

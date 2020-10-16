@@ -3,9 +3,9 @@ import React from "react";
 
 import Tab from "./Tab";
 import SortBox from "./SortBox";
-import { GENRE_ID } from "../../../constants";
 
 import "./topSort.scss";
+import useUrlSearch from "../../../hooks/useURLSearch";
 
 const TopSort = ({
   isDisplayCardDirection,
@@ -14,10 +14,10 @@ const TopSort = ({
   genres,
   onSelectChange,
   handleSelectTab,
-  TABS_INFO,
-  selectedTab
+  TABS_INFO
 }) => {
-  const selectStyle = selectedTab === GENRE_ID ? `nav__title__arrow nav__active` : `nav__title__arrow`;
+  const queryParamGenre = useUrlSearch("genreId");
+  const selectStyle = queryParamGenre ? `nav__title__arrow nav__active` : `nav__title__arrow`;
 
   return (
     <nav className="nav">
@@ -25,7 +25,7 @@ const TopSort = ({
         <div className="nav__title">
           {TABS_INFO.map((currTab) => {
             return (
-              <Tab key={currTab} onSelectTab={handleSelectTab(currTab)} selectedTab={selectedTab}>
+              <Tab key={currTab} onSelectTab={handleSelectTab(currTab)}>
                 {currTab}
               </Tab>
             );
@@ -58,13 +58,11 @@ export default TopSort;
 TopSort.propTypes = {
   genres: PropTypes.objectOf(PropTypes.string),
   TABS_INFO: PropTypes.arrayOf(PropTypes.string),
-  selectedTab: PropTypes.string,
   onSelectChange: PropTypes.func.isRequired,
   handleSelectTab: PropTypes.func.isRequired
 };
 
 TopSort.defaultProps = {
   genres: {},
-  TABS_INFO: [],
-  selectedTab: ""
+  TABS_INFO: []
 };

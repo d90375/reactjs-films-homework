@@ -7,16 +7,25 @@ import MovieList from "./MovieList";
 import VideoFrame from "../VideoFrame";
 
 import {
+  fetchData,
   fetchGenresData,
   getMovieSelector,
   fetchMovieDataFilter,
+  fetchGenresDataById,
   getCompletedMovieListSelector
 } from "../../modules/movieListData";
+
 import { NUMBER_OF_CARDS } from "../../constants";
+import useUrlSearch from "../../hooks/useURLSearch";
 
 const MovieListContainer = () => {
   const dispatch = useDispatch();
+  const queryParamFilter = useUrlSearch("filter");
+  const queryParamGenre = useUrlSearch("genreId");
+  const queryParamSearch = useUrlSearch("search");
+
   const data = useSelector(getCompletedMovieListSelector);
+
   const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useSelector(getMovieSelector);
 
   const [isDisplayCardDirection, setDisplayCardDirection] = useState("square");
@@ -27,10 +36,16 @@ const MovieListContainer = () => {
 
   // Load static genres of the list:
   useEffect(() => {
-    dispatch(fetchMovieDataFilter());
     dispatch(fetchGenresData());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchMovieDataFilter(queryParamFilter));
+
+    if (queryParamSearch) dispatch(fetchData(queryParamSearch));
+    if (queryParamGenre) dispatch(fetchGenresDataById(queryParamGenre));
+  }, [queryParamSearch, queryParamGenre, queryParamFilter, dispatch]);
 
   const handleSwitchToSquare = () => {
     setDisplayCardDirection("square");

@@ -1,33 +1,29 @@
 import PropTypes from "prop-types";
-import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useCallback } from "react";
+import { useHistory } from "react-router-dom";
 
 import TopSort from "./TopSort";
-import { COMING_SOON, GENRE_ID, TOP_RATED, TRENDING } from "../../../constants";
-import { fetchMovieDataFilter } from "../../../modules/movieListData";
+import { COMING_SOON, TOP_RATED, TRENDING } from "../../../constants";
 
 const TopSortContainer = React.memo(({ genres, handleSwitchToSquare, handleSwitchToLine, isDisplayCardDirection }) => {
   const TABS_INFO = [TRENDING, TOP_RATED, COMING_SOON];
 
-  const dispatch = useDispatch();
-  const [selectedTab, setSelectedTab] = useState(TRENDING);
+  const history = useHistory();
 
   const onSelectChange = useCallback(
     (event) => {
-      setSelectedTab(GENRE_ID);
-      dispatch(fetchMovieDataFilter(GENRE_ID, event.target.value));
+      history.push({ search: `?genreId=${event.target.value}` });
     },
-    [dispatch]
+    [history]
   );
 
   const handleSelectTab = useCallback(
     (tabName) => {
       return () => {
-        setSelectedTab(tabName);
-        dispatch(fetchMovieDataFilter(tabName));
+        history.push(`?filter=${tabName.replace(/\s/g, "").toLowerCase()}`);
       };
     },
-    [dispatch]
+    [history]
   );
 
   return (
@@ -36,7 +32,6 @@ const TopSortContainer = React.memo(({ genres, handleSwitchToSquare, handleSwitc
         genres={genres}
         onSelectChange={onSelectChange}
         handleSelectTab={handleSelectTab}
-        selectedTab={selectedTab}
         TABS_INFO={TABS_INFO}
         handleSwitchToSquare={handleSwitchToSquare}
         handleSwitchToLine={handleSwitchToLine}
