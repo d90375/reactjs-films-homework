@@ -4,12 +4,21 @@ exports[`App component should render App component without props 1`] = `
 <div
   className="wrap"
 >
-  <HeaderContainer />
-  <main
-    className="main"
-  >
-    <MovieListContainer />
-  </main>
-  <Footer />
+  <BrowserRouter>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/film/:id"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </BrowserRouter>
 </div>
 `;

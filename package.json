@@ -43,6 +43,8 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!**/hooks/**",
+      "!**/pages/**",
       "!**/node_modules/**",
       "!**/index.jsx/**",
       "!**/index.js/**",

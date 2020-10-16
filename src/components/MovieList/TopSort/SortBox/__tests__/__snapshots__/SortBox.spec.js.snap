@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SortBox should render SortBox component with props 1`] = `
+exports[`SortBox should render SortBox component with props is equal 'line'  1`] = `
 <div
   className="nav__format"
 >
@@ -24,6 +24,43 @@ exports[`SortBox should render SortBox component with props 1`] = `
   </button>
   <button
     className="format__box2 active"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    <div
+      className="box2 box2_top"
+    />
+    <div
+      className="box2 box2_btm"
+    />
+  </button>
+</div>
+`;
+
+exports[`SortBox should render SortBox component with props is equal 'square'  1`] = `
+<div
+  className="nav__format"
+>
+  <button
+    className="format__box4 active"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    <div
+      className="box4 box4_topLeft"
+    />
+    <div
+      className="box4 box4_topRight"
+    />
+    <div
+      className="box4 box4_btmLeft"
+    />
+    <div
+      className="box4 box4_btmRight"
+    />
+  </button>
+  <button
+    className="format__box2"
     onClick={[MockFunction]}
     type="button"
   >

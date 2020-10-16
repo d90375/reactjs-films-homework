@@ -1,7 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
 import TopSort from "../TopSort";
-import { GENRE_ID } from "../../../../constants";
+
+jest.mock("react-router-dom", () => ({
+  useLocation: jest.fn().mockReturnValue({
+    pathname: "/film/531499",
+    search: "?genreId=999999",
+    hash: "",
+    state: null,
+    key: "oe8zjc"
+  })
+}));
 
 describe("TopSort", () => {
   let component;
@@ -10,25 +19,17 @@ describe("TopSort", () => {
     onSelectChange: jest.fn(),
     handleSelectTab: jest.fn()
   };
+
   const event = { target: { value: "value" } };
-  const mockProps = {
-    TABS_INFO: ["selected"],
-    selectedTab: GENRE_ID
-  };
 
   it("should render TopSort component without props", () => {
     component = shallow(<TopSort {...mockCallBacks} />);
     expect(component).toMatchSnapshot();
   });
 
-  it("should render TopSort component with props", () => {
-    component = shallow(<TopSort genres={{ genres: "genres", genres2: "genres2" }} {...mockCallBacks} />);
-    expect(component).toMatchSnapshot();
-  });
-
-  it("should render TopSort component with props, should change className", () => {
+  it("should render TopSort component with route query, should change className", () => {
     component = shallow(
-      <TopSort genres={{ genres: "genres", genres2: "genres2" }} {...mockProps} {...mockCallBacks} />
+      <TopSort genres={{ genres: "genres", genres2: "genres2" }} TABS_INFO={["mockTab"]} {...mockCallBacks} />
     );
     expect(component).toMatchSnapshot();
   });

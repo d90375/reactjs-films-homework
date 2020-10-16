@@ -26,10 +26,12 @@ export default SortBox;
 
 SortBox.propTypes = {
   isDisplayCardDirection: PropTypes.string,
-  onSwitchToLine: PropTypes.func.isRequired,
-  onSwitchToSquare: PropTypes.func.isRequired
+  onSwitchToLine: PropTypes.func,
+  onSwitchToSquare: PropTypes.func
 };
 
 SortBox.defaultProps = {
-  isDisplayCardDirection: "square"
+  isDisplayCardDirection: "square",
+  onSwitchToLine: () => {},
+  onSwitchToSquare: () => {}
 };

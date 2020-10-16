@@ -23,13 +23,11 @@ const TopSort = ({
     <nav className="nav">
       <div className="nav__wrap">
         <div className="nav__title">
-          {TABS_INFO.map((currTab) => {
-            return (
-              <Tab key={currTab} onSelectTab={handleSelectTab(currTab)}>
-                {currTab}
-              </Tab>
-            );
-          })}
+          {TABS_INFO.map((currTab) => (
+            <Tab key={currTab} onSelectTab={handleSelectTab(currTab)}>
+              {currTab}
+            </Tab>
+          ))}
           <select name="genre" className={selectStyle} onChange={onSelectChange}>
             <option value="Genre" hidden>
               Genre

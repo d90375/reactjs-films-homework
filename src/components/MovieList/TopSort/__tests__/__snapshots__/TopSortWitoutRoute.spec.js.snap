@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopSort should render TopSort component with route query, should change className 1`] = `
+exports[`TopSort with free route should render TopSort component without route, query is equal ''  1`] = `
 <nav
   className="nav"
 >
@@ -10,14 +10,8 @@ exports[`TopSort should render TopSort component with route query, should change
     <div
       className="nav__title"
     >
-      <Tab
-        key="mockTab"
-        onSelectTab={[Function]}
-      >
-        mockTab
-      </Tab>
       <select
-        className="nav__title__arrow nav__active"
+        className="nav__title__arrow"
         name="genre"
         onChange={[MockFunction]}
       >
@@ -50,7 +44,7 @@ exports[`TopSort should render TopSort component with route query, should change
 </nav>
 `;
 
-exports[`TopSort should render TopSort component without props 1`] = `
+exports[`TopSort with free route, equal ''  should render TopSort component without route, query is equal ''  1`] = `
 <nav
   className="nav"
 >
@@ -61,7 +55,7 @@ exports[`TopSort should render TopSort component without props 1`] = `
       className="nav__title"
     >
       <select
-        className="nav__title__arrow nav__active"
+        className="nav__title__arrow"
         name="genre"
         onChange={[MockFunction]}
       >
@@ -70,6 +64,18 @@ exports[`TopSort should render TopSort component without props 1`] = `
           value="Genre"
         >
           Genre
+        </option>
+        <option
+          key="genres"
+          value="genres"
+        >
+          genres
+        </option>
+        <option
+          key="genres2"
+          value="genres2"
+        >
+          genres2
         </option>
       </select>
     </div>
