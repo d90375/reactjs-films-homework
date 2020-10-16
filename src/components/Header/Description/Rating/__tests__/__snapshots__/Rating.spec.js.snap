@@ -1,103 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rating component should render Rating component 1`] = `
+exports[`Rating should render Rating component with correct props 1`] = `
 <div
   className="rating"
 >
   <div
     className="star"
+    key="0"
   >
-    <svg
-      height="1rem"
-      viewBox="0 0 36 36"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <g>
-          <path
-            d="M36 13.5H22.22L18.002 0l-4.22 13.5H0l11.165 8.374L6.75 36 18 27l11.25 9-4.414-14.127z"
-            fill="#0aaee4"
-          />
-        </g>
-      </g>
-    </svg>
+    ★
   </div>
   <div
     className="star"
+    key="1"
   >
-    <svg
-      height="1rem"
-      viewBox="0 0 36 36"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <g>
-          <path
-            d="M36 13.5H22.22L18.002 0l-4.22 13.5H0l11.165 8.374L6.75 36 18 27l11.25 9-4.414-14.127z"
-            fill="#0aaee4"
-          />
-        </g>
-      </g>
-    </svg>
+    ★
   </div>
   <div
     className="star"
+    key="2"
   >
-    <svg
-      height="1rem"
-      viewBox="0 0 36 36"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <g>
-          <path
-            d="M36 13.5H22.22L18.002 0l-4.22 13.5H0l11.165 8.374L6.75 36 18 27l11.25 9-4.414-14.127z"
-            fill="#0aaee4"
-          />
-        </g>
-      </g>
-    </svg>
+    ★
   </div>
   <div
     className="star"
+    key="3"
   >
-    <svg
-      height="1rem"
-      viewBox="0 0 36 36"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <g>
-          <path
-            d="M36 13.5H22.22L18.002 0l-4.22 13.5H0l11.165 8.374L6.75 36 18 27l11.25 9-4.414-14.127z"
-            fill="#0aaee4"
-          />
-        </g>
-      </g>
-    </svg>
+    ★
   </div>
   <div
     className="star"
+    key="4"
   >
-    <svg
-      height="1rem"
-      viewBox="0 0 36 36"
-      width="1rem"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g>
-        <g>
-          <path
-            d="M36 13.5H22.22L18.002 0l-4.22 13.5H0l11.165 8.374L6.75 36 18 27l11.25 9-4.414-14.127z"
-            fill="#0aaee4"
-          />
-        </g>
-      </g>
-    </svg>
+    ★
   </div>
   <div
     className="rating__container"
@@ -105,7 +40,39 @@ exports[`Rating component should render Rating component 1`] = `
     <span
       className="rating__number"
     >
-      4.8
+      4.5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating should render Rating component with not correct props 1`] = `
+<div
+  className="rating"
+>
+  <div
+    className="rating__container"
+  >
+    <span
+      className="rating__number"
+    >
+      0.0
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Rating should render Rating component without props 1`] = `
+<div
+  className="rating"
+>
+  <div
+    className="rating__container"
+  >
+    <span
+      className="rating__number"
+    >
+      0.0
     </span>
   </div>
 </div>

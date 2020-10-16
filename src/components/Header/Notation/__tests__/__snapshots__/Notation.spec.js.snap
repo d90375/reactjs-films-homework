@@ -1,42 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notation component should render Notation component 1`] = `
+exports[`Notation should render Notation component with props = (movieId: 999, isHiddenViewWindow: true, overview: "overview") 1`] = `
 <div
-  className="notation"
+  className="flexFixedWrap"
 >
   <div
-    className="notation__wrap"
+    className="notation"
   >
-    <span
-      className="notation__text"
-    >
-      There are growing dangers in the wizarding world of 1926 New York. Something mysterious is leaving a path of destruction in the streets, threatening to expose the wizarding community to the Second Salemers, a fanatical faction of No-Majs (American for Muggles) bent on eradicating them. And the powerful, dark wizard Gellert Grindelwald, after wreaking havoc in Europe, has slipped away…and is now nowhere to be found.
-       
-    </span>
-  </div>
-  <div
-    className="notation__btn"
-  >
-    <button
-      className="btn btn__watch"
-      type="button"
+    <div
+      className="notation__wrap"
     >
       <span
-        className="btn__watch__text"
+        className="notation__text"
       >
-        Watch Now
+        overview
       </span>
-    </button>
-    <button
-      className="btn btn__view"
-      type="button"
+    </div>
+    <div
+      className="notation__btn"
     >
-      <span
-        className="btn__view__text"
+      <Memo(ButtonWatchNowContainer)
+        movieId={999}
+      />
+      <button
+        className="btn btn__view"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Hide Info
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Notation should render Notation component without props 1`] = `
+<div
+  className="flexFixedWrap"
+>
+  <div
+    className="notation"
+  >
+    <div
+      className="notation__btn"
+    >
+      <Memo(ButtonWatchNowContainer)
+        movieId={0}
+      />
+      <button
+        className="btn btn__view"
+        onClick={[MockFunction]}
+        type="button"
       >
         View Info
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
 </div>
 `;

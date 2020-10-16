@@ -1,9 +1,10 @@
 {
-  "printWidth": 240,
+  "printWidth": 120,
   "trailingComma": "none",
   "tabWidth": 2,
   "semi": true,
   "singleQuote": false,
   "parser": "babel",
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "endOfLine":"auto"
 }

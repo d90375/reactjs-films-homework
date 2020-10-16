@@ -1,0 +1,9 @@
+.btn__watch {
+  background-color: #0aaee4;
+  border: 1px solid #0aaee4;
+  border-radius: 5px;
+
+  &:hover {
+    background: lighten(#0aaee4, 10%);
+  }
+}

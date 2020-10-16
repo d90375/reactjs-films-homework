@@ -1,16 +1,16 @@
 @mixin clearfix() {
   &::before,
   &::after {
+    clear: both;
     content: '';
     display: table;
-    clear: both;
   }
 }
 
 @mixin min-max($min-width, $max-width, $padding) {
-  min-width: $min-width;
-  max-width: $max-width;
-  padding: 0 $padding;
   box-sizing: border-box;
   margin: 0 auto;
+  max-width: $max-width;
+  min-width: $min-width;
+  padding: 0 $padding;
 }

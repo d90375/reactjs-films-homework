@@ -1,46 +1,70 @@
 const express = require("express");
+const { resolve, join } = require("path");
+
 require("dotenv").config();
+
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
+const config = require("../webpack.config");
 
-const config = require("../webpack.development.config");
+const withModeConfig = config("development");
 
 const app = express();
-const port = process.env.PORT || 3000;
-const compiler = webpack(config);
+const compiler = webpack(withModeConfig);
 
-app.use(
-  webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
-  })
-);
+const installPort = (port) => {
+  app.listen(port, (err) => {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+      return;
+    }
+    // eslint-disable-next-line no-console
+    console.log(`Listening on port ${port}!\n`);
+  });
+};
 
-app.use(
-  webpackHotMiddleware(compiler, {
-    log: false,
-    path: "/__webpack_hmr",
-    heartbeat: 10 * 1000
-  })
-);
+switch (process.env.NODE_ENV) {
+  case "development":
+    app.use(
+      webpackDevMiddleware(compiler, {
+        noInfo: true,
+        publicPath: withModeConfig.output.publicPath
+      })
+    );
 
-console.log("env port", port);
+    app.use(
+      webpackHotMiddleware(compiler, {
+        log: false,
+        path: "/__webpack_hmr",
+        heartbeat: 10 * 1000
+      })
+    );
 
-app.use("/public", express.static("public"));
+    app.use("*", (req, res, next) => {
+      const filename = join(compiler.outputPath, "/index.html");
+      compiler.outputFileSystem.readFile(filename, (err, result) => {
+        if (err) {
+          return next(err);
+        }
+        res.set("content-type", "text/html");
+        res.send(result);
+        return res.end();
+      });
+    });
 
-app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
-});
+    installPort(process.env.PORT || 3000);
+    break;
+  case "production":
+    app.use(express.static(resolve("build")));
 
-// app.get('*', function(req, res) {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
+    app.get("*", (req, res) => {
+      res.sendFile(resolve("build", "./index.html"));
+    });
 
-app.listen(port, (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log(`Listening on port ${port}!\n`);
-});
+    installPort(process.env.PORT || 4000);
+    break;
+  default:
+    throw new Error("No matching configuration was found!");
+}

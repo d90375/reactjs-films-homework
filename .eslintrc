@@ -34,22 +34,19 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
     "es6": true
   },
   "globals": {
-    "IS_PROD": true,
-    "STRIPE_PUBLIC_KEY": true,
-    "SENTRY_CLIENT_URL": true,
-    "deferredPrompt": true,
     "axios": true,
-    "globalThis": true,
-    "ENABLE_SOCKETS": true
+    "shallow": true,
+    "render": true,
+    "mount": true
   },
   "rules": {
     "prettier/prettier": ["warn"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/label-has-for": [ 2, {
       "required": {
         "every": [ "id" ]
@@ -73,6 +70,9 @@
     "react-hooks/exhaustive-deps": "warn",
     "jsx-a11y/control-has-associated-label": "warn",
     "jsx-a11y/no-autofocus": "warn",
-    "react/jsx-props-no-spreading": ["off"]
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prop-types": "off",
+    "react/destructuring-assignment": "off",
+    "react/display-name": "off"
   }
 }

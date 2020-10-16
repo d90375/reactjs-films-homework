@@ -1,14 +1,16 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import Header from "./Header";
-import Main from "./Main";
 import Footer from "./Footer";
+import MovieListContainer from "./MovieList";
+import HeaderContainer from "./Header";
 
 const App = () => {
   return (
     <div className="wrap">
-      <Header />
-      <Main />
+      <HeaderContainer />
+      <main className="main">
+        <MovieListContainer />
+      </main>
       <Footer />
     </div>
   );

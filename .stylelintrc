@@ -1,6 +1,12 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
+    "function-calc-no-unspaced-operator": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "max-nesting-depth": 3,
+    "selector-max-compound-selectors": 5,
     "at-rule-no-unknown": [true, {
       "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
     }],
@@ -10,5 +16,12 @@
         "except": ["value"]
       }
     ]
-  }
+  },
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.snap",
+    "**/*.ico",
+    "**/*.png",
+     "src/assets/fonts/**"]
 }

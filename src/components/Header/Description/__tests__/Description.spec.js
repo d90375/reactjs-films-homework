@@ -1,19 +1,18 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
+import { shallow } from "enzyme";
 import Description from "../Description";
 
-const renderer = new ShallowRenderer();
-const setUp = (props) => {
-  return renderer.render(<Description {...props} />);
-};
-
-describe("Description component", () => {
+describe("Description", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
+  const mockProps = { genres: "genres", title: "title", voteAverage: 10, runtime: [1, 1] };
+
+  it("should render Description component without props", () => {
+    component = shallow(<Description />);
+    expect(component).toMatchSnapshot();
   });
 
-  it("should render Description component", () => {
+  it('should render Description component with props = (genres: "genres", title: "title", voteAverage: 10, runtime: [1, 1])', () => {
+    component = shallow(<Description {...mockProps} />);
     expect(component).toMatchSnapshot();
   });
 });

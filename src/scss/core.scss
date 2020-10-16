@@ -3,19 +3,25 @@
  **/
 
 html {
-  font-size: 16px;
   color: #fff;
+  font-size: 16px;
 }
 
 body {
-  margin: 0;
   font-family: "Helvetica Neue", serif;
+  margin: 0;
 }
-
-//.container {
-//  @include min-max(320px, 100%, 0);
-//}
 
 .wrap {
   @include min-max(320px,1366px, 0);
+}
+
+.error {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  span {
+    color: #e40001;
+  }
 }

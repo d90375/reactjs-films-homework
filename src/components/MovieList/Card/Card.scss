@@ -1,0 +1,90 @@
+.card__wrap {
+  background-color: #eaeaea;
+  border-radius: 5px;
+  height: 380px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 5rem;
+  }
+}
+
+.card {
+  height: 100%;
+  position: relative;
+
+  &:hover + div {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+  }
+}
+
+.card__img {
+  background-color: #eaeaea;
+  background-position: left top;
+  background-size: cover;
+  border-radius: 5px 5px 0 0;
+  height: calc(100% - 80px);
+  position: relative;
+}
+
+.card__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.card__title__text {
+  color: #242b2d;
+  font-family: "HelveticaNeue-bold", serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 12rem;
+}
+
+.card__title__rating {
+  border: 1px solid #49c1f0;
+  border-radius: 5px;
+  text-align: center;
+  width: 30px;
+}
+
+.card__title__number {
+  color: #47c3f0;
+  font-family: "HelveticaNeue-CondensedBlack", serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card__description {
+  background-color: #fff;
+  height: 80px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0 1rem 0 1rem;
+  text-align: left;
+}
+
+.card__description__genre {
+  color: #47c3f0;
+  font-family: "HelveticaNeue-bold", serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.88px;
+}

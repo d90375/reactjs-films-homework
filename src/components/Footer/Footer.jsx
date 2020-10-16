@@ -8,7 +8,7 @@ const Footer = () => {
         <span>FILMS</span>
       </div>
       <div className="footer__copyright">
-        <span>Copyright © 2018 FILMS. YOUR NAME</span>
+        <span>Copyright © 2018 d90375</span>
       </div>
     </footer>
   );

@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopSort should render TopSort component with props 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="nav__wrap"
+  >
+    <div
+      className="nav__title"
+    >
+      <select
+        className="nav__title__arrow"
+        name="genre"
+        onChange={[MockFunction]}
+      >
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+        <option
+          key="genres"
+          value="genres"
+        >
+          genres
+        </option>
+        <option
+          key="genres2"
+          value="genres2"
+        >
+          genres2
+        </option>
+      </select>
+    </div>
+    <SortBox />
+  </div>
+</nav>
+`;
+
+exports[`TopSort should render TopSort component with props, should change className 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="nav__wrap"
+  >
+    <div
+      className="nav__title"
+    >
+      <Tab
+        key="selected"
+        onSelectTab={[Function]}
+        selectedTab="genreId"
+      >
+        selected
+      </Tab>
+      <select
+        className="nav__title__arrow nav__active"
+        name="genre"
+        onChange={[MockFunction]}
+      >
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+        <option
+          key="genres"
+          value="genres"
+        >
+          genres
+        </option>
+        <option
+          key="genres2"
+          value="genres2"
+        >
+          genres2
+        </option>
+      </select>
+    </div>
+    <SortBox />
+  </div>
+</nav>
+`;
+
+exports[`TopSort should render TopSort component without props 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="nav__wrap"
+  >
+    <div
+      className="nav__title"
+    >
+      <select
+        className="nav__title__arrow"
+        name="genre"
+        onChange={[MockFunction]}
+      >
+        <option
+          hidden={true}
+          value="Genre"
+        >
+          Genre
+        </option>
+      </select>
+    </div>
+    <SortBox />
+  </div>
+</nav>
+`;

@@ -1,19 +1,22 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
+import { shallow } from "enzyme";
 import Footer from "../Rating";
 
-const renderer = new ShallowRenderer();
-const setUp = (props) => {
-  return renderer.render(<Footer {...props} />);
-};
-
-describe("Rating component", () => {
+describe("Rating", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
+
+  it("should render Rating component without props", () => {
+    component = shallow(<Footer />);
+    expect(component).toMatchSnapshot();
   });
 
-  it("should render Rating component", () => {
+  it("should render Rating component with correct props", () => {
+    component = shallow(<Footer voteAverage={9} />);
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Rating component with not correct props", () => {
+    component = shallow(<Footer voteAverage={99} />);
     expect(component).toMatchSnapshot();
   });
 });

@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search component should render Search component 1`] = `
+exports[`Search should render Search component with props = (valueText="valueText") 1`] = `
 <form
-  action="#"
   className="search"
-  method="post"
+  onSubmit={[MockFunction]}
 >
   <label
     htmlFor="searchId"
@@ -13,9 +12,37 @@ exports[`Search component should render Search component 1`] = `
       className="search__text"
       id="searchId"
       name="search"
-      placeholder="the jungle book"
-      required={true}
-      type="text"
+      onChange={[MockFunction]}
+      placeholder="Search"
+      type="search"
+      value="valueText"
+    />
+    <SearchIconSvg
+      onClickQuery={[MockFunction]}
+    />
+  </label>
+</form>
+`;
+
+exports[`Search should render Search component without props 1`] = `
+<form
+  className="search"
+  onSubmit={[MockFunction]}
+>
+  <label
+    htmlFor="searchId"
+  >
+    <input
+      className="search__text"
+      id="searchId"
+      name="search"
+      onChange={[MockFunction]}
+      placeholder="Search"
+      type="search"
+      value=""
+    />
+    <SearchIconSvg
+      onClickQuery={[MockFunction]}
     />
   </label>
 </form>

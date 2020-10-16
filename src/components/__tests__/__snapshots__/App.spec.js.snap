@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component should render App component 1`] = `
+exports[`App component should render App component without props 1`] = `
 <div
   className="wrap"
 >
-  <Header />
-  <Main />
+  <HeaderContainer />
+  <main
+    className="main"
+  >
+    <MovieListContainer />
+  </main>
   <Footer />
 </div>
 `;

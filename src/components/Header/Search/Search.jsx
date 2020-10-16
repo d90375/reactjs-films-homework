@@ -1,14 +1,36 @@
 import React from "react";
 import "./Search.scss";
+import PropTypes from "prop-types";
+import SearchIconSvg from "./SearchIconSVG";
 
-const Search = () => {
+const Search = ({ onQueryChanged, onKeyQuery, onClickQuery, valueText }) => {
   return (
-    <form className="search" method="post" action="#">
+    <form onSubmit={onKeyQuery} className="search">
       <label htmlFor="searchId">
-        <input className="search__text" required type="text" id="searchId" name="search" placeholder="the jungle book" />
+        <input
+          onChange={onQueryChanged}
+          value={valueText}
+          className="search__text"
+          type="search"
+          id="searchId"
+          name="search"
+          placeholder="Search"
+        />
+        <SearchIconSvg onClickQuery={onClickQuery} />
       </label>
     </form>
   );
 };
 
 export default Search;
+
+Search.propTypes = {
+  onQueryChanged: PropTypes.func.isRequired,
+  onKeyQuery: PropTypes.func.isRequired,
+  onClickQuery: PropTypes.func.isRequired,
+  valueText: PropTypes.string
+};
+
+Search.defaultProps = {
+  valueText: ""
+};

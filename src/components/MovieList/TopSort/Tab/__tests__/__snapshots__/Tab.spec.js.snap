@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab should render TopSort component with props, should changed className 1`] = `
+<Fragment>
+  <button
+    className="nav__title__text nav__active"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    child
+  </button>
+</Fragment>
+`;
+
+exports[`Tab should render TopSort component without props 1`] = `
+<Fragment>
+  <button
+    className="nav__title__text"
+    onClick={[MockFunction]}
+    type="button"
+  />
+</Fragment>
+`;

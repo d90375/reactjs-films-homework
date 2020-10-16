@@ -1,20 +1,29 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
+import { shallow } from "enzyme";
 import Header from "../Header";
 
-const renderer = new ShallowRenderer();
-const setUp = (props) => {
-  renderer.render(<Header {...props} />);
-  return renderer.getRenderOutput();
-};
-
-describe("Header component", () => {
+describe("Header", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
+
+  const mockProps = {
+    headData: {
+      vote_average: 9,
+      backdrop_path: "backdrop_path",
+      title: "title",
+      id: 9,
+      overview: "overview"
+    },
+    genres: "genres",
+    runtime: [9, 9]
+  };
+
+  it("should render Header component without props ", () => {
+    component = shallow(<Header />);
+    expect(component).toMatchSnapshot();
   });
 
-  it("should render Header component", () => {
+  it('should render Header component with props = (genres: "genres", runtime: [9,9])', () => {
+    component = shallow(<Header {...mockProps} />);
     expect(component).toMatchSnapshot();
   });
 });

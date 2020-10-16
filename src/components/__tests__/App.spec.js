@@ -1,19 +1,12 @@
 import React from "react";
-import ShallowRenderer from "react-test-renderer/shallow";
+import { shallow } from "enzyme";
 import App from "../App";
-
-const renderer = new ShallowRenderer();
-const setUp = (props) => {
-  return renderer.render(<App {...props} />);
-};
 
 describe("App component", () => {
   let component;
-  beforeEach(() => {
-    component = setUp();
-  });
 
-  it("should render App component", () => {
+  it("should render App component without props", () => {
+    component = shallow(<App />);
     expect(component).toMatchSnapshot();
   });
 });
