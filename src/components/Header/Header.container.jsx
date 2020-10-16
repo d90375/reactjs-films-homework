@@ -1,11 +1,17 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useRef, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getDataByIdSelector, getHeaderSelector } from "../../modules/headerData";
+import { getDataByIdSelector, getHeaderSelector, fetchMovieById } from "../../modules/headerData";
 import Header from "./Header";
 import Preloader from "../MovieList/Preloader";
 
 const HeaderContainer = () => {
+  const params = useParams();
+  const dispatch = useDispatch();
+  const prevRefParamId = useRef(0);
+  const prevParamId = prevRefParamId.current;
+
   const { isLoadingHeader, hasErrorHeader, isFulfilledHeader, errorHeader } = useSelector(getHeaderSelector);
   const headData = useSelector(getDataByIdSelector);
 
@@ -28,6 +34,11 @@ const HeaderContainer = () => {
     const calculatedMinutes = Math.round(minutes);
     calculatedRuntime = [calculatedHours, calculatedMinutes];
   }
+
+  useEffect(() => {
+    prevRefParamId.current = params.id;
+    if (params.id && prevParamId !== params.id) dispatch(fetchMovieById(params.id));
+  }, [prevParamId, dispatch, params]);
 
   return (
     <>

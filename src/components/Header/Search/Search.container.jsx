@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Search from "./Search";
-import { fetchData, fetchGenresData } from "../../../modules/movieListData";
 
 const SearchContainer = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
 
   const [valueText, setValueText] = useState("");
 
   const valueCondition = (value) => {
     if (value !== "") {
-      dispatch(fetchData(value));
+      history.push({ search: `?search=${value}` });
     } else {
-      dispatch(fetchGenresData());
+      history.push({ search: `?filter=trending` });
     }
   };
 
