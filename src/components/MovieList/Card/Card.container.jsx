@@ -1,12 +1,14 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 
 import Card from "./Card";
-import { fetchMovieById } from "../../../modules/headerData";
 import { fetchTrailerById } from "../../../modules/trailerData";
 
 const CardContainer = React.memo(({ cardItem, genresItems, cardIndex, isDisplayCardDirection }) => {
+  const { search } = useLocation();
+  const { push } = useHistory();
   const dispatch = useDispatch();
 
   const [isInfoShow, setIsInfoShow] = useState(false);
@@ -20,8 +22,8 @@ const CardContainer = React.memo(({ cardItem, genresItems, cardIndex, isDisplayC
   const handleShowTrailer = useCallback(() => dispatch(fetchTrailerById(cardItem?.id)), [cardItem?.id, dispatch]);
 
   const handleChangeHeaderMovie = useCallback(() => {
-    dispatch(fetchMovieById(cardItem?.id));
-  }, [dispatch, cardItem?.id]);
+    push({ pathname: `/film/${cardItem?.id}`, search });
+  }, [push, search, cardItem?.id]);
 
   const handleShowInfo = useCallback(() => {
     setIsInfoShow(!isInfoShow);
