@@ -26,7 +26,9 @@ const Header = ({ headData, genres, runtime }) => {
   return (
     <header className="header" style={backGroundHeaderStyle}>
       <div className="header__topWrap">
-        <h1 className="logo">FILMS</h1>
+        <a className="header__linkLogo" href="/">
+          <h1 className="logo">FILMS</h1>
+        </a>
         <Search />
       </div>
       <div className="header__btmWrap">
