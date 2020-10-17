@@ -6,10 +6,10 @@ exports[`App component should render App component without props 1`] = `
 >
   <BrowserRouter>
     <Switch>
-      <Route
-        component={[Function]}
+      <Redirect
         exact={true}
-        path="/"
+        from="/"
+        to="/film/734309"
       />
       <Route
         component={[Function]}
