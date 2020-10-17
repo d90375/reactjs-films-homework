@@ -14,11 +14,16 @@ exports[`Header should render Header component with props = (genres: "genres", r
   <div
     className="header__topWrap"
   >
-    <h1
-      className="logo"
+    <a
+      className="header__linkLogo"
+      href="/"
     >
-      FILMS
-    </h1>
+      <h1
+        className="logo"
+      >
+        FILMS
+      </h1>
+    </a>
     <SearchContainer />
   </div>
   <div
@@ -57,11 +62,16 @@ exports[`Header should render Header component without props  1`] = `
   <div
     className="header__topWrap"
   >
-    <h1
-      className="logo"
+    <a
+      className="header__linkLogo"
+      href="/"
     >
-      FILMS
-    </h1>
+      <h1
+        className="logo"
+      >
+        FILMS
+      </h1>
+    </a>
     <SearchContainer />
   </div>
   <div
