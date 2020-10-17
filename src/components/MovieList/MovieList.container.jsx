@@ -41,11 +41,15 @@ const MovieListContainer = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchMovieDataFilter(queryParamFilter));
-
-    if (queryParamSearch) dispatch(fetchData(queryParamSearch));
-
-    if (queryParamGenre) dispatch(fetchGenresDataById(queryParamGenre));
+    if (queryParamFilter) {
+      dispatch(fetchMovieDataFilter(queryParamFilter));
+    }
+    if (queryParamSearch) {
+      dispatch(fetchData(queryParamSearch));
+    }
+    if (queryParamGenre) {
+      dispatch(fetchGenresDataById(queryParamGenre));
+    }
   }, [queryParamSearch, queryParamGenre, queryParamFilter, dispatch]);
 
   const handleSwitchToSquare = () => {
