@@ -28,11 +28,18 @@ const cssLoaders = (extra) => {
         reloadAll: true
       }
     },
-    { loader: "css-loader", options: { sourceMap: false } }
+    {
+      loader: "css-loader",
+      options: {
+        modules: {
+          localIdentName: "[name]__[local]___[hash:base64:5]"
+        }
+      }
+    }
   ];
 
   if (extra) {
-    const extraModify = { loader: extra, options: { sourceMap: false } };
+    const extraModify = { loader: extra };
     loaders.push(extraModify);
   }
 
@@ -98,10 +105,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: cssLoaders("sass-loader")
-      },
-      {
-        test: /\.less$/,
-        use: cssLoaders("less-loader")
       },
       {
         enforce: "pre",
