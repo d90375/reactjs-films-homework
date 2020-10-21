@@ -44,6 +44,7 @@ const MovieListContainer = () => {
     if (queryParamFilter) {
       dispatch(fetchMovieDataFilter(queryParamFilter));
     }
+
     if (queryParamSearch) {
       dispatch(fetchData(queryParamSearch));
     }

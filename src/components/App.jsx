@@ -9,7 +9,7 @@ const App = () => {
     <div className="wrap">
       <Router>
         <Switch>
-          <Redirect exact from="/" to="/film/734309" />
+          <Redirect exact from="/" to="/film/734309?filter=trending" />
           <Route path="/film/:id" component={MainPage} />
           <Route component={NotFound} />
         </Switch>
