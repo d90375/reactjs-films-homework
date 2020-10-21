@@ -1,5 +1,4 @@
 import React from "react";
-import { hot } from "react-hot-loader/root";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import MainPage from "../pages/MainPage";
@@ -18,4 +17,4 @@ const App = () => {
   );
 };
 
-export default hot(App);
+export default App;
