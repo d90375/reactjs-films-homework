@@ -18,9 +18,9 @@ const finishedFetchTrailerById = (data) => ({
   payload: data
 });
 
-const errorFetch = (data) => ({
+const errorFetch = (error) => ({
   type: FETCH_TRAILER_REJECTED,
-  payload: data
+  error
 });
 
 export const removeVideoFrame = () => ({

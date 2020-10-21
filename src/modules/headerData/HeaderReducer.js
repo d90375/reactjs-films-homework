@@ -7,30 +7,29 @@ import {
 const initialState = {
   isLoadingHeader: false,
   isFulfilledHeader: false,
-  hasErrorHeader: false,
-  errorHeader: {},
-  data: {}
+  error: null,
+  data: null
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  const { type, error, payload } = action;
+
+  switch (type) {
     case FETCH_CURRENT_MOVIE_PENDING:
-      return { ...state, isFulfilledHeader: false, isLoadingHeader: true, hasErrorHeader: false, data: {} };
+      return { ...state, isFulfilledHeader: false, isLoadingHeader: true };
     case FETCH_CURRENT_MOVIE_FULFILLED:
       return {
         ...state,
         isFulfilledHeader: true,
         isLoadingHeader: false,
-        hasErrorHeader: false,
-        data: action.payload.data
+        data: payload.data
       };
     case FETCH_CURRENT_MOVIE_REJECTED:
       return {
         ...state,
         isFulfilledHeader: false,
         isLoadingHeader: false,
-        hasErrorHeader: true,
-        errorHeader: action.payload
+        error
       };
     default:
       return state;

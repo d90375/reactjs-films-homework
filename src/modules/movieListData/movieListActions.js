@@ -29,7 +29,7 @@ const finishedFetchGenresById = (movieData) => ({
 
 const errorFetch = (error) => ({
   type: FETCH_MOVIES_REJECTED,
-  payload: error
+  error
 });
 
 export const fetchGenresDataById = (id) => {

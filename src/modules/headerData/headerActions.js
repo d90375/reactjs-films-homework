@@ -15,9 +15,9 @@ const finishFetchMoviesById = (data) => ({
   payload: data
 });
 
-const errorFetchMoviesById = (data) => ({
+const errorFetchMoviesById = (error) => ({
   type: FETCH_CURRENT_MOVIE_REJECTED,
-  payload: data
+  error
 });
 
 const fetchMovieById = (id) => {
