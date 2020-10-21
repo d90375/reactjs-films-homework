@@ -15,7 +15,12 @@ const Notation = ({ movieId, overview, isHiddenViewWindow, onToggleView }) => {
         )}
         <div className={styles.btnWrap}>
           <ButtonWatchNow movieId={movieId} />
-          <button onClick={onToggleView} type="button" className={`${styles.btn} ${styles.btnView}`}>
+          <button
+            onClick={onToggleView}
+            type="button"
+            className={`${styles.btn} ${styles.btnView}`}
+            data-id="notation-btn-view"
+          >
             {isHiddenViewWindow ? "Hide Info" : "View Info"}
           </button>
         </div>

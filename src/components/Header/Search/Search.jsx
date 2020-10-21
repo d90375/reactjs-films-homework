@@ -6,7 +6,7 @@ import styles from "./search.scss";
 
 const Search = ({ onQueryChanged, onKeyQuery, onClickQuery, valueText }) => {
   return (
-    <form onSubmit={onKeyQuery} className={styles.search}>
+    <form onSubmit={onKeyQuery} data-id="search-from-header" className={styles.search}>
       <label htmlFor="searchId">
         <input
           onChange={onQueryChanged}

@@ -5,13 +5,13 @@ exports[`TopSort with free route, equal ''  should render TopSort component with
   className="nav"
 >
   <div
-    className="nav__wrap"
+    className="wrap"
   >
     <div
-      className="nav__title"
+      className="title"
     >
       <select
-        className="nav__title__arrow"
+        className="arrow"
         name="genre"
         onChange={[MockFunction]}
       >

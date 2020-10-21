@@ -19,7 +19,7 @@ const InfoWindow = ({ cardItem, onShowInfo }) => {
 
   return (
     <div className={styles.infoWindow} style={infoWindowBackgroundStyle}>
-      <button className={styles.btn} type="button" onClick={onShowInfo}>
+      <button className={styles.btn} data-id="info-window-btn" type="button" onClick={onShowInfo}>
         &#215;
       </button>
       <div className={styles.wrap}>

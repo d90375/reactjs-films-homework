@@ -28,13 +28,13 @@ describe("SortBox", () => {
   describe("handlers", () => {
     it("should call onSwitchToSquare method", () => {
       expect(mockCallBacks.onSwitchToSquare.mock.calls.length).toBe(0);
-      component.find(".format__box4").simulate("click");
+      component.find("[data-id='sort-box-box4']").simulate("click");
       expect(mockCallBacks.onSwitchToSquare.mock.calls.length).toBe(1);
     });
 
     it("should call onSwitchToLine method", () => {
       expect(mockCallBacks.onSwitchToLine.mock.calls.length).toBe(0);
-      component.find(".format__box2").simulate("click");
+      component.find("[data-id='sort-box-box2']").simulate("click");
       expect(mockCallBacks.onSwitchToLine.mock.calls.length).toBe(1);
     });
 

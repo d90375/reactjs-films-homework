@@ -8,22 +8,23 @@ exports[`Notation should render Notation component with props = (movieId: 999, i
     className="notation"
   >
     <div
-      className="notation__wrap"
+      className="wrap"
     >
       <span
-        className="notation__text"
+        className="text"
       >
         overview
       </span>
     </div>
     <div
-      className="notation__btn"
+      className="btnWrap"
     >
       <Memo(ButtonWatchNowContainer)
         movieId={999}
       />
       <button
-        className="btn btn__view"
+        className="btn btnView"
+        data-id="notation-btn-view"
         onClick={[MockFunction]}
         type="button"
       >
@@ -42,13 +43,14 @@ exports[`Notation should render Notation component without props 1`] = `
     className="notation"
   >
     <div
-      className="notation__btn"
+      className="btnWrap"
     >
       <Memo(ButtonWatchNowContainer)
         movieId={0}
       />
       <button
-        className="btn btn__view"
+        className="btn btnView"
+        data-id="notation-btn-view"
         onClick={[MockFunction]}
         type="button"
       >

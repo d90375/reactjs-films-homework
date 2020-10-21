@@ -2,36 +2,44 @@
 
 exports[`SortBox should render SortBox component with props is equal 'line'  1`] = `
 <div
-  className="nav__format"
+  className="format"
 >
   <button
-    className="format__box4"
+    className="box4wrap"
+    data-id="sort-box-box4"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box4 box4_topLeft"
+      className="box4"
+      key="0"
     />
     <div
-      className="box4 box4_topRight"
+      className="box4"
+      key="1"
     />
     <div
-      className="box4 box4_btmLeft"
+      className="box4"
+      key="2"
     />
     <div
-      className="box4 box4_btmRight"
+      className="box4"
+      key="3"
     />
   </button>
   <button
-    className="format__box2 active"
+    className="box2wrap active"
+    data-id="sort-box-box2"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box2 box2_top"
+      className="box2"
+      key="0"
     />
     <div
-      className="box2 box2_btm"
+      className="box2"
+      key="1"
     />
   </button>
 </div>
@@ -39,36 +47,44 @@ exports[`SortBox should render SortBox component with props is equal 'line'  1`]
 
 exports[`SortBox should render SortBox component with props is equal 'square'  1`] = `
 <div
-  className="nav__format"
+  className="format"
 >
   <button
-    className="format__box4 active"
+    className="box4wrap active"
+    data-id="sort-box-box4"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box4 box4_topLeft"
+      className="box4"
+      key="0"
     />
     <div
-      className="box4 box4_topRight"
+      className="box4"
+      key="1"
     />
     <div
-      className="box4 box4_btmLeft"
+      className="box4"
+      key="2"
     />
     <div
-      className="box4 box4_btmRight"
+      className="box4"
+      key="3"
     />
   </button>
   <button
-    className="format__box2"
+    className="box2wrap"
+    data-id="sort-box-box2"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box2 box2_top"
+      className="box2"
+      key="0"
     />
     <div
-      className="box2 box2_btm"
+      className="box2"
+      key="1"
     />
   </button>
 </div>
@@ -76,36 +92,44 @@ exports[`SortBox should render SortBox component with props is equal 'square'  1
 
 exports[`SortBox should render SortBox component without props 1`] = `
 <div
-  className="nav__format"
+  className="format"
 >
   <button
-    className="format__box4 active"
+    className="box4wrap active"
+    data-id="sort-box-box4"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box4 box4_topLeft"
+      className="box4"
+      key="0"
     />
     <div
-      className="box4 box4_topRight"
+      className="box4"
+      key="1"
     />
     <div
-      className="box4 box4_btmLeft"
+      className="box4"
+      key="2"
     />
     <div
-      className="box4 box4_btmRight"
+      className="box4"
+      key="3"
     />
   </button>
   <button
-    className="format__box2"
+    className="box2wrap"
+    data-id="sort-box-box2"
     onClick={[MockFunction]}
     type="button"
   >
     <div
-      className="box2 box2_top"
+      className="box2"
+      key="0"
     />
     <div
-      className="box2 box2_btm"
+      className="box2"
+      key="1"
     />
   </button>
 </div>

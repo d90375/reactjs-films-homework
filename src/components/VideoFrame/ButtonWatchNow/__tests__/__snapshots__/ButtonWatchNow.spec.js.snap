@@ -3,7 +3,8 @@
 exports[`ButtonWatchNow should render ButtonWatchNow component with props 1`] = `
 <Fragment>
   <button
-    className="btn btn__watch"
+    className="btn watchBtn"
+    data-id="button-watch-now"
     onClick={[MockFunction]}
     type="button"
   >

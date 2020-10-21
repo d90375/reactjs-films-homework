@@ -5,27 +5,25 @@ exports[`Description should render Description component with props = (genres: "
   className="description"
 >
   <h2
-    className="description__title"
+    className="title"
   >
     title
   </h2>
   <div
-    className="description__specification"
+    className="specification"
   >
     <span
-      className="specification__genre specification__genre_1"
+      className="genre"
     >
       genres
     </span>
     <div
-      className="specification__border"
+      className="border"
     />
     <div
-      className="specification__duration"
+      className="duration"
     >
-      <span
-        className="duration__time"
-      >
+      <span>
         1h 1m
       </span>
     </div>
@@ -41,23 +39,21 @@ exports[`Description should render Description component without props 1`] = `
   className="description"
 >
   <h2
-    className="description__title"
+    className="title"
   />
   <div
-    className="description__specification"
+    className="specification"
   >
     <span
-      className="specification__genre specification__genre_1"
+      className="genre"
     />
     <div
-      className="specification__border"
+      className="border"
     />
     <div
-      className="specification__duration"
+      className="duration"
     >
-      <span
-        className="duration__time"
-      >
+      <span>
         0h 0m
       </span>
     </div>

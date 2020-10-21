@@ -35,10 +35,10 @@ exports[`Rating should render Rating component with correct props 1`] = `
     ★
   </div>
   <div
-    className="rating__container"
+    className="container"
   >
     <span
-      className="rating__number"
+      className="number"
     >
       4.5
     </span>
@@ -51,10 +51,10 @@ exports[`Rating should render Rating component with not correct props 1`] = `
   className="rating"
 >
   <div
-    className="rating__container"
+    className="container"
   >
     <span
-      className="rating__number"
+      className="number"
     >
       0.0
     </span>
@@ -67,10 +67,10 @@ exports[`Rating should render Rating component without props 1`] = `
   className="rating"
 >
   <div
-    className="rating__container"
+    className="container"
   >
     <span
-      className="rating__number"
+      className="number"
     >
       0.0
     </span>

@@ -3,7 +3,7 @@
 exports[`Tab should render TopSort component with route, should changed className 1`] = `
 <Fragment>
   <button
-    className="nav__title__text nav__active"
+    className="titleText active"
     onClick={[MockFunction]}
     type="button"
   >
@@ -15,7 +15,7 @@ exports[`Tab should render TopSort component with route, should changed classNam
 exports[`Tab should render TopSort component without props, with fakeChild 1`] = `
 <Fragment>
   <button
-    className="nav__title__text"
+    className="titleText"
     onClick={[MockFunction]}
     type="button"
   >

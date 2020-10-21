@@ -33,7 +33,13 @@ const Card = ({
       ) : (
         <div className={styles.card}>
           <div style={cardImgStyle} className={styles.img} />
-          <button tabIndex={cardIndex} type="button" onClick={onChangeHeaderMovie} className={styles.description}>
+          <button
+            tabIndex={cardIndex}
+            type="button"
+            onClick={onChangeHeaderMovie}
+            className={styles.description}
+            data-id="card-description-form-movie-list"
+          >
             <div className={styles.title}>
               <h3 className={styles.titleText}>{title}</h3>
               <div className={styles.titleRating}>

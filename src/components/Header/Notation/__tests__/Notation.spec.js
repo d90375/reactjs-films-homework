@@ -27,7 +27,7 @@ describe("Notation", () => {
     it("should call onHideView method", () => {
       component = shallow(<Notation onToggleView={mockCallBack} />);
       expect(mockCallBack.mock.calls.length).toBe(0);
-      component.find(".btn__view").simulate("click");
+      component.find("[data-id='notation-btn-view']").simulate("click");
       expect(mockCallBack.mock.calls.length).toBe(1);
     });
   });

@@ -14,42 +14,43 @@ exports[`InfoWindow should render InfoWindow component with props 1`] = `
   }
 >
   <button
-    className="infoWindow__btn"
+    className="btn"
+    data-id="info-window-btn"
     onClick={[MockFunction]}
     type="button"
   >
     ×
   </button>
   <div
-    className="infoWindow__wrap"
+    className="wrap"
   >
     <div
-      className="infoWindow__title"
+      className="title"
     >
       <h3
-        className="infoWindow__title_text"
+        className="titleText"
       >
         title
       </h3>
       <p
-        className="infoWindow__title_score"
+        className="titleScore"
       >
         999
       </p>
     </div>
     <p
-      className="infoWindow__genres"
+      className="genres"
     >
       genres
     </p>
   </div>
   <p
-    className="infoWindow_overview"
+    className="overview"
   >
     overview
   </p>
   <div
-    className="infoWindow_btnWrap"
+    className="btnWrap"
   >
     <Memo(ButtonWatchNowContainer)
       movieId={9}
@@ -71,36 +72,37 @@ exports[`InfoWindow should render InfoWindow component without props 1`] = `
   }
 >
   <button
-    className="infoWindow__btn"
+    className="btn"
+    data-id="info-window-btn"
     onClick={[MockFunction]}
     type="button"
   >
     ×
   </button>
   <div
-    className="infoWindow__wrap"
+    className="wrap"
   >
     <div
-      className="infoWindow__title"
+      className="title"
     >
       <h3
-        className="infoWindow__title_text"
+        className="titleText"
       />
       <p
-        className="infoWindow__title_score"
+        className="titleScore"
       >
         0
       </p>
     </div>
     <p
-      className="infoWindow__genres"
+      className="genres"
     />
   </div>
   <p
-    className="infoWindow_overview"
+    className="overview"
   />
   <div
-    className="infoWindow_btnWrap"
+    className="btnWrap"
   >
     <Memo(ButtonWatchNowContainer)
       movieId={0}

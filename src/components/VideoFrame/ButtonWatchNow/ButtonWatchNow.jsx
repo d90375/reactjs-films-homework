@@ -5,7 +5,12 @@ import styles from "./buttonWatchNow.scss";
 const ButtonWatchNow = ({ handleShowTrailer }) => {
   return (
     <>
-      <button onClick={handleShowTrailer} type="button" className={`${styles.btn} ${styles.watchBtn}`}>
+      <button
+        onClick={handleShowTrailer}
+        type="button"
+        data-id="button-watch-now"
+        className={`${styles.btn} ${styles.watchBtn}`}
+      >
         Watch Now
       </button>
     </>

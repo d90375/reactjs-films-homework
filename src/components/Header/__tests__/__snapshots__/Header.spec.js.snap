@@ -12,10 +12,10 @@ exports[`Header should render Header component with props = (genres: "genres", r
   }
 >
   <div
-    className="header__topWrap"
+    className="topWrap"
   >
     <a
-      className="header__linkLogo"
+      className="linkLogo"
       href="/"
     >
       <h1
@@ -27,7 +27,7 @@ exports[`Header should render Header component with props = (genres: "genres", r
     <SearchContainer />
   </div>
   <div
-    className="header__btmWrap"
+    className="btmWrap"
   >
     <Description
       genres="genres"
@@ -60,10 +60,10 @@ exports[`Header should render Header component without props  1`] = `
   }
 >
   <div
-    className="header__topWrap"
+    className="topWrap"
   >
     <a
-      className="header__linkLogo"
+      className="linkLogo"
       href="/"
     >
       <h1
@@ -75,7 +75,7 @@ exports[`Header should render Header component without props  1`] = `
     <SearchContainer />
   </div>
   <div
-    className="header__btmWrap"
+    className="btmWrap"
   >
     <Description
       genres=""

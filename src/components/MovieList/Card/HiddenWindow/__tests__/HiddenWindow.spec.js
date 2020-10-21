@@ -19,14 +19,14 @@ describe("HiddenWindow", () => {
     it("should call onShowInfo method", () => {
       component = shallow(<HiddenWindow {...mockCallBacks} />);
       expect(mockCallBacks.onShowInfo.mock.calls.length).toBe(0);
-      component.find(".hiddenWindow__infoBtn").simulate("click");
+      component.find("[data-id='hidden-window-infoBtn']").simulate("click");
       expect(mockCallBacks.onShowInfo.mock.calls.length).toBe(1);
     });
 
     it("should call onShowTrailer method", () => {
       component = shallow(<HiddenWindow {...mockCallBacks} />);
       expect(mockCallBacks.onShowTrailer.mock.calls.length).toBe(0);
-      component.find(".hiddenWindow__playBtn").simulate("click");
+      component.find("[data-id='hidden-window-playBtn']").simulate("click");
       expect(mockCallBacks.onShowTrailer.mock.calls.length).toBe(1);
     });
   });

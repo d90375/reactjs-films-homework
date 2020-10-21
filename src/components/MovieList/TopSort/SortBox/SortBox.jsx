@@ -9,13 +9,13 @@ const SortBox = ({ isDisplayCardDirection, onSwitchToSquare, onSwitchToLine }) =
 
   return (
     <div className={styles.format}>
-      <button type="button" onClick={onSwitchToSquare} className={squareStyle}>
+      <button type="button" onClick={onSwitchToSquare} className={squareStyle} data-id="sort-box-box4">
         {[...Array(4)].map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={index} className={styles.box4} />
         ))}
       </button>
-      <button type="button" onClick={onSwitchToLine} className={squareLine}>
+      <button type="button" onClick={onSwitchToLine} className={squareLine} data-id="sort-box-box2">
         {[...Array(2)].map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={index} className={styles.box2} />

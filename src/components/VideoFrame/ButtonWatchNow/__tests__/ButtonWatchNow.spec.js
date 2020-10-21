@@ -14,7 +14,7 @@ describe("ButtonWatchNow", () => {
 
   it("should handle show trailer", () => {
     expect(mockFunction.mock.calls.length).toBe(0);
-    component.find(".btn__watch").simulate("click");
+    component.find("[data-id='button-watch-now']").simulate("click");
     expect(mockFunction.mock.calls.length).toBe(1);
   });
 });

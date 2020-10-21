@@ -13,7 +13,7 @@ const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
         allowFullScreen
         frameBorder="0"
       />
-      <button className={styles.btn} type="button" onClick={onRemoveVideoFrame}>
+      <button className={styles.btn} type="button" onClick={onRemoveVideoFrame} data-id="video-frame-btn">
         &#x2718;
       </button>
     </div>
