@@ -9,7 +9,7 @@ exports[`App component should render App component without props 1`] = `
       <Redirect
         exact={true}
         from="/"
-        to="/film/734309"
+        to="/film/734309?filter=trending"
       />
       <Route
         component={[Function]}
