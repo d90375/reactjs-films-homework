@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ButtonWatchNow from "../../../VideoFrame/ButtonWatchNow";
 
 import { IMAGE_NOT_FOUND_URL } from "../../../../constants";
-import "./infoWindow.scss";
+import styles from "./infoWindow.scss";
 
 const InfoWindow = ({ cardItem, onShowInfo }) => {
   const { title, score, genres, posterImg, overview, id } = cardItem;
@@ -18,19 +18,19 @@ const InfoWindow = ({ cardItem, onShowInfo }) => {
   };
 
   return (
-    <div className="infoWindow" style={infoWindowBackgroundStyle}>
-      <button className="infoWindow__btn" type="button" onClick={onShowInfo}>
+    <div className={styles.infoWindow} style={infoWindowBackgroundStyle}>
+      <button className={styles.btn} data-id="info-window-btn" type="button" onClick={onShowInfo}>
         &#215;
       </button>
-      <div className="infoWindow__wrap">
-        <div className="infoWindow__title">
-          <h3 className="infoWindow__title_text">{title}</h3>
-          <p className="infoWindow__title_score">{score}</p>
+      <div className={styles.wrap}>
+        <div className={styles.title}>
+          <h3 className={styles.titleText}>{title}</h3>
+          <p className={styles.titleScore}>{score}</p>
         </div>
-        <p className="infoWindow__genres">{genres}</p>
+        <p className={styles.genres}>{genres}</p>
       </div>
-      <p className="infoWindow_overview">{overview}</p>
-      <div className="infoWindow_btnWrap">
+      <p className={styles.overview}>{overview}</p>
+      <div className={styles.btnWrap}>
         <ButtonWatchNow movieId={id} />
       </div>
     </div>

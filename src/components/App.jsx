@@ -1,19 +1,22 @@
 import React from "react";
-import { hot } from "react-hot-loader/root";
-import Footer from "./Footer";
-import MovieListContainer from "./MovieList";
-import HeaderContainer from "./Header";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import NotFound from "../pages/NotFound";
+import MainPage from "../pages/MainPage";
+
+import styles from "../scss/main.scss";
 
 const App = () => {
   return (
-    <div className="wrap">
-      <HeaderContainer />
-      <main className="main">
-        <MovieListContainer />
-      </main>
-      <Footer />
+    <div className={styles.wrap}>
+      <Router>
+        <Switch>
+          <Redirect exact from="/" to="/film/734309?filter=trending" />
+          <Route path="/film/:id" component={MainPage} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
     </div>
   );
 };
 
-export default hot(App);
+export default App;

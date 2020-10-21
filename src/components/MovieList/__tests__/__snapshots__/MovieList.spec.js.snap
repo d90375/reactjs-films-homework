@@ -28,10 +28,10 @@ exports[`Main should render Main component without cards  1`] = `
   className="movieList"
 >
   <div
-    className="noResults__wrap"
+    className="wrap"
   >
     <span
-      className="noResults__text"
+      className="text"
     >
       No results
     </span>
@@ -44,10 +44,10 @@ exports[`Main should render Main component without props 1`] = `
   className="movieList"
 >
   <div
-    className="noResults__wrap"
+    className="wrap"
   >
     <span
-      className="noResults__text"
+      className="text"
     >
       No results
     </span>

@@ -2,26 +2,26 @@
 
 exports[`Preloader component should render Preloader component 1`] = `
 <div
-  className="preloader__wrap"
+  className="wrap"
 >
   <div
     className="preloader"
   >
     <div
-      className="preloader__picture"
+      className="picture"
     >
       <div
-        className="preloader__child preloader__bounce-1"
+        className="child bounce1"
       />
       <div
-        className="preloader__child preloader__bounce-2"
+        className="child bounce2"
       />
       <div
-        className="preloader__child preloader__bounce-3"
+        className="child"
       />
     </div>
     <div
-      className="preloader__text"
+      className="text"
     >
       LOADING
     </div>

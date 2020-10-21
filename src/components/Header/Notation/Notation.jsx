@@ -2,20 +2,25 @@ import PropTypes from "prop-types";
 import React from "react";
 import ButtonWatchNow from "../../VideoFrame/ButtonWatchNow";
 
-import "./Notation.scss";
+import styles from "./notation.scss";
 
 const Notation = ({ movieId, overview, isHiddenViewWindow, onToggleView }) => {
   return (
-    <div className="flexFixedWrap">
-      <div className="notation">
+    <div className={styles.flexFixedWrap}>
+      <div className={styles.notation}>
         {isHiddenViewWindow && (
-          <div className="notation__wrap">
-            <span className="notation__text">{overview}</span>
+          <div className={styles.wrap}>
+            <span className={styles.text}>{overview}</span>
           </div>
         )}
-        <div className="notation__btn">
+        <div className={styles.btnWrap}>
           <ButtonWatchNow movieId={movieId} />
-          <button onClick={onToggleView} type="button" className="btn btn__view">
+          <button
+            onClick={onToggleView}
+            type="button"
+            className={`${styles.btn} ${styles.btnView}`}
+            data-id="notation-btn-view"
+          >
             {isHiddenViewWindow ? "Hide Info" : "View Info"}
           </button>
         </div>

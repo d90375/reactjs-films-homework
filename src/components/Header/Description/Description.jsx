@@ -1,17 +1,18 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./Description.scss";
 import Rating from "./Rating";
+
+import styles from "./description.scss";
 
 const Description = React.memo(({ title, genres, runtime, voteAverage }) => {
   return (
-    <div className="description">
-      <h2 className="description__title">{title}</h2>
-      <div className="description__specification">
-        <span className="specification__genre specification__genre_1">{genres}</span>
-        <div className="specification__border" />
-        <div className="specification__duration">
-          <span className="duration__time">{`${runtime[0]}h ${runtime[1]}m`}</span>
+    <div className={styles.description}>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.specification}>
+        <span className={styles.genre}>{genres}</span>
+        <div className={styles.border} />
+        <div className={styles.duration}>
+          <span>{`${runtime[0]}h ${runtime[1]}m`}</span>
         </div>
       </div>
       <Rating voteAverage={voteAverage} />

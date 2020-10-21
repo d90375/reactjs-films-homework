@@ -2,7 +2,7 @@
 
 exports[`Card should render Card component with props 1`] = `
 <div
-  className="card__wrap"
+  className="wrap"
   style={
     Object {
       "width": "100%",
@@ -31,7 +31,7 @@ exports[`Card should render Card component with props 1`] = `
 
 exports[`Card should render Card component without props 1`] = `
 <div
-  className="card__wrap"
+  className="wrap"
   style={
     Object {
       "width": "290px",
@@ -42,7 +42,7 @@ exports[`Card should render Card component without props 1`] = `
     className="card"
   >
     <div
-      className="card__img"
+      className="img"
       style={
         Object {
           "backgroundImage": "url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg)",
@@ -50,27 +50,28 @@ exports[`Card should render Card component without props 1`] = `
       }
     />
     <button
-      className="card__description"
+      className="description"
+      data-id="card-description-form-movie-list"
       onClick={[MockFunction]}
       tabIndex={0}
       type="button"
     >
       <div
-        className="card__title"
+        className="title"
       >
         <h3
-          className="card__title__text"
+          className="titleText"
         />
         <div
-          className="card__title__rating"
+          className="titleRating"
         >
           <span
-            className="card__title__number"
+            className="titleNumber"
           />
         </div>
       </div>
       <span
-        className="card__description__genre"
+        className="genres"
       />
     </button>
   </div>

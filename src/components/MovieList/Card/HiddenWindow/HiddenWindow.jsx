@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./HiddenWindow.scss";
+
+import styles from "./HiddenWindow.scss";
 
 const HiddenWindow = ({ onShowTrailer, onShowInfo }) => {
   return (
-    <div className="hiddenWindow">
-      <button className="hiddenWindow__playBtn" type="button" onClick={onShowTrailer}>
+    <div className={styles.hiddenWindow}>
+      <button className={styles.playBtn} data-id="hidden-window-playBtn" type="button" onClick={onShowTrailer}>
         ►
       </button>
-      <span className="hiddenWindow__signature">Watch Now</span>
-      <button onClick={onShowInfo} className="hiddenWindow__infoBtn" type="button">
+      <span className={styles.signature}>Watch Now</span>
+      <button onClick={onShowInfo} className={styles.infoBtn} data-id="hidden-window-infoBtn" type="button">
         View Info
       </button>
     </div>

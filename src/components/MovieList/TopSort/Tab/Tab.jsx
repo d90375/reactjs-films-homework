@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./Tab.scss";
+import useUrlSearch from "../../../../hooks/useURLSearch";
 
-const Tab = ({ children, onSelectTab, selectedTab }) => {
-  const tabStyle = selectedTab === children ? `nav__title__text nav__active` : `nav__title__text`;
+import styles from "./Tab.scss";
+
+const Tab = ({ children, onSelectTab }) => {
+  const queryParamFilter = useUrlSearch("filter");
+  const tabStyle =
+    queryParamFilter === children.replace(/\s/g, "").toLowerCase()
+      ? `${styles.titleText} ${styles.active}`
+      : styles.titleText;
 
   return (
     <>
@@ -17,11 +23,9 @@ const Tab = ({ children, onSelectTab, selectedTab }) => {
 export default Tab;
 
 Tab.propTypes = {
-  selectedTab: PropTypes.string,
   onSelectTab: PropTypes.func
 };
 
 Tab.defaultProps = {
-  selectedTab: "",
   onSelectTab: () => {}
 };

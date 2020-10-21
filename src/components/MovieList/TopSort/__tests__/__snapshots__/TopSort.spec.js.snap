@@ -1,64 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopSort should render TopSort component with props 1`] = `
+exports[`TopSort should render TopSort component with route query, should change className 1`] = `
 <nav
   className="nav"
 >
   <div
-    className="nav__wrap"
+    className="wrap"
   >
     <div
-      className="nav__title"
-    >
-      <select
-        className="nav__title__arrow"
-        name="genre"
-        onChange={[MockFunction]}
-      >
-        <option
-          hidden={true}
-          value="Genre"
-        >
-          Genre
-        </option>
-        <option
-          key="genres"
-          value="genres"
-        >
-          genres
-        </option>
-        <option
-          key="genres2"
-          value="genres2"
-        >
-          genres2
-        </option>
-      </select>
-    </div>
-    <SortBox />
-  </div>
-</nav>
-`;
-
-exports[`TopSort should render TopSort component with props, should change className 1`] = `
-<nav
-  className="nav"
->
-  <div
-    className="nav__wrap"
-  >
-    <div
-      className="nav__title"
+      className="title"
     >
       <Tab
-        key="selected"
+        key="mockTab"
         onSelectTab={[Function]}
-        selectedTab="genreId"
       >
-        selected
+        mockTab
       </Tab>
       <select
-        className="nav__title__arrow nav__active"
+        className="arrow active"
         name="genre"
         onChange={[MockFunction]}
       >
@@ -82,7 +41,11 @@ exports[`TopSort should render TopSort component with props, should change class
         </option>
       </select>
     </div>
-    <SortBox />
+    <SortBox
+      isDisplayCardDirection="square"
+      onSwitchToLine={[Function]}
+      onSwitchToSquare={[Function]}
+    />
   </div>
 </nav>
 `;
@@ -92,13 +55,13 @@ exports[`TopSort should render TopSort component without props 1`] = `
   className="nav"
 >
   <div
-    className="nav__wrap"
+    className="wrap"
   >
     <div
-      className="nav__title"
+      className="title"
     >
       <select
-        className="nav__title__arrow"
+        className="arrow active"
         name="genre"
         onChange={[MockFunction]}
       >
@@ -110,7 +73,11 @@ exports[`TopSort should render TopSort component without props 1`] = `
         </option>
       </select>
     </div>
-    <SortBox />
+    <SortBox
+      isDisplayCardDirection="square"
+      onSwitchToLine={[Function]}
+      onSwitchToSquare={[Function]}
+    />
   </div>
 </nav>
 `;

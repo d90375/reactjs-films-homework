@@ -21,7 +21,7 @@ describe("VideoFrame", () => {
     it("should call onHideView method", () => {
       component = shallow(<VideoFrame onRemoveVideoFrame={mockFunction} />);
       expect(mockFunction.mock.calls.length).toBe(0);
-      component.find(".videoFrame__btn").simulate("click");
+      component.find("[data-id='video-frame-btn']").simulate("click");
       expect(mockFunction.mock.calls.length).toBe(1);
     });
   });

@@ -32,7 +32,7 @@ describe("InfoWindow", () => {
     it("should call onShowInfo method", () => {
       component = shallow(<InfoWindow onShowInfo={mockCallBack} />);
       expect(mockCallBack.mock.calls.length).toBe(0);
-      component.find(".infoWindow__btn").simulate("click");
+      component.find("[data-id='info-window-btn']").simulate("click");
       expect(mockCallBack.mock.calls.length).toBe(1);
     });
   });

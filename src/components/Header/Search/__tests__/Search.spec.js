@@ -50,7 +50,7 @@ describe("Search", () => {
       };
       expect(mockOnKeyQuery).not.toBeCalled();
       expect(mockOnKeyQuery.mock.calls.length).toBe(0);
-      component.find(".search").simulate("submit", mockEvent);
+      component.find("[data-id='search-from-header']").simulate("submit", mockEvent);
       expect(mockOnKeyQuery.mock.calls.length).toBe(1);
     });
   });

@@ -1,8 +1,8 @@
-.preloader__wrap {
+.wrap {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 80vh;
   justify-content: center;
   width: 100%;
 }
@@ -13,9 +13,9 @@
   flex-direction: column;
 }
 
-.preloader__picture {
-  .preloader__child {
-    animation: preloader__picture 0.5s ease-in-out 0s infinite both;
+.picture {
+  .child {
+    animation: picture 0.5s ease-in-out 0s infinite both;
     background-color: #0aaee4;
     border-radius: 100%;
     display: inline-block;
@@ -23,18 +23,18 @@
     width: (28px / 2);
   }
 
-  .preloader__bounce-1 {
+  .bounce1 {
     animation-delay: 0.32s;
     margin-right: 9px;
   }
 
-  .preloader__bounce-2 {
+  .bounce2 {
     animation-delay: (0.32s / 2);
     margin-right: 9px;
   }
 }
 
-@keyframes preloader__picture {
+@keyframes picture {
   0%,
   80%,
   100% {
@@ -46,7 +46,7 @@
   }
 }
 
-.preloader__text {
+.text {
   color: #242b2d;
   font-family: "HelveticaNeue", serif;
   font-size: 1rem;

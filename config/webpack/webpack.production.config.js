@@ -9,7 +9,7 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserJSPlugin({ parallel: true, cache: true, sourceMap: true }),
+      new TerserJSPlugin({ parallel: true, cache: true }),
       new OptimizeCSSAssetsPlugin({
         cssProcessor: cssnano,
         cssProcessorPluginOptions: {

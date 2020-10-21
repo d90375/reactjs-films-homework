@@ -3,13 +3,14 @@
 exports[`Search should render Search component with props = (valueText="valueText") 1`] = `
 <form
   className="search"
+  data-id="search-from-header"
   onSubmit={[MockFunction]}
 >
   <label
     htmlFor="searchId"
   >
     <input
-      className="search__text"
+      className="text"
       id="searchId"
       name="search"
       onChange={[MockFunction]}
@@ -27,13 +28,14 @@ exports[`Search should render Search component with props = (valueText="valueTex
 exports[`Search should render Search component without props 1`] = `
 <form
   className="search"
+  data-id="search-from-header"
   onSubmit={[MockFunction]}
 >
   <label
     htmlFor="searchId"
   >
     <input
-      className="search__text"
+      className="text"
       id="searchId"
       name="search"
       onChange={[MockFunction]}

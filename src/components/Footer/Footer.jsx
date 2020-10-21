@@ -1,13 +1,13 @@
 import React from "react";
-import "./Footer.scss";
+import styles from "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer__title">
+    <footer className={styles.footer}>
+      <div className={styles.title}>
         <span>FILMS</span>
       </div>
-      <div className="footer__copyright">
+      <div className={styles.copyright}>
         <span>Copyright © 2018 d90375</span>
       </div>
     </footer>

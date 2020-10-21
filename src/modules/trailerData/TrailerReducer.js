@@ -8,19 +8,19 @@ import {
 const initialState = {
   isLoadingTrailer: false,
   isFulfilledTrailer: false,
-  hasErrorTrailer: false,
-  errorTrailer: {},
-  data: {}
+  error: null,
+  data: null
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  const { type, error, payload } = action;
+
+  switch (type) {
     case FETCH_TRAILER_PENDING:
       return {
         ...state,
         isFulfilledTrailer: false,
         isLoadingTrailer: true,
-        hasErrorTrailer: false,
         data: {}
       };
     case FETCH_TRAILER_FULFILLED:
@@ -28,16 +28,14 @@ export default (state = initialState, action) => {
         ...state,
         isFulfilledTrailer: true,
         isLoadingTrailer: false,
-        hasErrorTrailer: false,
-        data: action.payload.data
+        data: payload.data
       };
     case FETCH_TRAILER_REJECTED:
       return {
         ...state,
         isFulfilledTrailer: false,
         isLoadingTrailer: false,
-        hasErrorTrailer: true,
-        errorTrailer: action.payload
+        error
       };
     case FETCH_TRAILER_REMOVE: {
       return { ...state, ...initialState };

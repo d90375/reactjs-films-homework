@@ -38,7 +38,7 @@ describe("Card", () => {
     it("should call onChangeHeaderMovie method ", () => {
       component = shallow(<Card {...mockCallBacks} />);
       expect(mockCallBacks.onChangeHeaderMovie.mock.calls.length).toBe(0);
-      component.find(".card__description").simulate("click");
+      component.find("[data-id='card-description-form-movie-list']").simulate("click");
       expect(mockCallBacks.onChangeHeaderMovie.mock.calls.length).toBe(1);
     });
   });

@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
 
+import styles from "./search.scss";
+
 const SearchIconSvg = ({ onClickQuery }) => {
   return (
     <>
       <svg
         onClick={onClickQuery}
-        className="search__icon"
+        className={styles.icon}
+        data-id="search-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         width="1rem"
         height="1rem"

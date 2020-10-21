@@ -6,19 +6,7 @@ import {
   FETCH_MOVIES_REJECTED,
   FETCH_MOVIES_GENRES_BY_ID
 } from "../actionTypes";
-import {
-  API,
-  KEY,
-  LANG,
-  PAGE,
-  REGION,
-  QUERY,
-  ADULT,
-  TRENDING,
-  TOP_RATED,
-  COMING_SOON,
-  GENRE_ID
-} from "../../constants";
+import { API, KEY, LANG, PAGE, REGION, QUERY, ADULT, TRENDING, TOP_RATED, COMING_SOON } from "../../constants";
 
 const startFetch = () => ({
   type: FETCH_MOVIES_PENDING
@@ -41,7 +29,7 @@ const finishedFetchGenresById = (movieData) => ({
 
 const errorFetch = (error) => ({
   type: FETCH_MOVIES_REJECTED,
-  payload: error
+  error
 });
 
 export const fetchGenresDataById = (id) => {
@@ -134,20 +122,17 @@ export const fetchData = (query) => {
   };
 };
 
-export const fetchMovieDataFilter = (type, id) => {
+export const fetchMovieDataFilter = (type) => {
   return (dispatch) => {
     switch (type) {
-      case TRENDING:
+      case TRENDING.replace(/\s/g, "").toLowerCase():
         dispatch(fetchPopularData());
         break;
-      case TOP_RATED:
+      case TOP_RATED.replace(/\s/g, "").toLowerCase():
         dispatch(fetchTopRatedData());
         break;
-      case COMING_SOON:
+      case COMING_SOON.replace(/\s/g, "").toLowerCase():
         dispatch(fetchUpcomingData());
-        break;
-      case GENRE_ID:
-        dispatch(fetchGenresDataById(id));
         break;
       default:
         dispatch(fetchPopularData());

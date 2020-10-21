@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Card.scss";
 import { IMAGE_NOT_FOUND_URL } from "../../../constants";
 import HiddenWindow from "./HiddenWindow";
 import InfoWindow from "./InfoWindow";
+
+import styles from "./card.scss";
 
 const Card = ({
   cardItem,
@@ -26,20 +27,26 @@ const Card = ({
   };
 
   return (
-    <div className="card__wrap" style={cardWrapStyle}>
+    <div className={styles.wrap} style={cardWrapStyle}>
       {isInfoShow ? (
         <InfoWindow cardItem={{ id, title, score, genres, posterImg, overview }} onShowInfo={handleShowInfo} />
       ) : (
-        <div className="card">
-          <div style={cardImgStyle} className="card__img" />
-          <button tabIndex={cardIndex} type="button" onClick={onChangeHeaderMovie} className="card__description">
-            <div className="card__title">
-              <h3 className="card__title__text">{title}</h3>
-              <div className="card__title__rating">
-                <span className="card__title__number">{score}</span>
+        <div className={styles.card}>
+          <div style={cardImgStyle} className={styles.img} />
+          <button
+            tabIndex={cardIndex}
+            type="button"
+            onClick={onChangeHeaderMovie}
+            className={styles.description}
+            data-id="card-description-form-movie-list"
+          >
+            <div className={styles.title}>
+              <h3 className={styles.titleText}>{title}</h3>
+              <div className={styles.titleRating}>
+                <span className={styles.titleNumber}>{score}</span>
               </div>
             </div>
-            <span className="card__description__genre">{genres}</span>
+            <span className={styles.genres}>{genres}</span>
           </button>
         </div>
       )}

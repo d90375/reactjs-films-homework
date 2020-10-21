@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./videoFrame.scss";
+
+import styles from "./videoFrame.scss";
 
 const VideoFrame = ({ trailerKey, onRemoveVideoFrame }) => {
   return (
-    <div className="videoFrame">
+    <div className={styles.videoFrame}>
       <iframe
-        className="videoFrame__iframe"
+        className={styles.iframe}
         title="trailer"
         src={`https://www.youtube.com/embed/${trailerKey}`}
         allowFullScreen
         frameBorder="0"
       />
-      <button className="videoFrame__btn" type="button" onClick={onRemoveVideoFrame}>
+      <button className={styles.btn} type="button" onClick={onRemoveVideoFrame} data-id="video-frame-btn">
         &#x2718;
       </button>
     </div>

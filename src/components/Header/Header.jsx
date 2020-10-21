@@ -5,7 +5,7 @@ import Description from "./Description";
 import Notation from "./Notation";
 import { IMAGE_NOT_FOUND_URL } from "../../constants";
 
-import "./Header.scss";
+import styles from "./header.scss";
 
 const Header = ({ headData, genres, runtime }) => {
   const { title, id, overview, vote_average: voteAverage } = headData;
@@ -24,12 +24,14 @@ const Header = ({ headData, genres, runtime }) => {
   };
 
   return (
-    <header className="header" style={backGroundHeaderStyle}>
-      <div className="header__topWrap">
-        <h1 className="logo">FILMS</h1>
+    <header className={styles.header} style={backGroundHeaderStyle}>
+      <div className={styles.topWrap}>
+        <a className={styles.linkLogo} href="/">
+          <h1 className={styles.logo}>FILMS</h1>
+        </a>
         <Search />
       </div>
-      <div className="header__btmWrap">
+      <div className={styles.btmWrap}>
         <Description title={title} genres={genres} runtime={runtime} voteAverage={voteAverage} />
         <Notation movieId={id} overview={overview} />
       </div>

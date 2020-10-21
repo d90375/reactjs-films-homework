@@ -9,37 +9,35 @@ import {
 const initialState = {
   isLoadingMovieList: false,
   isFulfilledMovieList: false,
-  hasErrorMovieList: false,
-  errorMovieList: {},
-  data: {},
-  genresData: {}
+  data: null,
+  genresData: null
 };
 
 let adjustmentGenreData = {};
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  const { type, error, payload } = action;
+
+  switch (type) {
     case FETCH_MOVIES_PENDING:
-      return { ...state, isFulfilledMovieList: false, isLoadingMovieList: true, hasErrorMovieList: false, data: {} };
+      return { ...state, isFulfilledMovieList: false, isLoadingMovieList: true };
     case FETCH_MOVIES_FULFILLED:
       return {
         ...state,
         isFulfilledMovieList: true,
         isLoadingMovieList: false,
-        hasErrorMovieList: false,
-        data: action.payload.data
+        data: payload.data
       };
     case FETCH_MOVIES_GENRES_BY_ID:
       return {
         ...state,
         isFulfilledMovieList: true,
         isLoadingMovieList: false,
-        hasErrorMovieList: false,
-        data: action.payload.data
+        data: payload.data
       };
 
     case FETCH_MOVIES_GENRES:
-      adjustmentGenreData = Object.values(action.payload.data.genres).reduce((acc, genre) => {
+      adjustmentGenreData = Object.values(payload.data.genres).reduce((acc, genre) => {
         return { ...acc, [genre.id]: genre.name };
       }, {});
 
@@ -47,7 +45,6 @@ export default (state = initialState, action) => {
         ...state,
         isFulfilledMovieList: true,
         isLoadingMovieList: false,
-        hasErrorMovieList: false,
         genresData: adjustmentGenreData
       };
 
@@ -56,8 +53,7 @@ export default (state = initialState, action) => {
         ...state,
         isFulfilledMovieList: false,
         isLoadingMovieList: false,
-        hasErrorMovieList: true,
-        errorMovieList: action.payload
+        error
       };
     default:
       return state;

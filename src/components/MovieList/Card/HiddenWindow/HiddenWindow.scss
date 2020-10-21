@@ -11,6 +11,7 @@
   height: calc(100% - 80px);
   justify-content: center;
   transition: all 0.1s ease-in;
+  font-family: "HelveticaNeue", serif;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.7);
@@ -18,7 +19,7 @@
   }
 }
 
-.hiddenWindow__playBtn {
+.playBtn {
   background-color: #3bb4e0;
   border: 6px solid #fff;
   border-radius: 50%;
@@ -46,12 +47,12 @@
   }
 }
 
-.hiddenWindow__signature {
+.signature {
   display: block;
   margin-bottom: 25px;
 }
 
-.hiddenWindow__infoBtn {
+.infoBtn {
   background: transparent;
   border: 2px solid white;
   border-radius: 5px;

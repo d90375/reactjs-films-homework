@@ -7,7 +7,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const CONSTANTS = new webpack.DefinePlugin(
   Object.keys(process.env).reduce((res, key) => ({ ...res, [key]: JSON.stringify(process.env[key]) }), {
@@ -29,11 +28,18 @@ const cssLoaders = (extra) => {
         reloadAll: true
       }
     },
-    { loader: "css-loader", options: { sourceMap: false } }
+    {
+      loader: "css-loader",
+      options: {
+        modules: {
+          localIdentName: "[name]__[local]___[hash:base64:5]"
+        }
+      }
+    }
   ];
 
   if (extra) {
-    const extraModify = { loader: extra, options: { sourceMap: false } };
+    const extraModify = { loader: extra };
     loaders.push(extraModify);
   }
 
@@ -42,8 +48,7 @@ const cssLoaders = (extra) => {
 
 const babelOptions = (preset) => {
   const opts = {
-    presets: ["@babel/preset-env"],
-    plugins: ["@babel/plugin-proposal-class-properties", "react-hot-loader/babel"]
+    presets: ["@babel/preset-env"]
   };
 
   if (preset) {
@@ -57,7 +62,7 @@ const jsLoaders = () => {
   const loaders = [
     {
       loader: "babel-loader",
-      options: babelOptions()
+      options: babelOptions("@babel/preset-react")
     }
   ];
   if (isDev) {
@@ -90,10 +95,7 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loader: {
-          loader: "babel-loader",
-          options: babelOptions("@babel/preset-react")
-        }
+        use: jsLoaders()
       },
       {
         test: /\.css$/,
@@ -103,10 +105,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: cssLoaders("sass-loader")
-      },
-      {
-        test: /\.less$/,
-        use: cssLoaders("less-loader")
       },
       {
         enforce: "pre",
@@ -200,7 +198,6 @@ module.exports = {
         collapseWhitespace: isProd
       }
     }),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     CONSTANTS
   ]
 };

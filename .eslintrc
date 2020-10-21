@@ -36,12 +36,6 @@
     "node": true,
     "es6": true
   },
-  "globals": {
-    "axios": true,
-    "shallow": true,
-    "render": true,
-    "mount": true
-  },
   "rules": {
     "prettier/prettier": ["warn"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

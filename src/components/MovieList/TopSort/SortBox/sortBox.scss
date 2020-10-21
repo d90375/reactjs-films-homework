@@ -1,4 +1,4 @@
-.nav__format {
+.format {
   display: flex;
   flex-direction: row;
   margin-top: 15px;
@@ -15,7 +15,7 @@
   }
 }
 
-.format__box4 {
+.box4wrap {
   display: flex;
   flex-wrap: wrap;
   height: 16px;
@@ -26,7 +26,7 @@
   outline: none;
 }
 
-.format__box2 {
+.box2wrap {
   border: 0;
   padding: 0;
   height: 16px;

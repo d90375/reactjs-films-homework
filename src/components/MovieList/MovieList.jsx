@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Card from "./Card";
-import "./MovieList.scss";
+
+import styles from "./movieList.scss";
 
 const MovieList = ({ data, cardLength, genres, isDisplayCardDirection }) => {
   return (
-    <div className="movieList">
+    <div className={styles.movieList}>
       {cardLength > 0 ? (
         Object.values(data).map((card, cardIndex) => (
           <Card
@@ -17,8 +18,8 @@ const MovieList = ({ data, cardLength, genres, isDisplayCardDirection }) => {
           />
         ))
       ) : (
-        <div className="noResults__wrap">
-          <span className="noResults__text">No results</span>
+        <div className={styles.wrap}>
+          <span className={styles.text}>No results</span>
         </div>
       )}
     </div>

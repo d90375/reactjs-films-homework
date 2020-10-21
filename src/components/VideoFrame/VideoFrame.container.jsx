@@ -4,10 +4,12 @@ import VideoFrame from "./VideoFrame";
 import { getTrailerDataSelector, getTrailerSelector, removeVideoFrame } from "../../modules/trailerData";
 import Preloader from "../MovieList/Preloader";
 
+import styles from "./videoFrame.scss";
+
 const VideoFrameContainer = React.memo(() => {
   const dispatch = useDispatch();
 
-  const { isLoadingTrailer, isFulfilledTrailer, hasErrorTrailer, errorTrailer } = useSelector(getTrailerSelector);
+  const { isLoadingTrailer, isFulfilledTrailer, error } = useSelector(getTrailerSelector);
   const trailer = useSelector(getTrailerDataSelector);
 
   const handleRemoveVideoFrame = useCallback(() => dispatch(removeVideoFrame()), [dispatch]);
@@ -15,16 +17,16 @@ const VideoFrameContainer = React.memo(() => {
   return (
     <>
       {isLoadingTrailer && (
-        <div className="videoFrame__wrap">
+        <div className={styles.videoFrame}>
           <Preloader />
         </div>
       )}
       {isFulfilledTrailer && (
         <VideoFrame trailerKey={trailer?.results?.[0]?.key} onRemoveVideoFrame={handleRemoveVideoFrame} />
       )}
-      {hasErrorTrailer && (
-        <div className="error error__trailer">
-          <span>Error {errorTrailer}</span>
+      {error && (
+        <div className={styles.error}>
+          <span>{`Error: ${error.message}`}</span>
         </div>
       )}
     </>

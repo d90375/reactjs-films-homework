@@ -10,7 +10,7 @@ describe("Search Icon SVG", () => {
   it("should handle of click search", () => {
     component = shallow(<SearchIconSvg onClickQuery={mockOnClickQuery} />);
     expect(mockOnClickQuery.mock.calls.length).toBe(0);
-    component.find(".search__icon").simulate("click");
+    component.find("[data-id='search-icon-svg']").simulate("click");
     expect(mockOnClickQuery.mock.calls.length).toBe(1);
   });
 });
