@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import NotFound from "../pages/NotFound";
 import MainPage from "../pages/MainPage";
 
+import styles from "../scss/main.scss";
+
 const App = () => {
   return (
-    <div className="wrap">
+    <div className={styles.wrap}>
       <Router>
         <Switch>
           <Redirect exact from="/" to="/film/734309?filter=trending" />

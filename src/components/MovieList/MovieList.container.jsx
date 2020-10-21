@@ -18,6 +18,8 @@ import {
 import { NUMBER_OF_CARDS } from "../../constants";
 import useUrlSearch from "../../hooks/useURLSearch";
 
+import styles from "./movieList.scss";
+
 const MovieListContainer = () => {
   const dispatch = useDispatch();
   const queryParamFilter = useUrlSearch("filter");
@@ -26,7 +28,7 @@ const MovieListContainer = () => {
 
   const data = useSelector(getCompletedMovieListSelector);
 
-  const { isLoadingMovieList, hasErrorMovieList, isFulfilledMovieList, errorMovieList } = useSelector(getMovieSelector);
+  const { isLoadingMovieList, isFulfilledMovieList, error } = useSelector(getMovieSelector);
 
   const [isDisplayCardDirection, setDisplayCardDirection] = useState("square");
 
@@ -61,7 +63,7 @@ const MovieListContainer = () => {
   };
 
   return (
-    <>
+    <main className={styles.main}>
       <VideoFrame />
       <TopSort
         handleSwitchToSquare={handleSwitchToSquare}
@@ -78,12 +80,12 @@ const MovieListContainer = () => {
           genres={data?.genres}
         />
       )}
-      {hasErrorMovieList && (
-        <div className="error error__movieList">
-          <span>Error {errorMovieList}</span>
+      {error && (
+        <div className={styles.error}>
+          <span>{`Error: ${error.message}`}</span>
         </div>
       )}
-    </>
+    </main>
   );
 };
 

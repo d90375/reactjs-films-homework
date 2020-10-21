@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./Rating.scss";
+import styles from "./rating.scss";
 
 const Rating = ({ voteAverage }) => {
   let revisedAverage = 0;
@@ -9,15 +9,15 @@ const Rating = ({ voteAverage }) => {
   }
 
   return (
-    <div className="rating">
+    <div className={styles.rating}>
       {[...Array(Math.round(revisedAverage))].map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <div key={index} className="star">
+        <div key={index} className={styles.star}>
           &#9733;
         </div>
       ))}
-      <div className="rating__container">
-        <span className="rating__number">{revisedAverage.toFixed(1)}</span>
+      <div className={styles.container}>
+        <span className={styles.number}>{revisedAverage.toFixed(1)}</span>
       </div>
     </div>
   );

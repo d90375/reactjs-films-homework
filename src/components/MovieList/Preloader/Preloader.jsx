@@ -1,16 +1,17 @@
 import React from "react";
-import "./Preloader.scss";
+
+import styles from "./preloader.scss";
 
 const Preloader = () => {
   return (
-    <div className="preloader__wrap">
-      <div className="preloader">
-        <div className="preloader__picture">
-          <div className="preloader__child preloader__bounce-1" />
-          <div className="preloader__child preloader__bounce-2" />
-          <div className="preloader__child preloader__bounce-3" />
+    <div className={styles.wrap}>
+      <div className={styles.preloader}>
+        <div className={styles.picture}>
+          <div className={`${styles.child} ${styles.bounce1}`} />
+          <div className={`${styles.child} ${styles.bounce2}`} />
+          <div className={styles.child} />
         </div>
-        <div className="preloader__text">LOADING</div>
+        <div className={styles.text}>LOADING</div>
       </div>
     </div>
   );

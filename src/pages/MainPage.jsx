@@ -7,9 +7,7 @@ const MainPage = () => {
   return (
     <>
       <HeaderContainer />
-      <main className="main">
-        <MovieListContainer />
-      </main>
+      <MovieListContainer />
       <Footer />
     </>
   );

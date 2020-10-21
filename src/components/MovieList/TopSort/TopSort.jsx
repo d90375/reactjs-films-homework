@@ -3,9 +3,9 @@ import React from "react";
 
 import Tab from "./Tab";
 import SortBox from "./SortBox";
-
-import "./topSort.scss";
 import useUrlSearch from "../../../hooks/useURLSearch";
+
+import styles from "./topSort.scss";
 
 const TopSort = ({
   isDisplayCardDirection,
@@ -17,12 +17,12 @@ const TopSort = ({
   TABS_INFO
 }) => {
   const queryParamGenre = useUrlSearch("genreId");
-  const selectStyle = queryParamGenre ? `nav__title__arrow nav__active` : `nav__title__arrow`;
+  const selectStyle = queryParamGenre ? `${styles.arrow} ${styles.active}` : styles.arrow;
 
   return (
-    <nav className="nav">
-      <div className="nav__wrap">
-        <div className="nav__title">
+    <nav className={styles.nav}>
+      <div className={styles.wrap}>
+        <div className={styles.title}>
           {TABS_INFO.map((currTab) => (
             <Tab key={currTab} onSelectTab={handleSelectTab(currTab)}>
               {currTab}

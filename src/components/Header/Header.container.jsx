@@ -6,29 +6,30 @@ import { getDataByIdSelector, getHeaderSelector, fetchMovieById } from "../../mo
 import Header from "./Header";
 import Preloader from "../MovieList/Preloader";
 
+import styles from "./header.scss";
+
 const HeaderContainer = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const prevRefParamId = useRef(0);
   const prevParamId = prevRefParamId.current;
 
-  const { isLoadingHeader, hasErrorHeader, isFulfilledHeader, errorHeader } = useSelector(getHeaderSelector);
+  const { isLoadingHeader, isFulfilledHeader, error } = useSelector(getHeaderSelector);
   const headData = useSelector(getDataByIdSelector);
 
-  const { genres, runtime } = headData;
   let genresCalculatedString;
   let calculatedRuntime;
 
-  if (genres) {
-    genresCalculatedString = Object.values(genres)
+  if (headData?.genres) {
+    genresCalculatedString = Object.values(headData?.genres)
       .reduce((acc, genre) => {
         return `${acc}${genre.name}, `;
       }, "")
       .slice(0, -2);
   }
 
-  if (typeof runtime !== "undefined") {
-    const hours = runtime / 60;
+  if (headData?.runtime) {
+    const hours = headData?.runtime / 60;
     const calculatedHours = Math.floor(hours);
     const minutes = (hours - calculatedHours) * 60;
     const calculatedMinutes = Math.round(minutes);
@@ -39,19 +40,18 @@ const HeaderContainer = () => {
     prevRefParamId.current = params.id;
     if (params.id && prevParamId !== params.id) dispatch(fetchMovieById(params.id));
   }, [prevParamId, dispatch, params]);
-
   return (
     <>
       {isLoadingHeader && (
-        <div className="header__wrap">
+        <div className={styles.wrap}>
           <Preloader />
         </div>
       )}
       {isFulfilledHeader && <Header headData={headData} genres={genresCalculatedString} runtime={calculatedRuntime} />}
-      {hasErrorHeader && (
-        <div className="header__wrap">
-          <div className="error error__header">
-            <span>Error {errorHeader}</span>
+      {error && (
+        <div className={styles.wrap}>
+          <div className={styles.error}>
+            <span>{`Error: ${error.message}`}</span>
           </div>
         </div>
       )}

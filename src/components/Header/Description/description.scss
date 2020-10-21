@@ -9,7 +9,7 @@
   }
 }
 
-.description__title {
+.title {
   color: #fff;
   font-family: "HelveticaNeue-bold", serif;
   font-size: 3rem;
@@ -24,16 +24,7 @@
   }
 }
 
-.specification__duration {
-  color: #fff;
-  font-family: "HelveticaNeue-thin", serif;
-  font-size: 17px;
-  font-weight: 400;
-  letter-spacing: 0.96px;
-  line-height: 44px;
-}
-
-.description__specification {
+.specification {
   display: flex;
   flex-direction: row;
   font-size: 17px;
@@ -43,7 +34,7 @@
   }
 }
 
-.specification__genre {
+.genre {
   color: #fff;
   font-family: "HelveticaNeue-thin", serif;
   letter-spacing: 0.96px;
@@ -51,10 +42,19 @@
   margin-right: 32px;
 }
 
-.specification__border {
+.border {
   background: #fff;
   height: 1rem;
   margin-right: 32px;
   margin-top: 15px;
   width: 2px;
+}
+
+.duration {
+  color: #fff;
+  font-family: "HelveticaNeue-thin", serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.96px;
+  line-height: 44px;
 }

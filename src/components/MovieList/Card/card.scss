@@ -1,4 +1,4 @@
-.card__wrap {
+.wrap {
   background-color: #eaeaea;
   border-radius: 5px;
   height: 380px;
@@ -7,12 +7,22 @@
   position: relative;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
 
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
-
   &:last-child {
     margin-bottom: 5rem;
+  }
+
+  @media (max-width: 1325px) {
+    margin: 5px;
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1027px) {
+    &:last-child {
+      display: block;
+    }
   }
 }
 
@@ -26,7 +36,7 @@
   }
 }
 
-.card__img {
+.img {
   background-color: #eaeaea;
   background-position: left top;
   background-size: cover;
@@ -35,14 +45,25 @@
   position: relative;
 }
 
-.card__title {
+.description {
+  background-color: #fff;
+  height: 80px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0 1rem 0 1rem;
+  text-align: left;
+}
+
+.title {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-.card__title__text {
+.titleText {
   color: #242b2d;
   font-family: "HelveticaNeue-bold", serif;
   font-size: 18px;
@@ -56,32 +77,21 @@
   width: 12rem;
 }
 
-.card__title__rating {
+.titleRating {
   border: 1px solid #49c1f0;
   border-radius: 5px;
   text-align: center;
   width: 30px;
 }
 
-.card__title__number {
+.titleNumber {
   color: #47c3f0;
   font-family: "HelveticaNeue-CondensedBlack", serif;
   font-size: 18px;
   font-weight: 500;
 }
 
-.card__description {
-  background-color: #fff;
-  height: 80px;
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0 1rem 0 1rem;
-  text-align: left;
-}
-
-.card__description__genre {
+.genres {
   color: #47c3f0;
   font-family: "HelveticaNeue-bold", serif;
   font-size: 0.7rem;

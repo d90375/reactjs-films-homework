@@ -16,7 +16,7 @@
     "prettier": "prettier ./src/**/**.js --write",
     "lint": "eslint ./src/**/**.js",
     "lint:style": "npx stylelint ./src/",
-    "fix:lint": "eslint ./src/**/**.js --fix && npx stylelint ./src/ --fix",
+    "fix": "eslint ./src/**/**.js --fix && npx stylelint ./src/ --fix",
     "test:jest": "jest",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
@@ -54,7 +54,7 @@
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
-      "\\.(css|scss|sass|less)$": "identity-obj-proxy"
+      "\\.(css|scss|sass)$": "identity-obj-proxy"
     },
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
@@ -103,8 +103,8 @@
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "sass-loader": "^9.0.2",
-    "style-loader": "^1.2.1",
     "stylelint": "^13.6.1",
+    "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^3.0.6",
     "webpack": "^4.43.0",

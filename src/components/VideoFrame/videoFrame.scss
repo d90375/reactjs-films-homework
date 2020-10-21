@@ -12,12 +12,12 @@
   z-index: 999;
 }
 
-.videoFrame__iframe {
+.iframe {
   height: 35vw;
   width: 65vw;
 }
 
-.videoFrame__btn {
+.btn {
   background-color: transparent;
   border: none;
   color: tomato;
@@ -29,4 +29,8 @@
   &:hover {
     color: darken(tomato, 20%);
   }
+}
+
+.error {
+  composes: error from "../../scss/core.scss";
 }

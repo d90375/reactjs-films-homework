@@ -1,16 +1,17 @@
 import React from "react";
-import "./Search.scss";
 import PropTypes from "prop-types";
 import SearchIconSvg from "./SearchIconSVG";
 
+import styles from "./search.scss";
+
 const Search = ({ onQueryChanged, onKeyQuery, onClickQuery, valueText }) => {
   return (
-    <form onSubmit={onKeyQuery} className="search">
+    <form onSubmit={onKeyQuery} className={styles.search}>
       <label htmlFor="searchId">
         <input
           onChange={onQueryChanged}
           value={valueText}
-          className="search__text"
+          className={styles.text}
           type="search"
           id="searchId"
           name="search"

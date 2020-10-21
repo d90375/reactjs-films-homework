@@ -12,4 +12,3 @@ export const REGION = "US";
 export const TRENDING = "Trending";
 export const TOP_RATED = "Top Rated";
 export const COMING_SOON = "Coming Soon";
-export const GENRE_ID = "genreId";
