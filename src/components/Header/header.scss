@@ -43,9 +43,12 @@
   margin: 0 4rem 0 4rem;
   padding-top: 1rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+    margin: 0 1rem 0 1rem;
+  }
+
+  @media (max-width: 500px) {
     flex-direction: column;
-    margin: 0 2rem 0 2rem;
   }
 }
 
@@ -57,7 +60,7 @@
 
   @media (max-width: 767px) {
     flex-direction: column;
-    margin: 0  0 2rem  2rem;
+    margin: 0  1rem 2rem  1rem;
   }
 }
 
